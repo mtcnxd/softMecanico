@@ -13,12 +13,59 @@
     @include('includes.sidebar')
 
     <div class="main-container">
-        <h2>Configuración</h2>
-        <div class="row border">
+        <h5>Marcas</h5>
+        <p>Marcas de vehiculos</p>
+        <div class="row mb-4 border">
             <div class="col-md-12">
-                Este es un div col 12
+                <table class="table table-hover">
+                    <tr>
+                        <td>#</td>
+                        <td>Marca</td>
+                    </tr>
+                </table>
             </div>
         </div>
+
+        <h5>Modelos</h5>
+        <p>Modelos de vehiculos</p>
+        <div class="row mb-4 border">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <tr>
+                        <td>#</td>
+                        <td>Marca</td>
+                        <td>Modelo</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h5>Automovil</h5>
+        <div class="row mb-4 border">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <tr>
+                        <td>#</td>
+                        <td>Marca</td>
+                        <td>Modelo</td>
+                        <td>Automovil</td>
+                    </tr>
+                </table>
+            </div>
+        </div>                
+
+        <h5>Servicios</h5>
+        <div class="row mb-4 border">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <tr>
+                        <td>#</td>
+                        <td>Servicio</td>
+                        <td>Precio</td>
+                    </tr>
+                </table>
+            </div>
+        </div>        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

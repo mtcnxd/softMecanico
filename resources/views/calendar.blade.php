@@ -13,10 +13,11 @@
     @include('includes.sidebar')
 
     <div class="main-container">
-        <h2>Servicios</h2>
+        <h2>Calendario</h2>
+        <span class="text-muted">Calendario de eventos y servicios</span>
         <div class="row pt-4">
             <div class="col-md-12 border">
-                Este es un div col 12
+                Aqui pondremos el calendario
             </div>
         </div>
     </div>

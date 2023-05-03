@@ -22,5 +22,9 @@ Route::get('/config', function () {
 })->name('config');
 
 Route::get('/services', function () {
-    return view('configuration');
+    return view('services');
 })->name('service');
+
+Route::get('/calendar', function () {
+    return view('calendar');
+})->name('calendar');

@@ -14,14 +14,13 @@
 
     <div class="main-container">
         <h2>Dashboard</h2>
-        <span class="text-muted">Resumen de movimientos del dia</span>
+        <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         <div class="row pt-4">
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">
-                        Servicios
+                    <div class="card-body">
+                        <p class="fs-6">Comparacion con semanas anteriores</p>
                     </div>
-                    <div class="card-body"></div>
                 </div>
             </div>
             <div class="col-md-3">

@@ -25,6 +25,6 @@ Route::get('/services', function () {
     return view('services');
 })->name('service');
 
-Route::get('/calendar', function () {
-    return view('calendar');
-})->name('calendar');
+Route::get('/agenda', function () {
+    return view('agenda');
+})->name('agenda');

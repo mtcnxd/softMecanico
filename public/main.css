@@ -1,24 +1,24 @@
 :root {
     --background-main: #fff ;
-    --background-sidebar: #DEDEDE;
-    --text-gray: #666666;
+    --background-sidebar: #f0f6ff;
+    --text-gray: #555;
     --sidebar-width: 15rem;
-}
-
-html {
-    box-sizing: border-box;
+    --top-title-background: #f0f6ff;
+    --top-title-border: #c5cddb;
+    --button-sidemenu-hover:#e6eff7;
 }
 
 body {
     background-color: var(--background-main);
 }
 
-.sidebar {
-    background-color: var(--background-sidebar);
-    padding-top: 100px;
+.aside {
+    height: 100vh;
     position: fixed;
+    padding-top: 100px;
     width: var(--sidebar-width);
-    height: 100%;
+    background-color: var(--background-sidebar);
+    border-right: 1px solid var(--top-title-border);
 }
 
 .side-menu-list {
@@ -47,13 +47,43 @@ body {
 }
 
 .side-menu-item:hover {
-    background-color: #EDEDED;
+    background-color: var(--button-sidemenu-hover);
     padding-left: 15px;
 }
 
-.main-container {
+.content {
     margin-left: var(--sidebar-width);
-    padding-left: 35px;
-    padding-right: 35px;
+    height: 100vh;
+    padding-left: 12px;
 }
 
+.col-datatable {
+    padding: 30px;
+}
+
+.row {
+    margin-right: 0px !important;
+}
+
+.main-container {
+    display: flex;
+    position: relative;
+}
+
+.sidebar {
+    width: 260px;
+    display: flex;
+    position: fixed;
+}
+
+.main-content {
+    width: 100%;
+    left: 260px;
+}
+
+.top-title {
+    padding: 10px;
+    border-radius: 8px;
+    border: solid 1px var(--top-title-border);    
+    background-color: var(--top-title-background);
+}

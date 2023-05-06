@@ -22,6 +22,7 @@
     });
     </script>
 </head>
+
 <body>
     @include('includes.sidebar')
 
@@ -31,8 +32,8 @@
             <span class="text-muted">Lista de eventos y servicios de mayo</span>
         </div>
 
-        <div class="row pt-4">
-            <div class="col-md-12 col-datatable">
+        <div class="card pt-4">
+            <div class="col-md-12">
                 <table class="table table-hover" id="agenda">
                     <thead>
                         <tr>

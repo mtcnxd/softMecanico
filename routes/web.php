@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\makesController;
+use App\Http\Controllers\modelsController;
+use App\Models\Makes;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +20,22 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/config', function () {
-    return view('configuration');
+Route::get('config', function () {
+    $makes = Makes::orderBy('id', 'desc')->take(5)->get();
+
+    return view('configuration', [
+        'makes' => $makes
+    ]);
 })->name('config');
 
-Route::get('/services', function () {
+Route::get('services', function () {
     return view('services');
 })->name('service');
 
-Route::get('/agenda', function () {
+Route::get('agenda', function () {
     return view('agenda');
 })->name('agenda');
+
+Route::resource('makes', makesController::class);
+
+Route::resource('models', modelsController::class);

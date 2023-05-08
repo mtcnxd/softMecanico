@@ -3,25 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Models;
-use App\Models\Makes;
+use App\Models\Clients;
 
-class modelsController extends Controller
+class clientsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $makes  = Makes::get();
-        $models = Models::select('models.id','makes.make_name','models.model_name')
-            ->join('makes','model_make','=','makes.id')
-            ->get();
-        
-        return view('createViews.models', [
-            'makes'  => $makes,
-            'models' => $models,
-        ]);
+        return view('clients');
     }
 
     /**
@@ -37,16 +28,8 @@ class modelsController extends Controller
      */
     public function store(Request $request)
     {
-        Models::create($request->all());
-        
-        $makes  = Makes::get();
-        $models = Models::join('makes','model_make','=','makes.id')
-            ->get();
-
-        return view('createViews.models', [
-            'makes'  => $makes,
-            'models' => $models,
-        ]);        
+        Clients::create($request->all());
+        return view('clients');
     }
 
     /**
@@ -54,7 +37,6 @@ class modelsController extends Controller
      */
     public function show(string $id)
     {
-        echo "Show";
         //
     }
 
@@ -63,7 +45,6 @@ class modelsController extends Controller
      */
     public function edit(string $id)
     {
-        echo "Edit";
         //
     }
 
@@ -72,16 +53,14 @@ class modelsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        echo "Update";
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Models $model)
+    public function destroy(string $id)
     {
-        $model->delete();
-        return to_route('models.index');
+        //
     }
 }

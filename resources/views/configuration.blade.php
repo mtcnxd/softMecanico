@@ -71,7 +71,24 @@
                                 <td>ID</td>
                                 <td>Marca</td>
                                 <td>Modelo</td>
+                                <td></td>
                             </tr>
+                            @foreach ($models as $model)
+                            <tr>
+                                <td>{{ $model->id }}</td>
+                                <td>{{ $model->make_name }}</td>
+                                <td>{{ $model->model_name }}</td>
+                                <td class="text-end">
+                                    <form action="{{ route('makes.destroy', $model) }}" method="POST">
+                                        @method("DELETE")
+                                        @csrf
+                                        <button type="submit" class="btn-icon">
+                                            <x-feathericon-trash-2 style="height:19px"/>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </table>
                     </div>
                 </div>

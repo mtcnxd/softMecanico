@@ -33,16 +33,16 @@
                         <form action="{{ route('models.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Modelo de automovil</label>
-                                <input type="text" class="form-control" name="model_name">
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Marca de automovil</label>
                                 <select type="text" class="form-control" name="model_make">
                                     @foreach ($makes as $m)
                                         <option value="{{ $m->id }}" >{{ $m->make_name }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Modelo de automovil</label>
+                                <input type="text" class="form-control" name="model_name">
                             </div>
                             <input type="submit" class="btn btn-sm btn-primary" value="Guardar">
                         </form>
@@ -68,10 +68,10 @@
                         @foreach ($models as $m)
                         <tr>
                             <td>{{ $m->id }}</td>
-                            <td>{{ $m->model_name }}</td>
                             <td>{{ $m->make_name }}</td>
+                            <td>{{ $m->model_name }}</td>
                             <td class="text-end">
-                                <form action="{{ route('models.destroy', $m) }}" method="POST">
+                                <form action="{{ route('models.destroy', $m->id) }}" method="POST">
                                     @method("DELETE")
                                     @csrf
                                     <button type="submit" class="btn-icon">

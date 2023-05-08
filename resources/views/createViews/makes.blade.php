@@ -56,12 +56,12 @@
                             <td>Marca</td>
                             <td></td>
                         </tr>
-                        @foreach ($makes as $make)
+                        @foreach ($makes as $m)
                         <tr>
-                            <td>{{ $make->id }}</td>
-                            <td>{{ $make->make_name }}</td>
+                            <td>{{ $m->id }}</td>
+                            <td>{{ $m->make_name }}</td>
                             <td class="text-end">
-                                <form action="{{ route('makes.destroy', $make) }}" method="POST">
+                                <form action="{{ route('makes.destroy', $m) }}" method="POST">
                                     @method("DELETE")
                                     @csrf
                                     <button type="submit" class="btn-icon">

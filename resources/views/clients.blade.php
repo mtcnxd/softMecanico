@@ -37,7 +37,7 @@
 
         <div class="row mb-4">
             <div class="col-md-10">
-                <h6>Lista de clientes</h6>
+                <span class="text-muted">Lista de clientes</span>
             </div>
             <div class="col-md-2 text-end">
                 <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar cliente</a>

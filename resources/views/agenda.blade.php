@@ -29,7 +29,15 @@
     <div class="content">
         <div class="row">
             <h2>Agenda</h2>
-            <span class="text-muted">Lista de eventos y servicios de mayo</span>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-10">
+                <span class="text-muted">Lista de eventos y servicios de mayo</span>
+            </div>
+            <div class="col-md-2 text-end">
+                <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar evento</a>
+            </div>
         </div>
 
         <div class="card card-table border-start-0 col-md-12">

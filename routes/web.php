@@ -5,6 +5,7 @@ use App\Http\Controllers\makesController;
 use App\Http\Controllers\modelsController;
 use App\Http\Controllers\clientsController;
 use App\Http\Controllers\servicesController;
+use App\Http\Controllers\searchController;
 use App\Models\Clients;
 use App\Models\Makes;
 use App\Models\Models;
@@ -48,6 +49,9 @@ Route::get('clients', function () {
     ]);
 })->name('clients');
 
+Route::get('search/clients', [
+    searchController::class, 'searchClients'
+])->name('search.clients');
 
 Route::get('services', function () {
     return view('services');

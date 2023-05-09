@@ -3,20 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Clients;
 
-class clientsController extends Controller
+class servicesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $clients = Clients::get();
-
-        return view('createViews.clients', [
-            'clients' => $clients
-        ]);
+        return view('services');
     }
 
     /**
@@ -24,7 +19,7 @@ class clientsController extends Controller
      */
     public function create()
     {
-        return view('createViews.clients');
+        //
     }
 
     /**
@@ -32,8 +27,7 @@ class clientsController extends Controller
      */
     public function store(Request $request)
     {
-        Clients::create($request->all());
-        return to_route('clients');
+        //
     }
 
     /**
@@ -63,9 +57,8 @@ class clientsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Clients $client)
+    public function destroy(string $id)
     {
-        $client->delete();
-        return to_route('clients');
+        //
     }
 }

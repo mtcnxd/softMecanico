@@ -7,7 +7,7 @@
             </li>
             <li class="side-menu-item">
                 <x-feathericon-user style="height:20px"/>
-                <a href="{{ route('clients.index') }}">Clientes</a>
+                <a href="{{ route('clients') }}">Clientes</a>
             </li>
             <li class="side-menu-item">
                 <x-feathericon-layers style="height:20px"/>

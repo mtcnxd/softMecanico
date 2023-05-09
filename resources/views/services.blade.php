@@ -22,38 +22,10 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        Comparacion con semanas anteriores
-                    </div>
-                    <div class="card-body"></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        Ingresos
-                    </div>
-                    <div class="card-body"></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        Egresos
-                    </div>
-                    <div class="card-body"></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        Balance
-                    </div>
-                    <div class="card-body"></div>
-                </div>
-            </div>
+            <form action="{{ route('services.store') }}" method="POST">
+                @csrf
+
+            </form>
         </div>
     </div>
 

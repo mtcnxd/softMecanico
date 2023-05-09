@@ -32,9 +32,9 @@
             <span class="text-muted">Lista de eventos y servicios de mayo</span>
         </div>
 
-        <div class="card pt-4">
+        <div class="card card-table border-start-0 col-md-12">
             <div class="col-md-12">
-                <table class="table table-hover" id="agenda">
+                <table class="table tbl-datatable table-hover" id="agenda">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -53,7 +53,9 @@
                             <td>Marcos Tzuc</td>
                             <td>Volkswagen Vento</td>
                             <td>
-                                <button href="#" data-bs-toggle="modal" data-bs-target="#detalles" class="btn btn-primary btn-sm">Detalles</button>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detalles" class="btn btn-icon btn-sm">
+                                    <x-feathericon-eye style="height:20px"/>
+                                </a>
                             </td>
                         </tr>
                         <tr>
@@ -63,7 +65,9 @@
                             <td>Javier Rubio</td>
                             <td>Audi A3</td>
                             <td>
-                                <button href="#" data-bs-toggle="modal" data-bs-target="#detalles" class="btn btn-primary btn-sm">Detalles</button>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detalles" class="btn btn-icon btn-sm">
+                                    <x-feathericon-eye style="height:20px"/>
+                                </a>
                             </td>
                         </tr>
                         <tr>
@@ -73,7 +77,9 @@
                             <td>Alejandra Lopez</td>
                             <td>Chevrolet S10</td>
                             <td>
-                                <button href="#" data-bs-toggle="modal" data-bs-target="#detalles" class="btn btn-primary btn-sm">Detalles</button>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detalles" class="btn btn-icon btn-sm">
+                                    <x-feathericon-eye style="height:20px"/>
+                                </a>
                             </td>
                         </tr>
                     </tbody>

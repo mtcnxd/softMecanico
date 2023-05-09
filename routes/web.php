@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\makesController;
 use App\Http\Controllers\modelsController;
 use App\Http\Controllers\clientsController;
+use App\Http\Controllers\servicesController;
+use App\Models\Clients;
 use App\Models\Makes;
 use App\Models\Models;
 
@@ -24,6 +26,8 @@ Route::resource('models', modelsController::class);
 
 Route::resource('clients', clientsController::class);
 
+Route::resource('services', servicesController::class);
+
 Route::get('config', function () {
     $makes  = Makes::orderBy('id', 'desc')->take(5)->get();
     $models = Models::select('models.id','makes.make_name','models.model_name')
@@ -36,6 +40,13 @@ Route::get('config', function () {
         'models' => $models,
     ]);
 })->name('config');
+
+Route::get('clients', function () {
+    $clients = Clients::get();
+    return view('clients', [
+        'clients' => $clients
+    ]);
+})->name('clients');
 
 
 Route::get('services', function () {

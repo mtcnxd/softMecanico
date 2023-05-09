@@ -62,11 +62,25 @@ body {
     margin-left: 0px !important;
 }
 
+.card-table {
+    border-radius: 0px !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .tbl-header {
     background-color: var(--background-sidebar);
     text-transform: uppercase;
     font-size: 11px;
     font-weight: bold;
+}
+
+.tbl-datatable {
+    font-size: 14px;
+}
+
+.tbl-datatable a {
+    text-decoration:none;
 }
 
 .tbl-container {
@@ -87,6 +101,10 @@ body {
 .main-content {
     width: 100%;
     left: 260px;
+}
+
+.form-control, .btn, .form-select{
+    border-radius: 3px !important;
 }
 
 .top-title {

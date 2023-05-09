@@ -30,11 +30,8 @@ Route::resource('clients', clientsController::class);
 Route::resource('services', servicesController::class);
 
 Route::get('config', function () {
-    $makes  = Makes::orderBy('id', 'desc')->take(5)->get();
-    $models = Models::select('models.id','makes.make_name','models.model_name')
-        ->join('makes','model_make','=','makes.id')
-        ->take(5)
-        ->get();
+    $makes  = Makes::orderBy('id','desc')->take(5)->get();
+    $models = Models::orderBy('id','desc')->take(5)->get();
 
     return view('configuration', [
         'makes'  => $makes,

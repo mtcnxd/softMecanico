@@ -14,9 +14,7 @@ class modelsController extends Controller
     public function index()
     {
         $makes  = Makes::get();
-        $models = Models::select('models.id','makes.make_name','models.model_name')
-            ->join('makes','model_make','=','makes.id')
-            ->get();
+        $models = Models::get();
         
         return view('createViews.models', [
             'makes'  => $makes,
@@ -39,12 +37,9 @@ class modelsController extends Controller
     {
         Models::create($request->all());
         
-        $makes  = Makes::get();
-        $models = Models::join('makes','model_make','=','makes.id')
-            ->get();
+        $models = Models::get();
 
         return view('createViews.models', [
-            'makes'  => $makes,
             'models' => $models,
         ]);        
     }
@@ -54,7 +49,6 @@ class modelsController extends Controller
      */
     public function show(string $id)
     {
-        echo "Show";
         //
     }
 

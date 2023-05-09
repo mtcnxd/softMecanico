@@ -76,7 +76,7 @@
                             @foreach ($models as $model)
                             <tr>
                                 <td>{{ $model->id }}</td>
-                                <td>{{ $model->make_name }}</td>
+                                <td>{{ $model->model_make }}</td>
                                 <td>{{ $model->model_name }}</td>
                                 <td class="text-end">
                                     <form action="{{ route('makes.destroy', $model) }}" method="POST">

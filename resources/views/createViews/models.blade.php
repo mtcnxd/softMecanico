@@ -36,7 +36,7 @@
                                 <label class="form-label">Marca de automovil</label>
                                 <select type="text" class="form-control" name="model_make">
                                     @foreach ($makes as $m)
-                                        <option value="{{ $m->id }}" >{{ $m->make_name }}</option>
+                                        <option value="{{ $m->make_name }}" >{{ $m->make_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -68,7 +68,7 @@
                         @foreach ($models as $m)
                         <tr>
                             <td>{{ $m->id }}</td>
-                            <td>{{ $m->make_name }}</td>
+                            <td>{{ $m->model_make }}</td>
                             <td>{{ $m->model_name }}</td>
                             <td class="text-end">
                                 <form action="{{ route('models.destroy', $m->id) }}" method="POST">

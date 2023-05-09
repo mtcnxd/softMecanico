@@ -106,7 +106,7 @@
                     $('#results_list').show()
                     data.forEach((list, i) => {
                         $("#results_list").append(
-                            '<li onclick=client_select('+list.id+','+list.phone+')>'+list.name+'</li>'
+                            "<li onclick=client_select("+list.id+","+list.phone+")>"+list.name+"</li>"
                         );
                     });
                 }
@@ -118,7 +118,9 @@
         $('#service_client_id').val(clientid)
         $('#service_phone').val(phone)
         $('#results_list').hide()
+        $('#service_vehicle').empty()
         load_vehicles(clientid)
+
     }
 
     function load_vehicles(clientid){

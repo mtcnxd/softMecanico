@@ -37,7 +37,9 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Cliente</label>
-                        <input type="text" class="form-control" name="service_client" id="service_client">
+                        <input type="text" placeholder="Escriba para buscar" class="form-control" name="service_client" id="service_client">
+                        <input type="hidden" name="service_client_id" id="service_client_id">
+                        <ul id="results_list"></ul>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Telefono</label>
@@ -47,18 +49,36 @@
                 <div class="row">
                     <div class="mb-3">
                         <label>Automovil</label>
-                        <select type="text" class="form-control" name="service_car">
-                            <option>Auto 1</option>
-                            <option>Auto 2</option>
+                        <select type="text" class="form-control" name="service_vehicle" id="service_vehicle">
+                            <option>Seleccionar ... </option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="mb-3">
-                        <label>Servicio</label>
+                    <label>Servicio</label>                    
+                    <div class="input-group mb-3">
                         <input type="text" class="form-control" name="service_name">
+                        <span class="input-group-text" id="basic-addon2">
+                            <button class="btn btn-icon btn-xs">Agregar</button>
+                        </span>
                     </div>
                 </div>
+
+                <table class="table">
+                    <tr>
+                        <td>Cantidad</td>
+                        <td>Concepto</td>
+                        <td>Precio.U</td>
+                        <td>Precio</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Mantenimiento Menor</td>
+                        <td>$ 550</td>
+                        <td>$ 550</td>
+                    </tr>
+                </table>
+
                 <div class="row">
                     <div class="col-md-2">
                         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -82,10 +102,37 @@
                     term: request.term
                 },
                 success: function(data){
-                    console.log(data) 
-                    response(data) 
+                    $('#results_list').empty()
+                    $('#results_list').show()
+                    data.forEach((list, i) => {
+                        $("#results_list").append(
+                            '<li onclick=client_select('+list.id+','+list.phone+')>'+list.name+'</li>'
+                        );
+                    });
                 }
             })
         }
     });
+
+    function client_select(clientid, phone){
+        $('#service_client_id').val(clientid)
+        $('#service_phone').val(phone)
+        $('#results_list').hide()
+        load_vehicles(clientid)
+    }
+
+    function load_vehicles(clientid){
+        $.ajax({
+            url: "{{ route('search.vehicles') }}",
+            dataType: 'json',
+            data: {
+                term: clientid
+            },
+            success: function(data){
+                data.forEach(list => {
+                    $('#service_vehicle').append('<option value='+list.id+'>' + list.plate + '</option>') 
+                });
+            }
+        });
+    }
 </script>

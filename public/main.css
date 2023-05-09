@@ -1,4 +1,5 @@
 :root {
+    --background-white: #fff;
     --background-main: #f2f4f5 ;
     --background-sidebar: #f0f6ff;
     --text-gray: #555;
@@ -124,4 +125,27 @@ body {
     background: none;
     border: none;
     color:var(--bs-red);
+}
+
+#results_list {
+    width: 41%;
+    display: none;
+    padding-left: 0px;
+    position: absolute;
+    border-radius: 4px;
+    background-color: var(--background-white);
+    border: solid 1px var(--top-title-border);
+}
+
+#results_list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    list-style: none;
+}
+
+#results_list li:hover {
+    background-color: var(--table-header);
+    cursor: pointer;
+    left:0px
 }

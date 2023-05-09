@@ -53,6 +53,10 @@ Route::get('search/clients', [
     searchController::class, 'searchClients'
 ])->name('search.clients');
 
+Route::get('search/vehicles', [
+    searchController::class, 'searchVehicles'
+])->name('search.vehicles');
+
 Route::get('services', function () {
     return view('services');
 })->name('service');

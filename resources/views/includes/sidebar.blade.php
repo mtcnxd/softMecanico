@@ -27,7 +27,7 @@
             </li>
             <li class="side-menu-item">
                 <x-feathericon-file style="height:20px"/>
-                <a href="#">Reportes</a>
+                <a href="{{ route('reports') }}">Reportes</a>
             </li>
             <li class="side-menu-item">
                 <x-feathericon-settings style="height:20px"/>

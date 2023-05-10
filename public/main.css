@@ -12,6 +12,9 @@
 
 body {
     background-color: var(--background-main) !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .aside {
@@ -67,6 +70,7 @@ body {
     border-radius: 0px !important;
     padding-top: 30px;
     padding-bottom: 30px;
+    font-weight: 400;
 }
 
 .tbl-header {
@@ -148,4 +152,9 @@ body {
     background-color: var(--table-header);
     cursor: pointer;
     left:0px
+}
+
+.card-stats {
+    font-size: 30px;
+    margin-bottom: 0;
 }

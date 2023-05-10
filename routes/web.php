@@ -32,6 +32,7 @@ Route::resource('services', servicesController::class);
 
 Route::get('config', function () {
     $vehicles = Vehicles::join('models','models.id','=','vehicles.vehicle_model_id')
+        ->join('clients','clients.id','=','vehicles.vehicle_client_id')
         ->orderBy('vehicles.id','desc')
         ->take(5)
         ->get();
@@ -74,5 +75,9 @@ Route::get('reports', function () {
 
 
 Route::get('/', function () {
-    return view('index');
+    $clientsCount = Clients::get();
+
+    return view('index', [
+        'clientsCount' => count($clientsCount)
+    ]);
 })->name('index');

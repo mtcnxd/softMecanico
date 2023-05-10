@@ -97,43 +97,54 @@
 
         <div class="row pt-4">
             <div class="col">
-                <div class="card p-4">
-                    <div class="row">
+                <div class="card">
+                    <div class="card-header row">
                         <div class="col-md-10">
-                            <h5>Automoviles</h5>
+                            <h5 class="mb-1">Automoviles</h5>
                         </div>
-                        <div class="col-md-2 text-end">
-                            <button class="btn btn-sm btn-primary">Nuevo</button>
+                        <div class="col-md-2 text-end pt-2">
+                            <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">Nuevo</a>
                         </div>
                     </div>
-                    <table class="table table-hover">
-                        <tr class="tbl-header">
-                        <tr>
-                            <td>#</td>
-                            <td>Marca</td>
-                            <td>Modelo</td>
-                            <td>Automovil</td>
-                        </tr>
-                    </table>
+                    <div class="overflow-auto tbl-container">
+                        <table class="table table-hover">
+                            <tr class="tbl-header">
+                                <td>#</td>
+                                <td>Marca</td>
+                                <td>Modelo</td>
+                                <td>Automovil</td>
+                            </tr>
+                            @foreach ($vehicles as $v)
+                            <tr>
+                                <td>{{ $v->id }}</td>
+                                <td>{{ $v->model_make }}</td>
+                                <td>{{ $v->model_name }}</td>
+                                <td>{{ $v->vehicle_plate }}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card p-4">
-                    <div class="row">
+                <div class="card">
+                    <div class="card-header row">
                         <div class="col-md-10">
-                            <h5>Servicios</h5>
+                            <h5 class="mb-1">Automoviles</h5>
                         </div>
-                        <div class="col-md-2 text-end">
-                            <button class="btn btn-sm btn-primary">Nuevo</button>
+                        <div class="col-md-2 text-end pt-2">
+                            <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">Nuevo</a>
                         </div>
                     </div>
-                    <table class="table table-hover">
-                        <tr>
-                            <td>#</td>
-                            <td>Servicio</td>
-                            <td>Precio</td>
-                        </tr>
-                    </table>
+                    <div class="overflow-auto tbl-container">
+                        <table class="table table-hover">
+                            <tr class="tbl-header">
+                                <td>#</td>
+                                <td>Servicio</td>
+                                <td>Precio</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

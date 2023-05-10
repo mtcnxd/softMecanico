@@ -9,6 +9,7 @@ use App\Http\Controllers\searchController;
 use App\Models\Clients;
 use App\Models\Makes;
 use App\Models\Models;
+use App\Models\Vehicles;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +31,15 @@ Route::resource('clients', clientsController::class);
 Route::resource('services', servicesController::class);
 
 Route::get('config', function () {
-    $makes  = Makes::orderBy('id','desc')->take(5)->get();
-    $models = Models::orderBy('id','desc')->take(5)->get();
+    $vehicles = Vehicles::join('models','models.id','=','vehicles.vehicle_model_id')
+        ->orderBy('vehicles.id','desc')
+        ->take(5)
+        ->get();
 
     return view('configuration', [
-        'makes'  => $makes,
-        'models' => $models,
+        'makes'  => Makes::orderBy('id','desc')->take(5)->get(),
+        'models' => Models::orderBy('id','desc')->take(5)->get(),
+        'vehicles' => $vehicles,
     ]);
 })->name('config');
 

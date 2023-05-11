@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header">
                     Comparacion con semanas anteriores
                 </div>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header text-center">
                     Ingresos
                 </div>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header text-center">
                     Egresos
                 </div>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header text-center">
                     Clientes
                 </div>

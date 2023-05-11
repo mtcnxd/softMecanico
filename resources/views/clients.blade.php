@@ -6,20 +6,17 @@
 @endsection
 
 @section('content')
-    <div class="row pt-2 mb-2">
+    <div class="row pt-2 mb-4 page-title">
         <h3>Clientes</h3>
-    </div>
-
-    <div class="row mb-4">
-        <div class="col-md-10">
-            <span class="text-muted">Lista de clientes</span>
+        <div class="col-md-6">
+            <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
-        <div class="col-md-2 text-end">
+        <div class="col-md-6 text-end">
             <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar cliente</a>
         </div>
     </div>
 
-    <div class="card card-table border-start-0 col-md-12">
+    <div class="card shadow card-table border-start-0 col-md-12">
         <div class="col-md-12">
             <table class="table tbl-datatable table-hover" id="clientsTable">
                 <thead>

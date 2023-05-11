@@ -1,4 +1,4 @@
-<div class="aside">
+<div class="aside shadow">
     <div class="side-menu">
         <ul class="side-menu-list">
             <li class="side-menu-item">

@@ -1,16 +1,22 @@
 @extends('body')
 
 @section('content')
+    <div class="row pt-2 mb-4 page-title">
+        <h3>Configuración</h3>
+    </div>
+
     <div class="row pt-4">
         <div class="col">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header row">
                     <div class="col-md-10">
                         <h5 class="mb-1">Marcas</h5>
                         Se muestran los ultimos agregados
                     </div>
                     <div class="col-md-2 text-end pt-2">
-                        <a href="{{ route('makes.index') }}" class="btn btn-sm btn-primary">Nuevo</a>
+                        <a href="{{ route('makes.index') }}" class="btn btn-sm btn-primary">
+                            <x-feathericon-plus style="height:20px"/>
+                        </a>
                     </div>
                 </div>
                 <div class="overflow-auto tbl-container">
@@ -40,14 +46,16 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header row">
                     <div class="col-md-10">
                         <h5 class="mb-1">Modelos</h5>
                         Modelos de vehiculos
                     </div>
                     <div class="col-md-2 text-end pt-2">
-                        <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">Nuevo</a>
+                        <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">
+                            <x-feathericon-plus style="height:20px"/>
+                        </a>
                     </div>
                 </div>
                 <div class="overflow-auto tbl-container">
@@ -82,13 +90,15 @@
 
     <div class="row pt-4">
         <div class="col">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header row">
                     <div class="col-md-10">
                         <h5 class="mb-1">Automoviles</h5>
                     </div>
                     <div class="col-md-2 text-end pt-2">
-                        <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">Nuevo</a>
+                        <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">
+                            <x-feathericon-plus style="height:20px"/>
+                        </a>
                     </div>
                 </div>
                 <div class="overflow-auto tbl-container">
@@ -114,13 +124,15 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header row">
                     <div class="col-md-10">
                         <h5 class="mb-1">Servicios</h5>
                     </div>
                     <div class="col-md-2 text-end pt-2">
-                        <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">Nuevo</a>
+                        <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">
+                            <x-feathericon-plus style="height:20px"/>
+                        </a>
                     </div>
                 </div>
                 <div class="overflow-auto tbl-container">

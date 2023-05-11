@@ -6,20 +6,19 @@
 @endsection
 
 @section('content')
-    <div class="row pt-2 mb-2">
-        <h3>Agenda</h3>
-    </div>
-
-    <div class="row mb-4">
-        <div class="col-md-10">
+    <div class="row pt-2 mb-4 page-title">
+        <div class="col-md-12">
+            <h3>Agenda</h3>
+        </div>
+        <div class="col-md-6">
             <span class="text-muted">Lista de eventos y servicios de mayo</span>
         </div>
-        <div class="col-md-2 text-end">
-            <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar evento</a>
+        <div class="col-md-6 text-end">
+            <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar Egreso</a>
         </div>
     </div>
 
-    <div class="card card-table border-start-0 col-md-12">
+    <div class="card shadow card-table border-start-0 col-md-12">
         <div class="col-md-12">
             <table class="table tbl-datatable table-hover" id="agendaTable">
                 <thead>

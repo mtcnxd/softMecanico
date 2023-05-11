@@ -1,21 +1,18 @@
 @extends('body')
 
 @section('content')
-    <div class="row pt-2 mb-4">
-        <h2>Servicios</h2>
-    </div>
-
-    <div class="row mb-4">
-        <div class="col-md-10">
-            <span class="text-muted">Lista de servicios del mes de mayo</span>
+    <div class="row pt-2 mb-4 page-title">
+        <h3>Servicios</h3>
+        <div class="col-md-6">
+            <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
-        <div class="col-md-2 text-end">
+        <div class="col-md-6 text-end">
             <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar Egreso</a>
         </div>
-    </div>        
+    </div>
 
     <div class="row">
-        <form action="{{ route('services.store') }}" method="POST">
+        <form action="{{ route('services.store') }}" method="POST" class="col-md-6">
             @csrf
             <div class="row">
                 <div class="col-md-6 mb-3">
@@ -42,32 +39,44 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="service_name">
                     <span class="input-group-text" id="basic-addon2">
-                        <button class="btn btn-icon btn-xs">Agregar</button>
+                        <button class="btn btn-icon btn-xs">
+                            <x-feathericon-save style="height:20px"/>
+                        </button>
                     </span>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-6">
             <table class="table">
-                <tr>
-                    <td>Cantidad</td>
-                    <td>Concepto</td>
-                    <td>Precio.U</td>
-                    <td>Precio</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Precio.U</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
                 <tr>
                     <td>1</td>
                     <td>Mantenimiento Menor</td>
                     <td>$ 550</td>
                     <td>$ 550</td>
+                    <td>
+                        <a href="#">
+                            <x-feathericon-trash-2 style="height:20px"/>
+                        </a>
+                    </td>
                 </tr>
-            </table>
-
-            <div class="row">
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </div>
-        </form>
+            </table>            
+        </div>
     </div>    
 @endsection
 

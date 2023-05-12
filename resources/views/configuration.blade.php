@@ -1,7 +1,7 @@
 @extends('body')
 
 @section('content')
-    <div class="row pt-2 mb-4 page-title">
+    <div class="row pt-2 page-title">
         <h3>Configuración</h3>
     </div>
 

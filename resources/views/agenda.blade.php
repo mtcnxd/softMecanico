@@ -14,57 +14,31 @@
             <span class="text-muted">Lista de eventos y servicios de mayo</span>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar Egreso</a>
+            <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar Evento</a>
         </div>
     </div>
 
-    <div class="card shadow card-table border-start-0 col-md-12">
-        <div class="col-md-4">
-
-            <div class="card mb-4">
-                <div class="row">
-                    <div class="col-md-3 bg-secondary">
-                        Icon
+    <div class="card shadow card-table col-md-12">
+        <div class="agenda-content">
+            <div class="row">
+                <div class="col-md-6">
+                    @foreach ($calendar as $c)
+                    <div class="card mb-3">
+                        <div class="row">
+                            <div class="col-md-2 border-end bg-light rounded-start-2">
+                                <div class="agenda">
+                                    <div class="agenda-header">{{ \Carbon\Carbon::parse($c->date)->formatLocalized('%B') }}</div>
+                                    <div class="agenda-body">{{ \Carbon\Carbon::parse($c->date)->format('d') }}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                {{ $c->comment }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-9">
-                        Mantenimiento menor a camioneta Ford Ranger
-                    </div>
+                    @endforeach
                 </div>
             </div>
-            
-            <div class="card mb-4">
-                <div class="row">
-                    <div class="col-md-3 bg-secondary">
-                        Icon
-                    </div>
-                    <div class="col-md-9">
-                        Cambio de amortiguadores traseros de camioneta don Ricardo
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="row">
-                    <div class="col-md-3 bg-secondary">
-                        Icon
-                    </div>
-                    <div class="col-md-9">
-                        Mantenimiento menor a camioneta Chevrolet S10
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="row">
-                    <div class="col-md-3 bg-secondary">
-                        Icon
-                    </div>
-                    <div class="col-md-9">
-                        Cambio de balatas delanteras y revision de suspencion Chevy
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>    
 @endsection

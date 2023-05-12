@@ -11,6 +11,8 @@ use App\Models\Makes;
 use App\Models\Models;
 use App\Models\Vehicles;
 use App\Models\Services;
+use App\Models\Agenda;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +72,13 @@ Route::get('services', function () {
 
 
 Route::get('agenda', function () {
-    return view('agenda');
+    $calendar = Agenda::where('date','>',Carbon::now())
+        ->orderBy('date')
+        ->get();
+
+    return view('agenda', [
+        'calendar' => $calendar
+    ]);
 })->name('agenda');
 
 

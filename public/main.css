@@ -168,3 +168,28 @@ body {
     margin-top: 7px;
     color: var(--text-black);
 }
+
+.agenda-content {
+    width: 95%;
+    margin: 0px auto;
+}
+
+.agenda {
+    border: solid 2px #eb4034;
+    border-radius: 6px;
+    max-width: 45px;
+    margin: 10px auto 10px auto;
+}
+.agenda-header {
+    background-color: #eb4034;
+    color: var(--background-white);
+    text-align: center;
+    min-height: 15px;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+.agenda-body {
+    background-color: var(--background-white);
+    text-align: center;
+    border-radius: 6px;
+}

@@ -27,22 +27,42 @@
                 </div>
             </div>
             <div class="row">
-                <div class="mb-3">
+                <div class="col-md-6 mb-3">
                     <label>Automovil</label>
                     <select type="text" class="form-control" name="service_vehicle" id="service_vehicle">
                         <option>Seleccionar ... </option>
                     </select>
                 </div>
+                <div class="col-md-6 mb-3">
+                    <label>Kilometraje</label>
+                    <input type="text" class="form-control" name="service_mileage">
+                </div>
             </div>
             <div class="row">
-                <label>Servicio</label>                    
+                <label>Servicio</label>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="service_name">
+                    <input type="text" class="form-control" name="service_service">
                     <span class="input-group-text" id="basic-addon2">
                         <button class="btn btn-icon btn-xs">
                             <x-feathericon-save style="height:20px"/>
                         </button>
                     </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label>Comentarios</label>
+                    <textarea class="form-control" name="service_comment"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <label>Importe cobrado</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon2">$</span>
+                    <input type="text" class="form-control" name="service_price">
+                    <span class="input-group-text" id="basic-addon2">.00</span>
                 </div>
             </div>
 
@@ -57,24 +77,20 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Cantidad</th>
+                        <th scope="col">Cliente</th>
                         <th scope="col">Concepto</th>
-                        <th scope="col">Precio.U</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col"></th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col" class="text-end">Precio</th>
                     </tr>
                 </thead>
-                <tr>
-                    <td>1</td>
-                    <td>Mantenimiento Menor</td>
-                    <td>$ 550</td>
-                    <td>$ 550</td>
-                    <td>
-                        <a href="#">
-                            <x-feathericon-trash-2 style="height:20px"/>
-                        </a>
-                    </td>
-                </tr>
+                @foreach ($services as $s)
+                    <tr>
+                        <td>{{ $s->service_client_id }}</td>
+                        <td>{{ $s->service_comment }}</td>
+                        <td>{{ $s->created_at }}</td>
+                        <td class="text-end"> ${{ $s->service_price }}</td>
+                    </tr>
+                @endforeach
             </table>            
         </div>
     </div>    

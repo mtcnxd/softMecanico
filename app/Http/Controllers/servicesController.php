@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Services;
 
 class servicesController extends Controller
 {
@@ -27,7 +28,9 @@ class servicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Services::create($request->all());
+        
+        return to_route('service');
     }
 
     /**

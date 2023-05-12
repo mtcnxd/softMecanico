@@ -1,5 +1,6 @@
 :root {
     --background-white: #fff;
+    --text-black: #333;
     --background-main: #f2f4f5 ;
     --background-sidebar: #f0f6ff;
     --text-gray: #555;
@@ -142,6 +143,7 @@ body {
     border-radius: 4px;
     background-color: var(--background-white);
     border: solid 1px var(--top-title-border);
+    z-index: 10;
 }
 
 #results_list li {
@@ -160,4 +162,9 @@ body {
 .card-stats {
     font-size: 30px;
     margin-bottom: 0;
+}
+
+.card-header h5 {
+    margin-top: 7px;
+    color: var(--text-black);
 }

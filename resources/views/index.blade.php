@@ -9,36 +9,26 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card shadow">
-                <div class="card-header">
-                    Comparacion con semanas anteriores
+                <div class="card-body text-center">
+                    <p class="card-stats">${{ $ingresosTotal }}</p>
                 </div>
-                <div class="card-body"></div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card shadow">
-                <div class="card-header text-center">
-                    Ingresos
-                </div>
-                <div class="card-body"></div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow">
-                <div class="card-header text-center">
-                    Egresos
-                </div>
-                <div class="card-body"></div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow">
-                <div class="card-header text-center">
-                    Clientes
-                </div>
                 <div class="card-body text-center">
                     <p class="card-stats">{{ $clientsCount }}</p>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body"></div>
             </div>
         </div>
     </div>    

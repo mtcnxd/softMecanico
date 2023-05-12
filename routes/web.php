@@ -10,6 +10,7 @@ use App\Models\Clients;
 use App\Models\Makes;
 use App\Models\Models;
 use App\Models\Vehicles;
+use App\Models\Services;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,11 @@ Route::get('search/vehicles', [
 ])->name('search.vehicles');
 
 Route::get('services', function () {
-    return view('services');
+    $services = Services::get();
+
+    return view('services', [
+        'services' => $services
+    ]);
 })->name('service');
 
 
@@ -76,8 +81,16 @@ Route::get('reports', function () {
 
 Route::get('/', function () {
     $clientsCount = Clients::get();
+    $services = Services::get();
+
+    foreach ($services as $service) {
+        $totalIngresos[] = $service->service_price;
+    }
+
+    $totalIngresos = array_sum($totalIngresos);
 
     return view('index', [
-        'clientsCount' => count($clientsCount)
+        'clientsCount'  => count($clientsCount),
+        'ingresosTotal' => number_format($totalIngresos,2),
     ]);
 })->name('index');

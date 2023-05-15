@@ -32,7 +32,8 @@
                                 </div>
                             </div>
                             <div class="col">
-                                {{ $c->comment }}
+                                <p class="agenda-title">{{ $c->title }}</p>
+                                <p class="agenda-comment">{{ $c->comment }}</p>
                             </div>
                         </div>
                     </div>

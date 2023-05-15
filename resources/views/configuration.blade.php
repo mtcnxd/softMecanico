@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="overflow-auto tbl-container">
-                    <table class="table">
+                    <table class="table table-hover">
                         <tr class="tbl-header">
                             <td>ID</td>
                             <td>Marca</td>

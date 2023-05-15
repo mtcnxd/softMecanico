@@ -19,15 +19,7 @@
             </li>
             <li class="side-menu-item">
                 <x-feathericon-calendar style="height:20px"/>
-                <a href="{{ route('agenda') }}">Agenda</a>
-            </li>
-            <li class="side-menu-item">
-                <x-feathericon-layers style="height:20px"/>
-                <a href="{{ route('service') }}">Servicios</a>
-            </li>
-            <li class="side-menu-item">
-                <x-feathericon-file style="height:20px"/>
-                <a href="{{ route('reports') }}">Reportes</a>
+                <a href="{{ route('calendar') }}">Calendario</a>
             </li>
             <li class="side-menu-item">
                 <x-feathericon-settings style="height:20px"/>

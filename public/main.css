@@ -193,3 +193,13 @@ body {
     text-align: center;
     border-radius: 6px;
 }
+
+.agenda-title {
+    padding-top: 10px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.agenda-comment {
+    font-weight: 200;
+}

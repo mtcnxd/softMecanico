@@ -6,12 +6,13 @@ use App\Http\Controllers\modelsController;
 use App\Http\Controllers\clientsController;
 use App\Http\Controllers\servicesController;
 use App\Http\Controllers\searchController;
+use App\Http\Controllers\ajaxController;
 use App\Models\Clients;
 use App\Models\Makes;
 use App\Models\Models;
 use App\Models\Vehicles;
 use App\Models\Services;
-use App\Models\Agenda;
+use App\Models\Calendar;
 use Carbon\Carbon;
 
 /*
@@ -62,6 +63,10 @@ Route::get('search/vehicles', [
     searchController::class, 'searchVehicles'
 ])->name('search.vehicles');
 
+Route::get('ajax/calendar', [
+    ajaxController::class,'insertCalendar'
+])->name('ajax.calendar');
+
 Route::get('services', function () {
     $services = Services::get();
 
@@ -71,15 +76,15 @@ Route::get('services', function () {
 })->name('service');
 
 
-Route::get('agenda', function () {
-    $calendar = Agenda::where('date','>',Carbon::now())
+Route::get('calendar', function () {
+    $calendar = Calendar::where('date','>',Carbon::now())
         ->orderBy('date')
         ->get();
 
-    return view('agenda', [
+    return view('calendar', [
         'calendar' => $calendar
     ]);
-})->name('agenda');
+})->name('calendar');
 
 
 Route::get('reports', function () {

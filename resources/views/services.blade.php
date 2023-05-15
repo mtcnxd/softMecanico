@@ -7,14 +7,15 @@
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar Egreso</a>
+            <a href="{{ route('clients.create') }}" class="btn btn-primary">Nuevo Egreso</a>
         </div>
     </div>
 
-    <div class="row">
-        <form action="{{ route('services.store') }}" method="POST" class="col-md-6">
-            @csrf
-            <div class="row">
+    <div class="card shadow">
+        <div class="card-body">
+            <form action="{{ route('services.store') }}" method="POST" class="form-floating row g-3">
+                @csrf
+
                 <div class="col-md-6 mb-3">
                     <label>Cliente</label>
                     <input type="text" placeholder="Escriba para buscar" class="form-control" name="service_client" id="service_client">
@@ -25,8 +26,7 @@
                     <label>Telefono</label>
                     <input type="text" class="form-control" name="service_phone" id="service_phone">
                 </div>
-            </div>
-            <div class="row">
+                
                 <div class="col-md-6 mb-3">
                     <label>Automovil</label>
                     <select type="text" class="form-control" name="service_vehicle" id="service_vehicle">
@@ -37,63 +37,37 @@
                     <label>Kilometraje</label>
                     <input type="text" class="form-control" name="service_mileage">
                 </div>
-            </div>
-            <div class="row">
-                <label>Servicio</label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="service_service">
-                    <span class="input-group-text" id="basic-addon2">
-                        <button class="btn btn-icon btn-xs">
-                            <x-feathericon-save style="height:20px"/>
-                        </button>
-                    </span>
+                
+                <div class="col-md-12">
+                    <label>Servicio</label>
+                    <div class="input-group mb-3">
+                        <select class="form-control" name="service_service">
+                            <option value="1">Mantenimiento correctivo</option>
+                            <option value="2">Mantenimiento preventivo</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
                 <div class="col-md-12 mb-3">
                     <label>Comentarios</label>
                     <textarea class="form-control" name="service_comment"></textarea>
                 </div>
-            </div>
 
-            <div class="row">
-                <label>Importe cobrado</label>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon2">$</span>
-                    <input type="text" class="form-control" name="service_price">
-                    <span class="input-group-text" id="basic-addon2">.00</span>
+                <div class="col-md-12">
+                    <label>Importe cobrado</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon2">$</span>
+                        <input type="text" class="form-control" name="service_price">
+                        <span class="input-group-text" id="basic-addon2">.00</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
                 <div class="col-md-3">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
-            </div>
-        </form>
-
-        <div class="col-md-6">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Concepto</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col" class="text-end">Precio</th>
-                    </tr>
-                </thead>
-                @foreach ($services as $s)
-                    <tr>
-                        <td>{{ $s->service_client_id }}</td>
-                        <td>{{ $s->service_comment }}</td>
-                        <td>{{ $s->created_at }}</td>
-                        <td class="text-end"> ${{ $s->service_price }}</td>
-                    </tr>
-                @endforeach
-            </table>            
+            </form>
         </div>
-    </div>    
+    </div>
 @endsection
 
 @section('js')

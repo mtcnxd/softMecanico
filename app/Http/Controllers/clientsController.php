@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clients;
+use App\Models\Services;
 
 class clientsController extends Controller
 {
@@ -41,7 +42,13 @@ class clientsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $clientInfo = Clients::where('id', $id)->first();
+        $serviceInfo = Services::where('service_client_id', $id)->get();
+
+        return view('clientsinfo', [
+            'clientInfo'  => $clientInfo,
+            'serviceInfo' => $serviceInfo,
+        ]);
     }
 
     /**

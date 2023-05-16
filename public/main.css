@@ -205,3 +205,13 @@ body {
 .agenda-comment {
     font-weight: 200;
 }
+
+.card-body .contact-title {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.card-body p {
+    font-weight: 300;
+    font-size: 15px;
+}

@@ -68,8 +68,11 @@ Route::get('ajax/calendar', [
 ])->name('ajax.calendar');
 
 Route::get('services', function () {
-    $services = Services::get();
-
+    $services = Services::join('clients','service_client_id','=','clients.id')
+        ->join('vehicles','service_vehicle','=','vehicles.id')
+        ->join('models','vehicle_model_id','=','models.id')
+        ->get();
+        
     return view('services', [
         'services' => $services
     ]);

@@ -15,6 +15,7 @@ class Services extends Model
         "service_mileage",
         "service_service",
         "service_comment",
+        "status",
         "service_price",
     ];
 }

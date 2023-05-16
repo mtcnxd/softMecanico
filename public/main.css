@@ -136,7 +136,7 @@ body {
 }
 
 #results_list {
-    width: 19%;
+    width: 50%;
     display: none;
     padding-left: 0px;
     position: absolute;
@@ -180,6 +180,7 @@ body {
     max-width: 45px;
     margin: 10px auto 10px auto;
 }
+
 .agenda-header {
     background-color: #eb4034;
     color: var(--background-white);
@@ -188,6 +189,7 @@ body {
     text-transform: uppercase;
     font-size: 10px;
 }
+
 .agenda-body {
     background-color: var(--background-white);
     text-align: center;

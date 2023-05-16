@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('service_mileage');
             $table->integer('service_service');
             $table->text('service_comment');
+            $table->string('service_status');
             $table->float('service_price');
             $table->timestamps();
         });

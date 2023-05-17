@@ -13,8 +13,8 @@ class modelsController extends Controller
      */
     public function index()
     {
-        $makes  = Makes::get();
-        $models = Models::get();
+        $makes  = Makes::orderBy('make_name')->get();
+        $models = Models::orderBy('model_make')->get();
         
         return view('createViews.models', [
             'makes'  => $makes,
@@ -38,8 +38,10 @@ class modelsController extends Controller
         Models::create($request->all());
         
         $models = Models::get();
+        $makes = Makes::get();
 
         return view('createViews.models', [
+            'makes'  => $makes,
             'models' => $models,
         ]);        
     }

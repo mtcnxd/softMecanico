@@ -96,7 +96,7 @@
                         <h5 class="mb-1">Automoviles</h5>
                     </div>
                     <div class="col-md-2 text-end pt-2">
-                        <a href="{{ route('models.index') }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('vehicles.create') }}" class="btn btn-sm btn-primary">
                             <x-feathericon-plus style="height:20px"/>
                         </a>
                     </div>
@@ -104,11 +104,12 @@
                 <div class="overflow-auto tbl-container">
                     <table class="table table-hover">
                         <tr class="tbl-header">
-                            <td>#</td>
+                            <td>ID</td>
                             <td>Marca</td>
                             <td>Modelo</td>
                             <td>Automovil</td>
                             <td>Cliente</td>
+                            <td></td>
                         </tr>
                         @foreach ($vehicles as $v)
                         <tr>
@@ -117,6 +118,15 @@
                             <td>{{ $v->model_name }}</td>
                             <td>{{ $v->vehicle_plate }}</td>
                             <td>{{ $v->client_firstname }} {{ $v->client_lastname }}</td>
+                            <td class="text-end">
+                                <form action="{{ route('vehicles.destroy', $v) }}" method="POST">
+                                    @method("DELETE")
+                                    @csrf
+                                    <button type="submit" class="btn-icon">
+                                        <x-feathericon-trash-2 style="height:19px"/>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     </table>

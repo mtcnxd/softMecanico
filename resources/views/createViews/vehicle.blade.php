@@ -9,47 +9,31 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="form-floating row g-3" action="{{ route('clients.store') }}" method="POST">
+                    <form class="form-floating row g-3" action="{{ route('vehicles.store') }}" method="POST">
                         @csrf
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="client_firstname">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" name="client_lastname">
-                        </div>
-                        <div class="col-12">
-                            <label for="inputAddress" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" name="client_address">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputCity" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" name="client_city">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label">Estado</label>
-                            <select id="inputState" class="form-select" name="client_state">
-                                <option selected>Choose...</option>
-                                <option>Campeche</option>
-                                <option>Chiapas</option>
-                                <option>Sonora</option>
-                                <option>Tabasco</option>
-                                <option>Quintana Roo</option>
-                                <option>Yucatan</option>
+                            <label class="form-label">Cliente</label>
+                            <select class="form-select" name="vehicle_client_id">
+                                @foreach ($clients as $c)
+                                    <option value="{{ $c->id }}">{{ $c->client_firstname }} {{ $c->client_lastname }}</option>
+                                @endforeach
                             </select>
                         </div>
-                        <div class="col-md-2">
-                            <label for="inputZip" class="form-label">Codigo Postal</label>
-                            <input type="text" class="form-control" name="client_postalcode">
-                        </div>
                         <div class="col-md-6">
-                            <label for="inputZip" class="form-label">Correo</label>
-                            <input type="text" class="form-control" name="client_email">
+                            <label class="form-label">Modelo</label>
+                            <select class="form-select" name="vehicle_model_id">
+                                @foreach ($models as $m)
+                                    <option value="{{ $m->id }}" >{{ $m->model_make }} {{ $m->model_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="col-md-6">
-                            <label for="inputZip" class="form-label">Telefono</label>
-                            <input type="text" class="form-control" name="client_phone">
+                        <div class="col-6">
+                            <label class="form-label">Placa</label>
+                            <input type="text" class="form-control" name="vehicle_plate">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Color</label>
+                            <input type="text" class="form-control" name="vehicle_color">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -67,7 +51,7 @@
 
                 <div class="card-body">
                     <label class="form-label">Comentarios</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="comments"></textarea>
                 </div>
             </div>
         </div>

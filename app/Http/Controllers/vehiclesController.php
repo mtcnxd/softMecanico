@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Models;
+use App\Models\Clients;
+use App\Models\Vehicles;
 
 class vehiclesController extends Controller
 {
@@ -19,7 +22,13 @@ class vehiclesController extends Controller
      */
     public function create()
     {
-        return view('createViews.vehicle');
+        $models = Models::orderBy('model_make','asc')->get();
+        $clients = Clients::orderBy('client_firstname')->get();
+
+        return view('createViews.vehicle', [
+            'clients' => $clients,
+            'models'  => $models,
+        ]);
     }
 
     /**
@@ -27,7 +36,9 @@ class vehiclesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Vehicles::create($request->all());
+
+        return to_route('/');
     }
 
     /**

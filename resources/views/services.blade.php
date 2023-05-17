@@ -1,18 +1,18 @@
 @extends('body')
 
 @section('content')
-    <div class="row pt-2 mb-4 page-title">
+    <div class="col-md-12 pt-2 mb-4 agenda-content">
         <h3>Servicios</h3>
         <div class="col-md-6">
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
-        <div class="col-md-6 text-end">
+        <div class="col text-end">
             <a href="{{ route('services.create') }}" class="btn btn-primary">Nuevo Servicio</a>
             <a href="{{ route('clients.create') }}" class="btn btn-primary">Nuevo Egreso</a>
         </div>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 agenda-content">
         <table class="table table-striped">
             <thead>
                 <tr>

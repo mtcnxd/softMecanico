@@ -68,16 +68,16 @@ Route::get('ajax/calendar', [
 ])->name('ajax.calendar');
 
 Route::get('services', function () {
-    $services = Services::join('clients','service_client_id','=','clients.id')
-        ->join('vehicles','service_vehicle','=','vehicles.id')
-        ->join('models','vehicle_model_id','=','models.id')
+    $services = Services::join('models','service_vehicle','=','models.id')
+        ->join('clients','services.service_client_id','=','clients.id')
         ->get();
+
+    //dd($services);
         
     return view('services', [
         'services' => $services
     ]);
 })->name('service');
-
 
 Route::get('calendar', function () {
     $calendar = Calendar::where('date','>',Carbon::now())

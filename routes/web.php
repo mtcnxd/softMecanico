@@ -5,6 +5,7 @@ use App\Http\Controllers\makesController;
 use App\Http\Controllers\modelsController;
 use App\Http\Controllers\clientsController;
 use App\Http\Controllers\servicesController;
+use App\Http\Controllers\vehiclesController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\ajaxController;
 use App\Models\Clients;
@@ -33,6 +34,8 @@ Route::resource('models', modelsController::class);
 Route::resource('clients', clientsController::class);
 
 Route::resource('services', servicesController::class);
+
+Route::resource('vehicles', vehiclesController::class);
 
 Route::get('config', function () {
     $vehicles = Vehicles::join('models','models.id','=','vehicles.vehicle_model_id')
@@ -71,8 +74,6 @@ Route::get('services', function () {
     $services = Services::join('models','service_vehicle','=','models.id')
         ->join('clients','services.service_client_id','=','clients.id')
         ->get();
-
-    //dd($services);
         
     return view('services', [
         'services' => $services

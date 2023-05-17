@@ -6,12 +6,12 @@
 @endsection
 
 @section('content')
-    <div class="row pt-2 mb-4 page-title">
+    <div class="col-md-12 pt-4 mb-4 agenda-content">
         <h3>Clientes</h3>
         <div class="col-md-6">
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
-        <div class="col-md-6 text-end">
+        <div class="col text-end">
             <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar cliente</a>
         </div>
     </div>

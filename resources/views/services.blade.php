@@ -1,7 +1,7 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 pt-2 mb-4 agenda-content">
+    <div class="col-md-12 pt-4 mb-4 agenda-content">
         <h3>Servicios</h3>
         <div class="col-md-6">
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
@@ -17,9 +17,10 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Cliente</th>
                     <th scope="col">Servicio</th>
+                    <th scope="col">Vehiculo</th>
                     <th scope="col">Estatus</th>
+                    <th scope="col">Cliente</th>
                     <th scope="col">Fecha</th>
                     <th scope="col" class="text-end">Importe</th>
                 </tr>
@@ -28,10 +29,11 @@
                 @foreach ($services as $s)
                     <tr>
                         <td>{{ $s->id }}</td>
-                        <td>{{ $s->client_firstname }} {{ $s->client_lastname }}</td>
                         <td>{{ $s->service_comment }}</td>
-                        <td>{{ $s->status }}</td>
                         <td>{{ $s->model_make }} {{ $s->model_name }}</td>
+                        <td>{{ $s->status }}</td>
+                        <td>{{ $s->client_firstname }} {{ $s->client_lastname }}</td>
+                        <td>{{ $s->updated_at }}</td>
                         <td class="text-end">$ {{ number_format($s->service_price, 2) }}</td>
                     </tr>
                 @endforeach

@@ -7,11 +7,11 @@
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ route('clients.create') }}" class="btn btn-primary">Nuevo Egreso</a>
+            <a href="{{ route('vehicles.create') }}" class="btn btn-primary">Nuevo Vehiculo</a>
         </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-12">
         <form action="{{ route('services.store') }}" method="POST">
             @csrf
             <div class="row mb-4">

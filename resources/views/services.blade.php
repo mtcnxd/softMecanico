@@ -32,7 +32,9 @@
                         <td>{{ $s->service_comment }}</td>
                         <td>{{ $s->model_make }} {{ $s->model_name }}</td>
                         <td>{{ $s->status }}</td>
-                        <td>{{ $s->client_firstname }} {{ $s->client_lastname }}</td>
+                        <td>
+                            <a href="{{ route('clients.show',$s) }}">{{ $s->client_firstname }} {{ $s->client_lastname }}</a>
+                        </td>
                         <td>{{ $s->updated_at }}</td>
                         <td class="text-end">$ {{ number_format($s->service_price, 2) }}</td>
                     </tr>

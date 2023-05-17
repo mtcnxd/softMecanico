@@ -47,9 +47,29 @@
             </div>
 
             <div class="col-md-9">
+                <h4>Autos del cliente</h4>
+                <table class="table table-bordered mb-5" id="client_vehicles">
+                    <thead class="text-uppercase fw-medium">
+                        <th width="35px">#</th>
+                        <th>Automovil</th>
+                        <th>Placa</th>
+                        <th>Color</th>
+                    </thead>
+                    <tbody>
+                        @foreach ($vehiclesInfo as $k => $v)
+                            <tr>
+                                <td>{{ $k + 1 }}</td>
+                                <td>{{ $v->model_make }} {{ $v->model_name }}</td>
+                                <td>{{ $v->vehicle_plate }}</td>
+                                <td>{{ $v->vehicle_color }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <h4>Servicios realizados</h4>
                 <table class="table table-bordered" id="client_services">
                     <thead class="text-uppercase fw-medium">
-                        <th>#</th>
+                        <th width="35px">#</th>
                         <th>Servicio</th>
                         <th>Kilometraje</th>
                         <th>Estatus</th>

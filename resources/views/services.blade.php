@@ -13,34 +13,36 @@
     </div>
 
     <div class="col-md-12 agenda-content">
-        <table class="table table-striped" id="services">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Servicio</th>
-                    <th>Vehiculo</th>
-                    <th>Estatus</th>
-                    <th>Cliente</th>
-                    <th>Fecha</th>
-                    <th class="text-end">Importe</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($services as $s)
-                <tr>
-                    <td>{{ $s->id }}</td>
-                    <td>{{ $s->service_comment }}</td>
-                    <td>{{ $s->model_make }} {{ $s->model_name }}</td>
-                    <td>{{ $s->status }}</td>
-                    <td>
-                        <a href="{{ route('clients.show',$s) }}">{{ $s->client_firstname }} {{ $s->client_lastname }}</a>
-                    </td>
-                    <td>{{ $s->updated_at }}</td>
-                    <td class="text-end">$ {{ number_format($s->service_price, 2) }}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+        <div class="card p-4 shadow">
+            <table class="table table-striped" id="services">
+                <thead>
+                    <tr class="table-header">
+                        <th>ID</th>
+                        <th>Servicio</th>
+                        <th>Vehiculo</th>
+                        <th>Estatus</th>
+                        <th>Cliente</th>
+                        <th>Fecha</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($services as $s)
+                    <tr>
+                        <td>{{ $s->id }}</td>
+                        <td>{{ $s->service_comment }}</td>
+                        <td>{{ $s->model_make }} {{ $s->model_name }}</td>
+                        <td>{{ $s->status }}</td>
+                        <td>
+                            <a href="{{ route('clients.show',$s) }}">{{ $s->client_firstname }} {{ $s->client_lastname }}</a>
+                        </td>
+                        <td>{{ $s->updated_at }}</td>
+                        <td class="text-end">$ {{ number_format($s->service_price, 2) }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
 
@@ -50,8 +52,8 @@
     <script>
     $(document).ready(function () {
         $('#services').DataTable({
-            "pageLength": 20,
-            "lengthMenu": [20, 40, 80, 100],
+            "pageLength": 15,
+            "lengthMenu": [15, 30, 60, 100],
         });
     });
     </script>

@@ -12,40 +12,42 @@
     </div>
 
     <div class="col-md-12 agenda-content">
-        <table class="table table-striped" id="clients">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Dirección</th>
-                    <th>Colonia</th>
-                    <th>Codigo Postal</th>
-                    <th>Correo</th>
-                    <th>Teléfono</th>
-                    <th></th>
-                </tr>
-            </thead>
-            @foreach ($clients as $c)
-                <tr>
-                    <td>{{ $c->id }}</td>
-                    <td><a href="{{ route('clients.show', $c) }}">{{ $c->client_firstname }} {{ $c->client_lastname }}</a></td>
-                    <td>{{ $c->client_address }}</td>
-                    <td>{{ $c->colonia }}</td>
-                    <td>{{ $c->client_postalcode }}</td>
-                    <td><a href="#">{{ $c->client_email }}</a></td>
-                    <td>{{ $c->client_phone }}</td>
-                    <td class="text-end">
-                        <form action="{{ route('clients.destroy', $c) }}" method="POST">
-                            @method("DELETE")
-                            @csrf
-                            <button type="submit" class="btn-icon">
-                                <x-feathericon-trash-2 style="height:19px"/>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </table>
+        <div class="card p-4 shadow">
+            <table class="table table-striped" id="clients">
+                <thead>
+                    <tr class="table-header">
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Colonia</th>
+                        <th>Codigo Postal</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach ($clients as $c)
+                    <tr>
+                        <td>{{ $c->id }}</td>
+                        <td><a href="{{ route('clients.show', $c) }}">{{ $c->client_firstname }} {{ $c->client_lastname }}</a></td>
+                        <td>{{ $c->client_address }}</td>
+                        <td>{{ $c->colonia }}</td>
+                        <td>{{ $c->client_postalcode }}</td>
+                        <td><a href="#">{{ $c->client_email }}</a></td>
+                        <td>{{ $c->client_phone }}</td>
+                        <td class="text-end">
+                            <form action="{{ route('clients.destroy', $c) }}" method="POST">
+                                @method("DELETE")
+                                @csrf
+                                <button type="submit" class="btn-icon">
+                                    <x-feathericon-trash-2 style="height:19px"/>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
     </div>    
 @endsection
 
@@ -55,8 +57,8 @@
     <script>
     $(document).ready(function () {
         $('#clients').DataTable({
-            "pageLength": 20,
-            "lengthMenu": [20, 40, 80, 100],
+            "pageLength": 15,
+            "lengthMenu": [15, 30, 60, 100],
             "columnDefs": [{ 
                 orderable: false, 
                 targets: [2,4,5] 

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('client_lastname');
             $table->string('client_address');
             $table->string('client_city');
-            $table->string('client_state');
             $table->string('client_postalcode');
+            $table->string('colonia');
             $table->string('client_email');
             $table->string('client_phone');
             $table->timestamps();

@@ -117,6 +117,7 @@
     });
 
     function client_select(clientid, phone){
+        $('#service_client').val(name);
         $('#service_client_id').val(clientid)
         $('#service_phone').val(phone)
         $('#results_list').hide()

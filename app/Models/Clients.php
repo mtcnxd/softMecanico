@@ -14,8 +14,8 @@ class Clients extends Model
         "client_lastname",
         "client_address",
         "client_city",
-        "client_state",
         "client_postalcode",
+        "colonia",
         "client_email",
         "client_phone",
     ];

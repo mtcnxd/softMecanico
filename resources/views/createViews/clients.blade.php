@@ -27,21 +27,15 @@
                             <label for="inputCity" class="form-label">Ciudad</label>
                             <input type="text" class="form-control" name="client_city">
                         </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label">Estado</label>
-                            <select id="inputState" class="form-select" name="client_state">
-                                <option selected>Choose...</option>
-                                <option>Campeche</option>
-                                <option>Chiapas</option>
-                                <option>Sonora</option>
-                                <option>Tabasco</option>
-                                <option>Quintana Roo</option>
-                                <option>Yucatan</option>
-                            </select>
-                        </div>
                         <div class="col-md-2">
                             <label for="inputZip" class="form-label">Codigo Postal</label>
-                            <input type="text" class="form-control" name="client_postalcode">
+                            <input type="text" class="form-control" name="client_postalcode" id="postcode">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="selectState" class="form-label">Colonia</label>
+                            <select id="selectState" class="form-select" name="colonia">
+                                <option>Seleccionar colonia ...</option>
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="inputZip" class="form-label">Correo</label>
@@ -75,3 +69,26 @@
     </div>    
 @endsection
 
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#postcode").on('input',function(event){
+                let pc = $(this).val()
+                
+                if (pc.length > 4){
+                    $.ajax({
+                        url:'http://sepomex.789.mx/' + pc,
+                        success: function(response){
+                            $("#selectState").empty()
+                            response.asentamientos.forEach(asentamiento => {
+                                $("#selectState").append("<option>" + asentamiento + "</option>")
+                            })
+                        }
+                    });
+                }
+
+            })
+        })
+    </script>
+@endsection

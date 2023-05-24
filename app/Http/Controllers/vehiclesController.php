@@ -22,8 +22,8 @@ class vehiclesController extends Controller
      */
     public function create()
     {
-        $models = Models::orderBy('model_make','asc')->get();
-        $clients = Clients::orderBy('client_firstname')->get();
+        $models = Models::orderBy('make','asc')->get();
+        $clients = Clients::orderBy('firstname')->get();
 
         return view('createViews.vehicle', [
             'clients' => $clients,

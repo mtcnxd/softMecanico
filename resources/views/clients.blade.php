@@ -29,12 +29,12 @@
                 @foreach ($clients as $c)
                     <tr>
                         <td>{{ $c->id }}</td>
-                        <td><a href="{{ route('clients.show', $c) }}">{{ $c->client_firstname }} {{ $c->client_lastname }}</a></td>
-                        <td>{{ $c->client_address }}</td>
-                        <td>{{ $c->colonia }}</td>
-                        <td>{{ $c->client_postalcode }}</td>
-                        <td><a href="#">{{ $c->client_email }}</a></td>
-                        <td>{{ $c->client_phone }}</td>
+                        <td><a href="{{ route('clients.show', $c) }}">{{ $c->firstname }} {{ $c->lastname }}</a></td>
+                        <td>{{ $c->address1 }}</td>
+                        <td>{{ $c->address2 }}</td>
+                        <td>{{ $c->postalcode }}</td>
+                        <td><a href="#">{{ $c->email }}</a></td>
+                        <td>{{ $c->phone }}</td>
                         <td class="text-end">
                             <form action="{{ route('clients.destroy', $c) }}" method="POST">
                                 @method("DELETE")

@@ -13,37 +13,37 @@
                         @csrf
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="client_firstname">
+                            <input type="text" class="form-control" name="firstname">
                         </div>
                         <div class="col-md-6">
                             <label for="inputPassword4" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" name="client_lastname">
+                            <input type="text" class="form-control" name="lastname">
                         </div>
                         <div class="col-12">
                             <label for="inputAddress" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" name="client_address">
+                            <input type="text" class="form-control" name="address1">
                         </div>
                         <div class="col-md-6">
                             <label for="inputCity" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" name="client_city">
+                            <input type="text" class="form-control" name="city">
                         </div>
                         <div class="col-md-2">
                             <label for="inputZip" class="form-label">Codigo Postal</label>
-                            <input type="text" class="form-control" name="client_postalcode" id="postcode">
+                            <input type="text" class="form-control" name="postalcode" id="postcode">
                         </div>
                         <div class="col-md-4">
-                            <label for="selectState" class="form-label">Colonia</label>
-                            <select id="selectState" class="form-select" name="colonia">
+                            <label for="address2" class="form-label">Colonia</label>
+                            <select id="address2" class="form-select" name="address2">
                                 <option>Seleccionar colonia ...</option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="inputZip" class="form-label">Correo</label>
-                            <input type="text" class="form-control" name="client_email">
+                            <input type="text" class="form-control" name="email">
                         </div>
                         <div class="col-md-6">
                             <label for="inputZip" class="form-label">Telefono</label>
-                            <input type="text" class="form-control" name="client_phone">
+                            <input type="text" class="form-control" name="phone">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -80,9 +80,9 @@
                     $.ajax({
                         url:'http://sepomex.789.mx/' + pc,
                         success: function(response){
-                            $("#selectState").empty()
+                            $("#address2").empty()
                             response.asentamientos.forEach(asentamiento => {
-                                $("#selectState").append("<option>" + asentamiento + "</option>")
+                                $("#address2").append("<option>" + asentamiento + "</option>")
                             })
                         }
                     });

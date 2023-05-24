@@ -13,27 +13,27 @@
                         @csrf
                         <div class="col-md-6">
                             <label class="form-label">Cliente</label>
-                            <select class="form-select" name="vehicle_client_id">
+                            <select class="form-select" name="client_id">
                                 @foreach ($clients as $c)
-                                    <option value="{{ $c->id }}">{{ $c->client_firstname }} {{ $c->client_lastname }}</option>
+                                    <option value="{{ $c->id }}">{{ $c->firstname }} {{ $c->lastname }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Modelo</label>
-                            <select class="form-select" name="vehicle_model_id">
+                            <select class="form-select" name="model_id">
                                 @foreach ($models as $m)
-                                    <option value="{{ $m->id }}" >{{ $m->model_make }} {{ $m->model_name }}</option>
+                                    <option value="{{ $m->id }}" >{{ $m->make }} {{ $m->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-6">
                             <label class="form-label">Placa</label>
-                            <input type="text" class="form-control" name="vehicle_plate">
+                            <input type="text" class="form-control" name="plate">
                         </div>
                         <div class="col-6">
                             <label class="form-label">Color</label>
-                            <input type="text" class="form-control" name="vehicle_color">
+                            <input type="text" class="form-control" name="color">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Guardar</button>

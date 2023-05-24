@@ -29,7 +29,7 @@
                         @foreach ($makes as $make)
                         <tr>
                             <td>{{ $make->id }}</td>
-                            <td>{{ $make->make_name }}</td>
+                            <td>{{ $make->name }}</td>
                             <td class="text-end">
                                 <form action="{{ route('makes.destroy', $make) }}" method="POST">
                                     @method("DELETE")
@@ -69,8 +69,8 @@
                         @foreach ($models as $model)
                         <tr>
                             <td>{{ $model->id }}</td>
-                            <td>{{ $model->model_make }}</td>
-                            <td>{{ $model->model_name }}</td>
+                            <td>{{ $model->make }}</td>
+                            <td>{{ $model->name }}</td>
                             <td class="text-end">
                                 <form action="{{ route('makes.destroy', $model) }}" method="POST">
                                     @method("DELETE")
@@ -114,10 +114,10 @@
                         @foreach ($vehicles as $v)
                         <tr>
                             <td>{{ $v->id }}</td>
-                            <td>{{ $v->model_make }}</td>
-                            <td>{{ $v->model_name }}</td>
-                            <td>{{ $v->vehicle_plate }}</td>
-                            <td>{{ $v->client_firstname }} {{ $v->client_lastname }}</td>
+                            <td>{{ $v->make }}</td>
+                            <td>{{ $v->name }}</td>
+                            <td>{{ $v->plate }}</td>
+                            <td>{{ $v->firstname }} {{ $v->lastname }}</td>
                             <td class="text-end">
                                 <form action="{{ route('vehicles.destroy', $v) }}" method="POST">
                                     @method("DELETE")

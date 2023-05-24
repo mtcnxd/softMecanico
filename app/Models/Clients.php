@@ -10,13 +10,13 @@ class Clients extends Model
     use HasFactory;
 
     protected $fillable = [
-        "client_firstname",
-        "client_lastname",
-        "client_address",
-        "client_city",
-        "client_postalcode",
-        "colonia",
-        "client_email",
-        "client_phone",
+        "firstname",
+        "lastname",
+        "city",
+        "postalcode",
+        "address1",
+        "address2",
+        "email",
+        "phone",
     ];
 }

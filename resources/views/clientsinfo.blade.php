@@ -18,7 +18,7 @@
                                 <img src="{{ asset('images/profile.png') }}" style="width: 100%">
                             </div>
                             <div class="col" style="padding-top: 20px">
-                                <h5>{{ $clientInfo->client_firstname }} {{ $clientInfo->client_lastname }}</h5>
+                                <h5>{{ $clientInfo->firstname }} {{ $clientInfo->lastname }}</h5>
                             </div>
                         </div>
                     </div>
@@ -30,17 +30,17 @@
                             <x-feathericon-map-pin style="height:20px"/>
                             Direccion:
                         </p>
-                        <p>{{ $clientInfo->client_address }}</p>
+                        <p>{{ $clientInfo->address }}</p>
                         <p class="contact-title">
                             <x-feathericon-phone style="height:20px"/>
                             Telefono:
                         </p>
-                        <p><a href="tel:+{{ $clientInfo->client_phone }}">{{ $clientInfo->client_phone }}</a></p>
+                        <p><a href="tel:+{{ $clientInfo->phone }}">{{ $clientInfo->phone }}</a></p>
                         <p class="contact-title">
                             <x-feathericon-mail style="height:20px"/>
                             Correo:
                         </p>
-                        <p><a href="mailto:{{ $clientInfo->client_email }}">{{ $clientInfo->client_email }}</a></p>
+                        <p><a href="mailto:{{ $clientInfo->email }}">{{ $clientInfo->email }}</a></p>
                     </div>
                 </div>
 
@@ -48,7 +48,7 @@
 
             <div class="col-md-9">
                 <h4>Autos del cliente</h4>
-                <table class="table table-bordered mb-5" id="client_vehicles">
+                <table class="table table-bordered mb-5" id="vehicles">
                     <thead class="text-uppercase fw-medium">
                         <th width="35px">#</th>
                         <th>Automovil</th>
@@ -67,7 +67,7 @@
                     </tbody>
                 </table>
                 <h4>Servicios realizados</h4>
-                <table class="table table-bordered" id="client_services">
+                <table class="table table-bordered" id="services">
                     <thead class="text-uppercase fw-medium">
                         <th width="35px">#</th>
                         <th>Servicio</th>

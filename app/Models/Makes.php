@@ -10,6 +10,6 @@ class Makes extends Model
     use HasFactory;
 
     protected $fillable = [
-        'make_name'
+        'name'
     ];
 }

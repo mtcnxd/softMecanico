@@ -32,7 +32,7 @@ class makesController extends Controller
      */
     public function store(Request $request)
     {
-        $exist = Makes::where('make_name', $request->make_name)->first();
+        $exist = Makes::where('name', $request->name)->first();
 
         if(!$exist) {
             Makes::create($request->all());

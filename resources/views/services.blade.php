@@ -30,14 +30,14 @@
                 @foreach ($services as $s)
                     <tr>
                         <td>{{ $s->id }}</td>
-                        <td>{{ $s->service_comment }}</td>
-                        <td>{{ $s->model_make }} {{ $s->model_name }}</td>
+                        <td>{{ $s->comment }}</td>
+                        <td>{{ $s->make }} {{ $s->name }}</td>
                         <td>{{ $s->status }}</td>
                         <td>
-                            <a href="{{ route('clients.show',$s) }}">{{ $s->client_firstname }} {{ $s->client_lastname }}</a>
+                            <a href="{{ route('clients.show',$s) }}">{{ $s->firstname }} {{ $s->lastname }}</a>
                         </td>
                         <td>{{ $s->updated_at }}</td>
-                        <td class="text-end">$ {{ number_format($s->service_price, 2) }}</td>
+                        <td class="text-end">$ {{ number_format($s->price, 2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

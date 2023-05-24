@@ -19,7 +19,7 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Marca de automovil</label>
-                            <input type="text" class="form-control" name="make_name">
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <input type="submit" class="btn btn-sm btn-primary" value="Guardar">
                     </form>
@@ -44,7 +44,7 @@
                     @foreach ($makes as $m)
                     <tr>
                         <td>{{ $m->id }}</td>
-                        <td>{{ $m->make_name }}</td>
+                        <td>{{ $m->name }}</td>
                         <td class="text-end">
                             <form action="{{ route('makes.destroy', $m) }}" method="POST">
                                 @method("DELETE")

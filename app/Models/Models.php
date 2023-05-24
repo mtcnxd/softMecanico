@@ -9,8 +9,8 @@ class Models extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'model_name',
-        'model_make'
+        'name',
+        'make'
     ];
 
 }

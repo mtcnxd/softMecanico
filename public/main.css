@@ -162,8 +162,12 @@ body {
     left:0px
 }
 
+.card-title {
+    margin-bottom:3px
+}
+
 .card-stats {
-    font-size: 30px;
+    font-size: 30px !important; 
     margin-bottom: 0;
 }
 

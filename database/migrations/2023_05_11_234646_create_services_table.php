@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->integer('service_client_id');
-            $table->integer('service_vehicle');
-            $table->string('service_mileage');
-            $table->integer('service_service');
-            $table->text('service_comment');
-            $table->string('service_status');
-            $table->float('service_price');
+            $table->integer('client_id');
+            $table->integer('vehicle');
+            $table->string('mileage');
+            $table->integer('service');
+            $table->text('comment');
+            $table->string('status');
+            $table->float('price');
             $table->timestamps();
         });
     }

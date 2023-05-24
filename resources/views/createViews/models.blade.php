@@ -19,15 +19,15 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Marca de automovil</label>
-                            <select type="text" class="form-control" name="model_make">
+                            <select type="text" class="form-control" name="make">
                                 @foreach ($makes as $m)
-                                    <option value="{{ $m->make_name }}" >{{ $m->make_name }}</option>
+                                    <option value="{{ $m->name }}" >{{ $m->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Modelo de automovil</label>
-                            <input type="text" class="form-control" name="model_name">
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <input type="submit" class="btn btn-sm btn-primary" value="Guardar">
                     </form>
@@ -53,8 +53,8 @@
                     @foreach ($models as $m)
                     <tr>
                         <td>{{ $m->id }}</td>
-                        <td>{{ $m->model_make }}</td>
-                        <td>{{ $m->model_name }}</td>
+                        <td>{{ $m->make }}</td>
+                        <td>{{ $m->name }}</td>
                         <td class="text-end">
                             <form action="{{ route('models.destroy', $m->id) }}" method="POST">
                                 @method("DELETE")

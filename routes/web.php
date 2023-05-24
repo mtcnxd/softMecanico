@@ -38,8 +38,8 @@ Route::resource('services', servicesController::class);
 Route::resource('vehicles', vehiclesController::class);
 
 Route::get('config', function () {
-    $vehicles = Vehicles::join('models','models.id','=','vehicles.vehicle_model_id')
-        ->join('clients','clients.id','=','vehicles.vehicle_client_id')
+    $vehicles = Vehicles::join('models','models.id','=','vehicles.model_id')
+        ->join('clients','clients.id','=','vehicles.client_id')
         ->orderBy('vehicles.id','desc')
         ->take(5)
         ->get();
@@ -71,8 +71,8 @@ Route::get('ajax/calendar', [
 ])->name('ajax.calendar');
 
 Route::get('services', function () {
-    $services = Services::join('models','service_vehicle','=','models.id')
-        ->join('clients','services.service_client_id','=','clients.id')
+    $services = Services::join('models','vehicle','=','models.id')
+        ->join('clients','services.client_id','=','clients.id')
         ->get();
         
     return view('services', [
@@ -99,15 +99,22 @@ Route::get('reports', function () {
 Route::get('/', function () {
     $clientsCount = Clients::get();
     $services = Services::get();
+    $calendar = Calendar::where('date','>',Carbon::now())->get();
 
     foreach ($services as $service) {
-        $totalIngresos[] = $service->service_price;
+        $totalIngresos[] = $service->price;
     }
-
-    $totalIngresos = array_sum($totalIngresos);
-
+    
+    $totalIngresos = array();
+    if (count($totalIngresos)){
+        $totalIngresos = [0 => 0];
+    } else {
+        $totalIngresos = array_sum($totalIngresos);
+    }
+    
     return view('index', [
         'clientsCount'  => count($clientsCount),
         'ingresosTotal' => number_format($totalIngresos,2),
+        'calendarPending' => count($calendar),
     ]);
 })->name('index');

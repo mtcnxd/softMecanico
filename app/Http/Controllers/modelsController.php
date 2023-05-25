@@ -40,10 +40,7 @@ class modelsController extends Controller
         $models = Models::get();
         $makes = Makes::get();
 
-        return view('createViews.models', [
-            'makes'  => $makes,
-            'models' => $models,
-        ]);        
+        return view('config');
     }
 
     /**

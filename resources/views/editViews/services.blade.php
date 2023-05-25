@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label>Kilometraje</label>
-                                <input type="text" class="form-control" name="mileage">
+                                <input type="text" class="form-control" name="mileage" value="{{ $serviceInfo->mileage }}" disabled>
                             </div>
                         </div>
                     </div>
@@ -62,20 +62,13 @@
                             <div class="col-md-12">
                                 <label>Servicio</label>
                                 <div class="input-group mb-3">
-                                    <select class="form-select" name="service">
-                                        <option>Frenos</option>
-                                        <option>Servicio menor</option>
-                                        <option>Servicio mayor</option>
-                                        <option>Suspención</option>
-                                        <option>Otro mantenimiento correctivo</option>
-                                        <option>Otro mantenimiento preventivo</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="service" value="{{ $serviceInfo->service }}" disabled>
                                 </div>
                             </div>
-        
+
                             <div class="col-md-12 mb-3">
                                 <label>Comentarios</label>
-                                <textarea class="form-control" name="comment"></textarea>
+                                <textarea class="form-control" name="comment">{{ $serviceInfo->comment }}</textarea>
                                 <input type="hidden" name="status" value="Pendiente">
                             </div>
         
@@ -83,7 +76,16 @@
                                 <label>Precio aproximado</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input type="text" class="form-control" name="price">
+                                    <input type="text" class="form-control" name="price" value="{{ $serviceInfo->aprox_price }}" disabled>
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>Precio real</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" name="price" value="{{ $serviceInfo->aprox_price }}">
                                     <span class="input-group-text">.00</span>
                                 </div>
                             </div>

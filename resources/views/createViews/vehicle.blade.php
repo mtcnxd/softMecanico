@@ -21,11 +21,16 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Modelo</label>
-                            <select class="form-select" name="model_id">
-                                @foreach ($models as $m)
-                                    <option value="{{ $m->id }}" >{{ $m->make }} {{ $m->name }}</option>
-                                @endforeach
-                            </select>
+                            <div class="input-group mb-3"   >
+                                <select class="form-select" name="model_id">
+                                    @foreach ($models as $m)
+                                        <option value="{{ $m->id }}" >{{ $m->make }} {{ $m->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="input-group-text" id="basic-addon2">
+                                    <a href="{{ route('models.index') }}" class="btn btn-icon">Crear</a>
+                                </span>
+                            </div>
                         </div>
                         <div class="col-6">
                             <label class="form-label">Placa</label>

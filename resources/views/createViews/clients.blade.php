@@ -19,13 +19,9 @@
                             <label for="inputPassword4" class="form-label">Apellido</label>
                             <input type="text" class="form-control" name="lastname">
                         </div>
-                        <div class="col-12">
+                        <div class="col-6">
                             <label for="inputAddress" class="form-label">Dirección</label>
                             <input type="text" class="form-control" name="address1">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputCity" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" name="city">
                         </div>
                         <div class="col-md-2">
                             <label for="inputZip" class="form-label">Codigo Postal</label>
@@ -36,6 +32,10 @@
                             <select id="address2" class="form-select" name="address2">
                                 <option>Seleccionar colonia ...</option>
                             </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" name="city">
                         </div>
                         <div class="col-md-6">
                             <label for="inputZip" class="form-label">Correo</label>

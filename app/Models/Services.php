@@ -16,6 +16,6 @@ class Services extends Model
         "service",
         "comment",
         "status",
-        "price",
+        "aprox_price",
     ];
 }

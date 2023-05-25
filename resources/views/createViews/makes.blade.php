@@ -29,7 +29,7 @@
     </div>
 
     <div class="row pt-4">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card pt-3">
                 <div class="row">
                     <h5>Marcas</h5>

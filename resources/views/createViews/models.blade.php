@@ -17,15 +17,20 @@
                 <div class="card-body">
                     <form action="{{ route('models.store') }}" method="POST">
                         @csrf
-                        <div class="mb-3">
+                        <div class="col-md-12">
                             <label class="form-label">Marca de automovil</label>
-                            <select type="text" class="form-control" name="make">
-                                @foreach ($makes as $m)
-                                    <option value="{{ $m->name }}" >{{ $m->name }}</option>
-                                @endforeach
-                            </select>
+                            <div class="input-group mb-3"   >
+                                <select type="text" class="form-select" name="make">
+                                    @foreach ($makes as $m)
+                                        <option value="{{ $m->name }}" >{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="input-group-text" id="basic-addon2">
+                                    <a href="{{ route('makes.index') }}" class="btn btn-icon">Crear</a>
+                                </span>
+                            </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="col-md-12 mb-3">
                             <label class="form-label">Modelo de automovil</label>
                             <input type="text" class="form-control" name="name">
                         </div>
@@ -37,7 +42,7 @@
     </div>
 
     <div class="row pt-4">
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="card pt-3">
                 <div class="row">
                     <h5>Modelos</h5>

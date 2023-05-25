@@ -103,7 +103,7 @@ Route::get('/', function () {
     $calendar = Calendar::where('date','>',Carbon::now())->get();
 
     foreach ($services as $service) {
-        $totalIngresos[] = $service->price;
+        $totalIngresos[] = $service->real_price;
     }
     
     $totalIngresos = array_sum($totalIngresos);

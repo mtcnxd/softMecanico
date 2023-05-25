@@ -45,11 +45,7 @@ class makesController extends Controller
 
         $makes = Makes::get();
     
-        return view('createViews.makes', [
-            'message' => $message,
-            'makes'   => $makes,
-            'error'   => $error,
-        ]);
+        return view('createViews.makes');
     }
 
     /**

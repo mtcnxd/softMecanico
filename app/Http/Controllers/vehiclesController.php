@@ -43,7 +43,7 @@ class vehiclesController extends Controller
     {
         Vehicles::create($request->all());
 
-        return to_route('vehicles.index'); 
+        return to_route('config'); 
     }
 
     /**

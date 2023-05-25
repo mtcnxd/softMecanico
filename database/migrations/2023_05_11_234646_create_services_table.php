@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('service');
             $table->text('comment');
             $table->string('status');
-            $table->float('price');
+            $table->float('aprox_price');
+            $table->float('real_price');
             $table->timestamps();
         });
     }

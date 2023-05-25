@@ -38,7 +38,7 @@ class servicesController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -46,7 +46,11 @@ class servicesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $serviceInfo = Services::where('id',$id)->first();
+
+        return view('editViews.services', [
+            'serviceInfo' => $serviceInfo
+        ]);
     }
 
     /**

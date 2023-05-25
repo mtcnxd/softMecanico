@@ -27,18 +27,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($services as $s)
+                @foreach ($services as $service)
                     <tr>
-                        <td>{{ $s->id }}</td>
+                        <td>{{ $service->id }}</td>
                         <td>
-                            <a href="{{ route('services.show', $s) }}">{{ $s->service }}</a></td>
-                        <td>{{ $s->make }} {{ $s->name }}</td>
-                        <td class="text-status-{{ $s->status }}">{{ $s->status }}</td>
+                            <a href="{{ route('services.edit', $service) }}">{{ $service->service }}</a></td>
+                        <td>{{ $service->make }} {{ $service->name }}</td>
                         <td>
-                            <a href="{{ route('clients.show',$s) }}">{{ $s->firstname }} {{ $s->lastname }}</a>
+                            <span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span>
                         </td>
-                        <td>{{ $s->updated_at }}</td>
-                        <td class="text-end">$ {{ number_format($s->price, 2) }}</td>
+                        <td>
+                            <a href="{{ route('clients.show',$service) }}">{{ $service->firstname }} {{ $service->lastname }}</a>
+                        </td>
+                        <td>{{ $service->updated_at }}</td>
+                        <td class="text-end">$ {{ number_format($service->price, 2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

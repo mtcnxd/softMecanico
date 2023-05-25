@@ -23,7 +23,7 @@
                         <th>Estatus</th>
                         <th>Cliente</th>
                         <th>Fecha</th>
-                        <th class="text-end">Importe</th>
+                        <th class="text-end">Precio aprox.</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                             <a href="{{ route('clients.show',$service) }}">{{ $service->firstname }} {{ $service->lastname }}</a>
                         </td>
                         <td>{{ $service->updated_at }}</td>
-                        <td class="text-end">$ {{ number_format($service->price, 2) }}</td>
+                        <td class="text-end">$ {{ number_format($service->aprox_price, 2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

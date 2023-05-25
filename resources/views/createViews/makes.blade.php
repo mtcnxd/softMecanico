@@ -36,7 +36,7 @@
                     <p>Marcas de vehiculos</p>
                 </div>
                 <table class="table table-hover">
-                    <tr class="tbl-header">
+                    <tr class="table-header">
                         <td>ID</td>
                         <td>Marca</td>
                         <td></td>

@@ -21,7 +21,7 @@
                 </div>
                 <div class="overflow-auto tbl-container">
                     <table class="table table-hover">
-                        <tr class="tbl-header">
+                        <tr class="table-header">
                             <td>ID</td>
                             <td>Marca</td>
                             <td></td>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="overflow-auto tbl-container">
                     <table class="table table-hover">
-                        <tr class="tbl-header">
+                        <tr class="table-header">
                             <td>ID</td>
                             <td>Marca</td>
                             <td>Modelo</td>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="overflow-auto tbl-container">
                     <table class="table table-hover">
-                        <tr class="tbl-header">
+                        <tr class="table-header">
                             <td>ID</td>
                             <td>Marca</td>
                             <td>Modelo</td>
@@ -147,7 +147,7 @@
                 </div>
                 <div class="overflow-auto tbl-container">
                     <table class="table table-hover">
-                        <tr class="tbl-header">
+                        <tr class="table-header">
                             <td>#</td>
                             <td>Servicio</td>
                             <td>Precio</td>

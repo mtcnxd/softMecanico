@@ -24,23 +24,20 @@
                         <th>Cliente</th>
                         <th>Fecha</th>
                         <th class="text-end">Precio aprox.</th>
+                        <th class="text-end">Precio real.</th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach ($services as $service)
                     <tr>
                         <td>{{ $service->id }}</td>
-                        <td>
-                            <a href="{{ route('services.edit', $service) }}">{{ $service->service }}</a></td>
-                        <td>{{ $service->make }} {{ $service->name }}</td>
-                        <td>
-                            <span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span>
-                        </td>
-                        <td>
-                            <a href="{{ route('clients.show',$service) }}">{{ $service->firstname }} {{ $service->lastname }}</a>
-                        </td>
-                        <td>{{ $service->updated_at }}</td>
+                        <td><a href="{{ route('services.edit', $service) }}">{{ $service->service }}</a></td>
+                        <td>{{ $service->vehicle }}</td>
+                        <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
+                        <td><a href="{{ route('clients.show',$service) }}">{{ $service->firstname }} {{ $service->lastname }}</a></td>
+                        <td>{{ \Carbon\Carbon::parse($service->updated_at)->format('d-m-Y') }}</td>
                         <td class="text-end">$ {{ number_format($service->aprox_price, 2) }}</td>
+                        <td class="text-end">$ {{ number_format($service->real_price, 2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

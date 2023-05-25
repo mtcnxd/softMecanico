@@ -38,12 +38,18 @@ Route::resource('services', servicesController::class);
 Route::resource('vehicles', vehiclesController::class);
 
 Route::get('config', function () {
-    $vehicles = Vehicles::select('vehicles.id','models.make','models.name','vehicles.plate','clients.firstname','clients.lastname')
-        ->join('models','models.id','=','vehicles.model_id')
-        ->join('clients','clients.id','=','vehicles.client_id')
-        ->orderBy('vehicles.id','desc')
-        ->take(5)
-        ->get();
+    $vehicles = Vehicles::select([
+            'vehicles.id',
+            'models.make',
+            'models.name',
+            'vehicles.plate',
+            'clients.firstname',
+            'clients.lastname'
+        ])->join('models','models.id','=','vehicles.model_id')
+            ->join('clients','clients.id','=','vehicles.client_id')
+            ->orderBy('vehicles.id','desc')
+            ->take(5)
+            ->get();
 
     return view('configuration', [
         'makes'  => Makes::orderBy('id','desc')->take(5)->get(),
@@ -72,8 +78,17 @@ Route::get('ajax/calendar', [
 ])->name('ajax.calendar');
 
 Route::get('services', function () {
-    $services = Services::join('models','vehicle','=','models.id')
-        ->join('clients','services.client_id','=','clients.id')
+    $services = Services::select([
+        'services.id',
+        'vehicle',
+        'service',
+        'status',
+        'firstname',
+        'lastname',
+        'services.updated_at',
+        'aprox_price',
+        'real_price'
+    ])->join('clients','services.client_id','=','clients.id')
         ->get();
         
     return view('services', [
@@ -99,7 +114,7 @@ Route::get('reports', function () {
 
 Route::get('/', function () {
     $clientsCount = Clients::get();
-    $services = Services::get();
+    $services = Services::where('status','Entregado')->get();
     $calendar = Calendar::where('date','>',Carbon::now())->get();
 
     foreach ($services as $service) {

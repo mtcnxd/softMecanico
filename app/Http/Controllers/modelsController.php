@@ -36,11 +36,7 @@ class modelsController extends Controller
     public function store(Request $request)
     {
         Models::create($request->all());
-        
-        $models = Models::get();
-        $makes = Makes::get();
-
-        return view('config');
+        return to_route('config');
     }
 
     /**

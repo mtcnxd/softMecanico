@@ -42,10 +42,8 @@ class makesController extends Controller
             $message = 'El registro ya existe!';
             $error = true;
         }
-
-        $makes = Makes::get();
     
-        return view('createViews.makes');
+        return to_route('config');
     }
 
     /**

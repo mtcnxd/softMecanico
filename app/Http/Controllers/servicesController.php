@@ -29,7 +29,6 @@ class servicesController extends Controller
     public function store(Request $request)
     {
         Services::create($request->all());
-        
         return to_route('service');
     }
 

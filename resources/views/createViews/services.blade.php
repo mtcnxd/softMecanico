@@ -18,11 +18,16 @@
                 <div class="col-md-6">
                     <div class="card shadow">
                         <div class="card-body">
-                            <div class="col-md-12 mb-3">
-                                <label>Cliente</label>
-                                <input type="text" placeholder="Escriba para buscar" class="form-control" name="client_name" id="client_name">
-                                <input type="hidden" name="client_id" id="client_id">
-                                <ul id="results_list"></ul>
+                            <div class="col-md-12">
+                                <label class="form-label">Cliente</label>
+                                <div class="input-group mb-3"   >
+                                    <input type="text" placeholder="Escriba para buscar" class="form-control" name="client_name" id="client_name">
+                                    <input type="hidden" name="client_id" id="client_id">
+                                    <ul id="results_list"></ul>
+                                    <span class="input-group-text" id="basic-addon2">
+                                        <a href="{{ route('clients.create') }}" class="btn btn-icon">Crear</a>
+                                    </span>
+                                </div>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label>Telefono</label>
@@ -36,7 +41,7 @@
                     <div class="card shadow">
                         <div class="card-body">
                             <div class="col-md-12">
-                                <label class="form-label">Marca de automovil</label>
+                                <label class="form-label">Modelo de automovil</label>
                                 <div class="input-group mb-3"   >
                                     <select class="form-select" name="vehicle" id="vehicle">
                                         <option>Seleccionar ... </option>
@@ -67,8 +72,8 @@
                                         <option>Servicio menor</option>
                                         <option>Servicio mayor</option>
                                         <option>Suspención</option>
-                                        <option>Otro mantenimiento correctivo</option>
-                                        <option>Otro mantenimiento preventivo</option>
+                                        <option>Mantenimiento correctivo</option>
+                                        <option>Mantenimiento preventivo</option>
                                     </select>
                                 </div>
                             </div>
@@ -83,7 +88,7 @@
                                 <label>Precio aproximado</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input type="text" class="form-control" name="price">
+                                    <input type="text" class="form-control" name="aprox_price">
                                     <span class="input-group-text">.00</span>
                                 </div>
                             </div>
@@ -119,8 +124,16 @@
                 term: clientid
             },
             success: function(data){
+                if(data.length < 1){
+                    $("#vehicle").append(
+                        "<option>El cliente no tiene autos registrados</option>"
+                    );
+                }
+
+                console.log(data)
+
                 data.forEach(list => {
-                    $('#vehicle').append('<option value='+list.id+'>' + list.plate + '</option>') 
+                    $('#vehicle').append('<option>' + list.plate + '</option>') 
                 });
             }
         });
@@ -138,6 +151,13 @@
                     success: function(data){
                         $('#results_list').empty()
                         $('#results_list').show()
+
+                        if(data.length < 1){
+                            $("#results_list").append(
+                                "<li>No se encontro ningun cliente</li>"
+                            );
+                        }
+
                         data.forEach((list, i) => {
                             $("#results_list").append(
                                 "<li onclick=clientSelect("+list.id+","+list.phone+")>"+list.name+"</li>"

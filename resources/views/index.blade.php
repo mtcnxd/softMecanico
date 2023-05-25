@@ -12,7 +12,7 @@
                 <div class="card shadow">
                     <div class="card-body text-center">
                         <p class="card-title">Ingresos del mes</p>
-                        <p class="card-stats">${{ $ingresosTotal }}</p>
+                        <p class="card-stats">$ {{ $ingresosTotal }}</p>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
             <div class="col-md-3">
                 <div class="card shadow">
                     <div class="card-body text-center">
-                        <p class="card-title">Servicios realizados</p>
-                        <p class="card-stats">${{ $ingresosTotal }}</p>
+                        <p class="card-title">Servicios Pendientes</p>
+                        <p class="card-stats">{{ $pendingServices }}</p>
                     </div>
                 </div>
             </div>

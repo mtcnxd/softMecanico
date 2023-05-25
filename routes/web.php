@@ -8,6 +8,7 @@ use App\Http\Controllers\servicesController;
 use App\Http\Controllers\vehiclesController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\ajaxController;
+use App\Http\Controllers\calendarController;
 use App\Models\Clients;
 use App\Models\Makes;
 use App\Models\Models;
@@ -36,6 +37,8 @@ Route::resource('clients', clientsController::class);
 Route::resource('services', servicesController::class);
 
 Route::resource('vehicles', vehiclesController::class);
+
+Route::resource('calendar', calendarController::class);
 
 Route::get('config', function () {
     $vehicles = Vehicles::select([
@@ -114,11 +117,17 @@ Route::get('reports', function () {
 
 Route::get('/', function () {
     $clientsCount = Clients::get();
-    $services = Services::where('status','Entregado')->get();
+    $services = Services::get();
     $calendar = Calendar::where('date','>',Carbon::now())->get();
 
     foreach ($services as $service) {
-        $totalIngresos[] = $service->real_price;
+        if ($service->status == 'Pendiente'){
+            $pendingServices[] = $service->aprox_price;
+        }
+
+        if ($service->status == 'Entregado'){
+            $totalIngresos[] = $service->real_price;
+        }
     }
     
     $totalIngresos = array_sum($totalIngresos);
@@ -127,5 +136,6 @@ Route::get('/', function () {
         'clientsCount'  => count($clientsCount),
         'ingresosTotal' => number_format($totalIngresos,2),
         'calendarPending' => count($calendar),
+        'pendingServices' => count($pendingServices),
     ]);
 })->name('index');

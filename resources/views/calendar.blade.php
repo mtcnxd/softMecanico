@@ -14,7 +14,7 @@
             <span class="text-muted">Lista de eventos y servicios de mayo</span>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar Evento</a>
+            <a href="{{ route('calendar.create') }}" class="btn btn-primary">Agregar Evento</a>
         </div>
     </div>
 

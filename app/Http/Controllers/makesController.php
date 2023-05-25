@@ -82,6 +82,6 @@ class makesController extends Controller
     public function destroy(Makes $make)
     {
         $make->delete();
-        return to_route('makes.index');
+        return to_route('config');
     }
 }

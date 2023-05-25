@@ -72,7 +72,7 @@
                             <td>{{ $model->make }}</td>
                             <td>{{ $model->name }}</td>
                             <td class="text-end">
-                                <form action="{{ route('makes.destroy', $model) }}" method="POST">
+                                <form action="{{ route('models.destroy', $model) }}" method="POST">
                                     @method("DELETE")
                                     @csrf
                                     <button type="submit" class="btn-icon">
@@ -111,15 +111,15 @@
                             <td>Cliente</td>
                             <td></td>
                         </tr>
-                        @foreach ($vehicles as $v)
+                        @foreach ($vehicles as $vehicle)
                         <tr>
-                            <td>{{ $v->id }}</td>
-                            <td>{{ $v->make }}</td>
-                            <td>{{ $v->name }}</td>
-                            <td>{{ $v->plate }}</td>
-                            <td>{{ $v->firstname }} {{ $v->lastname }}</td>
+                            <td>{{ $vehicle->id }}</td>
+                            <td>{{ $vehicle->make }}</td>
+                            <td>{{ $vehicle->name }}</td>
+                            <td>{{ $vehicle->plate }}</td>
+                            <td>{{ $vehicle->firstname }} {{ $vehicle->lastname }}</td>
                             <td class="text-end">
-                                <form action="{{ route('vehicles.destroy', $v) }}" method="POST">
+                                <form action="{{ route('vehicles.destroy', $vehicle) }}" method="POST">
                                     @method("DELETE")
                                     @csrf
                                     <button type="submit" class="btn-icon">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Models;
 use App\Models\Clients;
 use App\Models\Vehicles;
+use App\Models\Makes;
 
 class vehiclesController extends Controller
 {
@@ -14,7 +15,11 @@ class vehiclesController extends Controller
      */
     public function index()
     {
-        //
+        return view('configuration', [
+            'makes'  => Makes::get(),
+            'models' => Models::get(),
+            'vehicles' => Vehicles::get(),
+        ]);
     }
 
     /**
@@ -38,7 +43,7 @@ class vehiclesController extends Controller
     {
         Vehicles::create($request->all());
 
-        return to_route('/');
+        return to_route('vehicles.index'); 
     }
 
     /**
@@ -68,8 +73,9 @@ class vehiclesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Vehicles $vehicle)
     {
-        //
+        $vehicle->delete();
+        return to_route('config');
     }
 }

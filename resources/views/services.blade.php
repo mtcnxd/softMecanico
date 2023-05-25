@@ -30,9 +30,10 @@
                 @foreach ($services as $s)
                     <tr>
                         <td>{{ $s->id }}</td>
-                        <td>{{ $s->comment }}</td>
+                        <td>
+                            <a href="{{ route('services.show', $s) }}">{{ $s->service }}</a></td>
                         <td>{{ $s->make }} {{ $s->name }}</td>
-                        <td>{{ $s->status }}</td>
+                        <td class="text-status-{{ $s->status }}">{{ $s->status }}</td>
                         <td>
                             <a href="{{ route('clients.show',$s) }}">{{ $s->firstname }} {{ $s->lastname }}</a>
                         </td>

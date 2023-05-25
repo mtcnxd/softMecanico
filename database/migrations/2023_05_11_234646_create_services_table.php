@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('client_id');
             $table->integer('vehicle');
             $table->string('mileage');
-            $table->integer('service');
+            $table->string('service');
             $table->text('comment');
             $table->string('status');
             $table->float('price');

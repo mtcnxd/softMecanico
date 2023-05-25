@@ -78,6 +78,6 @@ class modelsController extends Controller
     public function destroy(Models $model)
     {
         $model->delete();
-        return to_route('models.index');
+        return to_route('config');
     }
 }

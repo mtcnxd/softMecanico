@@ -10,9 +10,9 @@ class Vehicles extends Model
     use HasFactory;
     
     protected $fillable = [
-        'vehicle_client_id',
-        'vehicle_model_id',
-        'vehicle_plate',
-        'vehicle_color',
+        'client_id',
+        'model_id',
+        'color',
+        'plate',
     ];
 }

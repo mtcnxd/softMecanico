@@ -20,7 +20,7 @@
                         <div class="card-body">
                             <div class="col-md-12 mb-3">
                                 <label>Cliente</label>
-                                <input type="text" placeholder="Escriba para buscar" class="form-control" name="client" id="client">
+                                <input type="text" placeholder="Escriba para buscar" class="form-control" name="client_name" id="client_name">
                                 <input type="hidden" name="client_id" id="client_id">
                                 <ul id="results_list"></ul>
                             </div>
@@ -58,9 +58,12 @@
                                 <label>Servicio</label>
                                 <div class="input-group mb-3">
                                     <select class="form-select" name="service">
-                                        <option value="1">Mantenimiento correctivo</option>
-                                        <option value="2">Mantenimiento preventivo</option>
-                                        <option value="3">Cambio de aceite y filtro</option>
+                                        <option>Frenos</option>
+                                        <option>Servicio menor</option>
+                                        <option>Servicio mayor</option>
+                                        <option>Suspención</option>
+                                        <option>Otro mantenimiento correctivo</option>
+                                        <option>Otro mantenimiento preventivo</option>
                                     </select>
                                 </div>
                             </div>
@@ -95,38 +98,15 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://releases.jquery.com/git/ui/jquery-ui-git.js"></script>
 <script>
-    $("#client").autocomplete({
-        source: function(request, response){
-            $.ajax({
-                url: "{{ route('search.clients') }}",
-                dataType: 'json',
-                data: {
-                    term: request.term
-                },
-                success: function(data){
-                    $('#results_list').empty()
-                    $('#results_list').show()
-                    data.forEach((list, i) => {
-                        $("#results_list").append(
-                            "<li onclick=client_select("+list.id+","+list.phone+")>"+list.name+"</li>"
-                        );
-                    });
-                }
-            })
-        }
-    });
-
-    function client_select(clientid, phone){
-        $('#client').val(name);
+    function clientSelect(clientid, phone){
         $('#client_id').val(clientid)
         $('#phone').val(phone)
         $('#results_list').hide()
         $('#vehicle').empty()
-        load_vehicles(clientid)
-
+        loadVehicles(clientid)
     }
 
-    function load_vehicles(clientid){
+    function loadVehicles(clientid){
         $.ajax({
             url: "{{ route('search.vehicles') }}",
             dataType: 'json',
@@ -139,6 +119,29 @@
                 });
             }
         });
-    }
+    }    
+
+    $(document).ready(function(){
+        $("#client_name").autocomplete({
+            source: function(request, response){
+                $.ajax({
+                    url: "{{ route('search.clients') }}",
+                    dataType: 'json',
+                    data: {
+                        term: request.term
+                    },
+                    success: function(data){
+                        $('#results_list').empty()
+                        $('#results_list').show()
+                        data.forEach((list, i) => {
+                            $("#results_list").append(
+                                "<li onclick=clientSelect("+list.id+","+list.phone+")>"+list.name+"</li>"
+                            );
+                        });
+                    }
+                })
+            }
+        });
+    })
 </script>    
 @endsection

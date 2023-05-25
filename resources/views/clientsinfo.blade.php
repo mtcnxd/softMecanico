@@ -59,9 +59,9 @@
                         @foreach ($vehiclesInfo as $k => $v)
                             <tr>
                                 <td>{{ $k + 1 }}</td>
-                                <td>{{ $v->model_make }} {{ $v->model_name }}</td>
-                                <td>{{ $v->vehicle_plate }}</td>
-                                <td>{{ $v->vehicle_color }}</td>
+                                <td>{{ $v->make }} {{ $v->name }}</td>
+                                <td>{{ $v->plate }}</td>
+                                <td>{{ $v->color }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -79,10 +79,10 @@
                         @foreach ($serviceInfo as $k => $v)
                             <tr>
                                 <td>{{ $k + 1 }}</td>
-                                <td>{{ $v->service_comment }}</td>
-                                <td>{{ $v->service_mileage }}</td>
+                                <td>{{ $v->comment }}</td>
+                                <td>{{ $v->mileage }}</td>
                                 <td>{{ $v->status }}</td>
-                                <td class="text-end">$ {{ number_format($v->service_price,2) }}</td>
+                                <td class="text-end">$ {{ number_format($v->price,2) }}</td>
                             </tr>
                         @endforeach
                     </tbody>

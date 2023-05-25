@@ -38,7 +38,8 @@ Route::resource('services', servicesController::class);
 Route::resource('vehicles', vehiclesController::class);
 
 Route::get('config', function () {
-    $vehicles = Vehicles::join('models','models.id','=','vehicles.model_id')
+    $vehicles = Vehicles::select('vehicles.id','models.make','models.name','vehicles.plate','clients.firstname','clients.lastname')
+        ->join('models','models.id','=','vehicles.model_id')
         ->join('clients','clients.id','=','vehicles.client_id')
         ->orderBy('vehicles.id','desc')
         ->take(5)
@@ -105,12 +106,7 @@ Route::get('/', function () {
         $totalIngresos[] = $service->price;
     }
     
-    $totalIngresos = array();
-    if (count($totalIngresos)){
-        $totalIngresos = [0 => 0];
-    } else {
-        $totalIngresos = array_sum($totalIngresos);
-    }
+    $totalIngresos = array_sum($totalIngresos);
     
     return view('index', [
         'clientsCount'  => count($clientsCount),

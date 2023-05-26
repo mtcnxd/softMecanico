@@ -36,8 +36,8 @@
                         <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
                         <td><a href="{{ route('clients.show',$service) }}">{{ $service->firstname }} {{ $service->lastname }}</a></td>
                         <td>{{ \Carbon\Carbon::parse($service->updated_at)->format('d-m-Y') }}</td>
-                        <td class="text-end">$ {{ number_format($service->aprox_price, 2) }}</td>
-                        <td class="text-end">$ {{ number_format($service->real_price, 2) }}</td>
+                        <td class="text-end fw-semibold">$ {{ number_format($service->aprox_price, 2) }}</td>
+                        <td class="text-end fw-semibold">$ {{ number_format($service->real_price, 2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

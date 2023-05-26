@@ -44,16 +44,22 @@ class calendarController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
+    {   
+        $statusList = ['Cancelado','Finalizado','Pendiente'];
+
+        return view('createViews.calendar', [
+            'calendarInfo' => Calendar::where('id', $id)->first(),
+            'statusList' => $statusList
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request, Calendar $calendar)
+    {   
+        $calendar->update($request->all());
+        return to_route('calendar');
     }
 
     /**

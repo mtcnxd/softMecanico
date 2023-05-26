@@ -233,7 +233,7 @@ table.dataTable {
     font-size: 15px;
 }
 
-.span-pendiente {
+.span-pendiente, .span-finalizado, .span-entregado, .span-cancelado {
     color: #fff;
     background-color: #fd7e14;
     border-radius: 5px;
@@ -243,19 +243,9 @@ table.dataTable {
 }
 
 .span-finalizado {
-    color: #fff;
-    background-color: #0dcaf0;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 12px;
-    padding: 4px;
+    background-color: #198754;
 }
 
-.span-entregado {
-    color: #fff;
-    background-color: #198754;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 12px;
-    padding: 4px;
+.span-entregado, .span-cancelado {
+    background-color: #adb5bd;
 }

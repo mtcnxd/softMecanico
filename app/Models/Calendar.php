@@ -12,6 +12,7 @@ class Calendar extends Model
     protected $fillable = [
         "title",
         "date",
-        "comment"
+        "comment",
+        "status"
     ];
 }

@@ -47,7 +47,7 @@ class calendarController extends Controller
     {   
         $statusList = ['Cancelado','Finalizado','Pendiente'];
 
-        return view('createViews.calendar', [
+        return view('editViews.calendar', [
             'calendarInfo' => Calendar::where('id', $id)->first(),
             'statusList' => $statusList
         ]);

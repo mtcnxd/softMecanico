@@ -9,6 +9,7 @@
     --top-title-border: #c5cddb;
     --button-sidemenu-hover:#e6eff7;
     --table-header: #daedfc;
+    --border-gray: #dadada;
 }
 
 body {
@@ -184,6 +185,12 @@ table.dataTable {
 .card-header h5 {
     margin-top: 7px;
     color: var(--text-black);
+}
+
+.card-transparent {
+    border-radius: 5px;
+    border: solid 1px var(--border-gray);
+    padding: 12px;
 }
 
 .agenda-content {

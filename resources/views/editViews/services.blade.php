@@ -11,7 +11,7 @@
     <div class="col-md-12 agenda-content">
         <div class="row mb-4">
             <div class="col-md-6 row">
-                <div class="border rounded">
+                <div class="card-transparent">
                     <div class="card-body row">
                         <div class="col-md-12 mb-3">
                             <label>Cliente</label>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="col-md-6 row">
-                <div class="border rounded">
+                <div class="card-transparent">
                     <div class="card-body row">
                         <div class="col-md-12 mb-3">
                             <label class="form-label">Marca de automovil</label>
@@ -41,9 +41,9 @@
             </div>
         </div>
     
-        <div class="row mb-4 border rounded">
+        <div class="row mb-4">
             <div class="row">
-                <div class="">
+                <div class="card-transparent">
                     <div class="card-body row">
                         <div class="col-md-12">
                             <label>Servicio</label>
@@ -71,9 +71,9 @@
         </div>
     </div>
 
-    <form action="{{ route('services.store') }}" method="POST">
+    <form action="{{ route('services.store') }}" method="POST" class="row">
         @csrf
-        <div class="agenda-content">
+        <div class="col-md-12 agenda-content">
             <div class="row">
                 <div class="card shadow">
                     <div class="card-body row">

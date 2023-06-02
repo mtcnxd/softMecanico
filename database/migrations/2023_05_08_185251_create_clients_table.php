@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('postalcode');
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

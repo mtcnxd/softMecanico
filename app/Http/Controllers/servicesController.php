@@ -59,9 +59,11 @@ class servicesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Services $service)
     {
-        //
+        $result = $service->update($request->all());
+        //dd($service);
+        return to_route('service');
     }
 
     /**

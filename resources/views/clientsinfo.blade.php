@@ -1,14 +1,14 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 pt-2 mb-4 agenda-content">
+    <div class="col-md-12 pt-2 mb-4 div-content">
         <h3>Detalles del cliente</h3>
         <div class="col-md-6">
             <span class="text-muted">Historial y detalles del cliente.</span>
         </div>
     </div>
 
-    <div class="col-md-12 agenda-content">
+    <div class="col-md-12 div-content">
         <div class="row">
             <div class="col-md-3">
                 <div class="card mb-4">
@@ -24,13 +24,13 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card mb-4">
                     <div class="card-body">
                         <p class="contact-title">
                             <x-feathericon-map-pin style="height:20px"/>
                             Direccion:
                         </p>
-                        <p>{{ $clientInfo->address }}</p>
+                        <p>{{ $clientInfo->address1 }}</p>
                         <p class="contact-title">
                             <x-feathericon-phone style="height:20px"/>
                             Telefono:
@@ -44,6 +44,17 @@
                     </div>
                 </div>
 
+                @if($clientInfo->comment)
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="contact-title">
+                                <x-feathericon-info style="height:20px"/>
+                                Comentario:
+                            </p>
+                            <p>{{ $clientInfo->comment }}</p>
+                        </div>
+                    </div>
+                @endif
             </div>
 
             <div class="col-md-9">

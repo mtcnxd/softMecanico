@@ -187,10 +187,20 @@ table.dataTable {
     color: var(--text-black);
 }
 
+.card a {
+    text-decoration: none;
+    color: var(--text-black);
+}
+
 .card-transparent {
     border-radius: 5px;
     border: solid 1px var(--border-gray);
     padding: 12px;
+}
+
+.div-content {
+    width: 96%;
+    margin: 0px auto;
 }
 
 .agenda-content {
@@ -240,13 +250,17 @@ table.dataTable {
     font-size: 15px;
 }
 
-.span-pendiente, .span-finalizado, .span-entregado, .span-cancelado {
+.span-pendiente, .span-finalizado, .span-entregado, .span-cancelado, .span-refacciones{
     color: #fff;
     background-color: #fd7e14;
     border-radius: 5px;
     font-weight: 500;
     font-size: 12px;
     padding: 4px;
+}
+
+.span-refacciones {
+    background-color: #dbad37;
 }
 
 .span-finalizado {

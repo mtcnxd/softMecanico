@@ -21,6 +21,7 @@
                         <div class="col-md-12">
                             <label for="inputPassword4" class="form-label">Comentario</label>
                             <textarea class="form-control" name="comment"></textarea>
+                            <input type="hidden" name="status" value="Pendiente">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Guardar</button>

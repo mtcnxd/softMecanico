@@ -14,8 +14,10 @@ class Services extends Model
         "vehicle",
         "mileage",
         "service",
+        "description",
         "comment",
         "status",
         "aprox_price",
+        "real_price",
     ];
 }

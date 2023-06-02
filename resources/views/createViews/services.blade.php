@@ -1,7 +1,7 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 pt-4 mb-4 agenda-content">
+    <div class="col-md-12 div-content pt-4 mb-4">
         <h3>Servicios</h3>
         <div class="col-md-6">
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 div-content">
         <form action="{{ route('services.store') }}" method="POST">
             @csrf
             <div class="row mb-4">
@@ -79,8 +79,8 @@
                             </div>
         
                             <div class="col-md-12 mb-3">
-                                <label>Comentarios</label>
-                                <textarea class="form-control" name="comment"></textarea>
+                                <label>Descripcion</label>
+                                <textarea class="form-control" name="description"></textarea>
                                 <input type="hidden" name="status" value="Pendiente">
                             </div>
         

@@ -118,7 +118,7 @@ Route::get('reports', function () {
 Route::get('/', function () {
     $clientsCount = Clients::get();
     $services = Services::get();
-    $calendar = Calendar::where('date','>',Carbon::now())->get();
+    $calendar = Calendar::where('status','Pendiente')->where('date','>',Carbon::now())->get();
 
     foreach ($services as $service) {
         if ($service->status == 'Pendiente'){

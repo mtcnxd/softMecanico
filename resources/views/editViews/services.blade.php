@@ -1,14 +1,14 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 pt-4 mb-4 agenda-content">
+    <div class="col-md-12 pt-4 mb-4 div-content">
         <h3>Servicios</h3>
         <div class="col-md-6">
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
     </div>
 
-    <div class="col-md-12 agenda-content">
+    <div class="col-md-12 div-content">
         <div class="row mb-4">
             <div class="col-md-6 row">
                 <div class="card-transparent">
@@ -54,7 +54,7 @@
 
                         <div class="col-md-12 mb-3">
                             <label>Comentarios</label>
-                            <textarea class="form-control" name="comment" disabled>{{ $serviceInfo->comment }}</textarea>
+                            <textarea class="form-control" name="comment" disabled>{{ $serviceInfo->description }}</textarea>
                             <input type="hidden" name="status" value="Pendiente">
                         </div>
 
@@ -71,9 +71,10 @@
         </div>
     </div>
 
-    <form action="{{ route('services.store') }}" method="POST" class="row">
+    <form action="{{ route('services.update',$serviceInfo) }}" method="POST" class="row">
         @csrf
-        <div class="col-md-12 agenda-content">
+        @method('PATCH')
+        <div class="col-md-12 div-content">
             <div class="row">
                 <div class="card shadow">
                     <div class="card-body row">
@@ -81,7 +82,7 @@
                             <label>Precio real</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" name="price" value="{{ $serviceInfo->aprox_price }}">
+                                <input type="text" class="form-control" name="real_price" value="{{ $serviceInfo->real_price }}">
                             </div>
                         </div>
 
@@ -97,8 +98,7 @@
 
                         <div class="col-md-12 mb-3">
                             <label>Comentarios</label>
-                            <textarea class="form-control" name="comment"></textarea>
-                            <input type="hidden" name="status" value="Pendiente">
+                            <textarea class="form-control" name="comment">{{ $serviceInfo->comment }}</textarea>
                         </div>
     
                         <div class="col-md-12">

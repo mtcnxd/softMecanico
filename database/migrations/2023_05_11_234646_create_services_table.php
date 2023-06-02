@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('vehicle');
             $table->string('mileage');
             $table->string('service');
-            $table->text('comment');
+            $table->text('description')->nullable();
+            $table->text('comment')->nullable();
             $table->string('status');
             $table->float('aprox_price')->nullable();
             $table->float('real_price')->nullable();

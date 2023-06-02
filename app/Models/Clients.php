@@ -18,5 +18,6 @@ class Clients extends Model
         "address2",
         "email",
         "phone",
+        "comment"
     ];
 }

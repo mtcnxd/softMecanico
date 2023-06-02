@@ -6,14 +6,19 @@
 @endsection
 
 @section('content')
-    <div class="col-md-12 div-content pt-4 mb-4">        
+    <div class="col-md-12 div-content border-bottom pt-4 pb-2 mb-4">
         <div class="row">
             <div class="col-md-6">
                 <h3>Agenda</h3>
                 <span class="text-muted">Lista de eventos y servicios de mayo</span>
             </div>
             <div class="col text-end">
-                <a href="{{ route('calendar.create') }}" class="btn btn-primary">Agregar Evento</a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
+                    <ul class="dropdown-menu shadow">
+                        <li><a href="{{ route('calendar.create') }}" class="dropdown-item">Agregar Evento</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

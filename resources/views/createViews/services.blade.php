@@ -1,14 +1,11 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 div-content pt-4 mb-4">
+    <div class="col-md-12 div-content border-bottom pt-4 pb-2 mb-4">
         <div class="row">
             <div class="col-md-6">
                 <h3>Servicios</h3>
                 <span class="text-muted">Resumen de movimientos de la semana en curso</span>
-            </div>
-            <div class="col text-end">
-                <a href="{{ route('vehicles.create') }}" class="btn btn-primary">Nuevo Vehiculo</a>
             </div>
         </div>
     </div>

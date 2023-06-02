@@ -1,14 +1,19 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 div-content pt-4 mb-4">
+    <div class="col-md-12 div-content border-bottom pt-4 pb-2 mb-4">
         <div class="row">
             <div class="col-md-6">
                 <h3>Clientes</h3>
                 <span class="text-muted">Resumen de movimientos de la semana en curso</span>
             </div>
             <div class="col text-end">
-                <a href="{{ route('clients.create') }}" class="btn btn-primary">Agregar cliente</a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
+                    <ul class="dropdown-menu shadow">
+                        <li><a href="{{ route('clients.create') }}" class="dropdown-item">Agregar cliente</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

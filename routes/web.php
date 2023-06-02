@@ -88,6 +88,7 @@ Route::get('services', function () {
         'status',
         'firstname',
         'lastname',
+        'services.created_at',
         'services.updated_at',
         'aprox_price',
         'real_price'

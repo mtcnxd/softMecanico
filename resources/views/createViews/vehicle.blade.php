@@ -1,16 +1,16 @@
 @extends('body')
 
 @section('content')
+<form class="form-floating row g-3" action="{{ route('vehicles.store') }}" method="POST">
+    @csrf
     <div class="row pt-4">
         <div class="col-md-7">
             <div class="card shadow p-0">
                 <div class="card-header">
                     <h5>Alta nuevo vehiculo</h5>
                 </div>
-
                 <div class="card-body">
-                    <form class="form-floating row g-3" action="{{ route('vehicles.store') }}" method="POST">
-                        @csrf
+                    <div class="row mb-3">
                         <div class="col-md-6">
                             <label class="form-label">Cliente</label>
                             <select class="form-select" name="client_id">
@@ -32,6 +32,8 @@
                                 </span>
                             </div>
                         </div>
+                    </div>
+                    <div class="row mb-3">
                         <div class="col-6">
                             <label class="form-label">Placa</label>
                             <input type="text" class="form-control" name="plate">
@@ -40,10 +42,12 @@
                             <label class="form-label">Color</label>
                             <input type="text" class="form-control" name="color">
                         </div>
+                    </div>
+                    <div class="row mb-3">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
-                    </form> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,11 +60,11 @@
 
                 <div class="card-body">
                     <label class="form-label">Comentarios</label>
-                    <textarea class="form-control" name="comments"></textarea>
+                    <textarea class="form-control" name="comment"></textarea>
                 </div>
             </div>
         </div>
-
-    </div>    
+    </div>
+</form> 
 @endsection
 

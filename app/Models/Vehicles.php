@@ -14,5 +14,6 @@ class Vehicles extends Model
         'model_id',
         'color',
         'plate',
+        'comment'
     ];
 }

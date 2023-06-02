@@ -20,11 +20,12 @@
                 <thead>
                     <tr class="table-header">
                         <th>ID</th>
-                        <th>Servicio</th>
                         <th>Vehiculo</th>
-                        <th>Estatus</th>
+                        <th>Servicio</th>
                         <th>Cliente</th>
-                        <th>Fecha</th>
+                        <th>Estatus</th>
+                        <th>Fecha Alta</th>
+                        <th>Dias</th>
                         <th class="text-end">Precio aprox.</th>
                         <th class="text-end">Precio real.</th>
                     </tr>
@@ -33,11 +34,12 @@
                 @foreach ($services as $service)
                     <tr>
                         <td>{{ $service->id }}</td>
-                        <td><a href="{{ route('services.edit', $service) }}">{{ $service->service }}</a></td>
-                        <td>{{ $service->vehicle }}</td>
-                        <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
+                        <td><a href="{{ route('services.edit', $service) }}">{{ $service->vehicle }}</a></td>
+                        <td>{{ $service->service }}</td>
                         <td><a href="{{ route('clients.show',$service) }}">{{ $service->firstname }} {{ $service->lastname }}</a></td>
-                        <td>{{ \Carbon\Carbon::parse($service->updated_at)->format('d-m-Y') }}</td>
+                        <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
+                        <td>{{ \Carbon\Carbon::parse($service->created_at)->format('d-m-Y') }}</td>
+                        <td>{{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($service->created_at)) }} dias</td>
                         <td class="text-end fw-semibold">$ {{ number_format($service->aprox_price, 2) }}</td>
                         <td class="text-end fw-semibold">$ {{ number_format($service->real_price, 2) }}</td>
                     </tr>
@@ -56,6 +58,7 @@
         $('#services').DataTable({
             "pageLength": 15,
             "lengthMenu": [15, 30, 60, 100],
+            "order": [4, 'desc']
         });
     });
     </script>

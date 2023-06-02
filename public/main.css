@@ -79,8 +79,8 @@ body {
     font-weight: 400;
 }
 
-.table a {
-    text-decoration: none;
+.table.tbody.tr.td.a {
+    text-decoration: underline;
 }
 
 table.dataTable.no-footer {

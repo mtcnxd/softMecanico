@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('client_id');
             $table->string('model_id');
-            $table->string('color');
-            $table->string('plate');
+            $table->string('color')->nullable();
+            $table->string('plate')->nullable();
+            $table->text('plate')->nullable();
             $table->timestamps();
         });
     }

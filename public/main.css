@@ -22,11 +22,15 @@ body {
 .aside {
     height: 100vh;
     position: fixed;
-    padding-top: 30px;
     width: var(--sidebar-width);
     background-color: var(--background-sidebar);
     border-right: 1px solid var(--top-title-border);
-    z-index: 100;
+    z-index: 50;
+}
+
+.side-menu {
+    position: relative;
+    top: 70px;
 }
 
 .side-menu-list {
@@ -47,7 +51,7 @@ body {
 .side-menu-item {
     width: 95%;    
     display: flex;
-    padding: 8px;
+    padding: 10px 8px;
     border-radius: 8px;
     color: var(--text-gray);
     transition: background-color ease-out 0.3s;
@@ -57,6 +61,22 @@ body {
 .side-menu-item:hover {
     background-color: var(--button-sidemenu-hover);
     padding-left: 15px;
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    min-height: 50px;
+    background-color: var(--background-sidebar);
+    border-bottom: solid 1px var(--border-gray);
+    z-index: 100;
+}
+
+.div-content {
+    width: 97%;
+    margin: 0px auto;
+    position: relative;
+    top: 70px;
 }
 
 .content {
@@ -196,11 +216,6 @@ table.dataTable {
     border-radius: 5px;
     border: solid 1px var(--border-gray);
     padding: 12px;
-}
-
-.div-content {
-    width: 96%;
-    margin: 0px auto;
 }
 
 .agenda-content {

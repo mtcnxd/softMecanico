@@ -1,14 +1,14 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 div-content pt-4 mb-4">
+    <div class="div-content mb-4">
         <div class="row">
             <h2>Dashboard</h2>
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
     </div>
 
-    <div class="col-md-12 div-content">
+    <div class="div-content">
         <div class="row">
             <div class="col-md-3">
                 <div class="card shadow">

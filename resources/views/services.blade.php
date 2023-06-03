@@ -1,7 +1,7 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 div-content border-bottom pt-4 pb-2 mb-4">
+    <div class="div-content border-bottom pb-2 mb-4">
         <div class="row">
             <div class="col-md-6">
                 <h3>Servicios</h3>
@@ -19,8 +19,8 @@
         </div>
     </div>
 
-    <div class="col-md-12 div-content">
-        <div class="card p-4 shadow">
+    <div class="div-content">
+        <div class="card p-4">
             <table class="table table-striped" id="services">
                 <thead>
                     <tr class="table-header">

@@ -6,7 +6,7 @@
         @csrf
         <div class="row">
             <div class="col-md-7">
-                <div class="card shadow p-0">
+                <div class="card p-0">
                     <div class="card-header">
                         <h5>Alta nuevo cliente</h5>
                     </div>

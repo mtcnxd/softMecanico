@@ -3,7 +3,7 @@
 @section('content')
 <div class="div-content pb-2 mb-4">
     <div class="col-md-7">
-        <div class="card shadow p-0">
+        <div class="card p-0">
             <div class="card-header">
                 <h5>Crear evento</h5>
             </div>

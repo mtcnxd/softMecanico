@@ -1,14 +1,14 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 pt-4 mb-4 div-content">
+    <div class="div-content mb-4">
         <h3>Servicios</h3>
         <div class="col-md-6">
             <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
     </div>
 
-    <div class="col-md-12 div-content">
+    <div class="div-content">
         <div class="row mb-4">
             <div class="col-md-6 row">
                 <div class="card-transparent">
@@ -76,7 +76,7 @@
         @method('PATCH')
         <div class="col-md-12 div-content">
             <div class="row">
-                <div class="card shadow">
+                <div class="card">
                     <div class="card-body row">
                         <div class="col-md-6">
                             <label>Precio real</label>

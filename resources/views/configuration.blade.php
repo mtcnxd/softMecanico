@@ -11,9 +11,9 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
                     <ul class="dropdown-menu shadow">
-                        <li><a href="{{ route('clients.create') }}" class="dropdown-item">Nueva marca</a></li>
-                        <li><a href="{{ route('clients.create') }}" class="dropdown-item">Nuevo modelo</a></li>
-                        <li><a href="{{ route('clients.create') }}" class="dropdown-item">Nuevo automovil</a></li>
+                        <li><a href="{{ route('makes.index') }}" class="dropdown-item">Nueva marca</a></li>
+                        <li><a href="{{ route('models.index') }}" class="dropdown-item">Nuevo modelo</a></li>
+                        <li><a href="{{ route('vehicles.index') }}" class="dropdown-item">Nuevo automovil</a></li>
                         <li><a href="{{ route('clients.create') }}" class="dropdown-item">Nuevo servicio</a></li>
                     </ul>
                 </div>
@@ -23,7 +23,7 @@
 
     <div class="div-content">
         <div class="row">
-            <div class="col">
+            <div class="col pl-0">
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-md-10">
@@ -108,14 +108,14 @@
 
     <div class="div-content">
         <div class="row pt-4">
-            <div class="col">
+            <div class="col pl-0">
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-md-10">
                             <h5 class="mb-1">Automoviles</h5>
                         </div>
                         <div class="col-md-2 text-end pt-2">
-                            <a href="{{ route('vehicles.create') }}" class="btn btn-sm btn-primary">
+                            <a href="{{ route('vehicles.index') }}" class="btn btn-sm btn-primary">
                                 <x-feathericon-plus style="height:20px"/>
                             </a>
                         </div>

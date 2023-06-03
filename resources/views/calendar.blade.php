@@ -26,7 +26,7 @@
     <div class="div-content">
         <div class="row">
             @foreach ($calendar as $c)
-            <div class="col-md-6">
+            <div class="col-md-6 pl-0">
                 <div class="card mb-3">
                     <div class="row">
                         <div class="col-md-2 border-end bg-light rounded-start-2">

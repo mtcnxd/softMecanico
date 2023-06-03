@@ -1,14 +1,22 @@
 @extends('body')
 
 @section('content')
-<div class="div-content">
+<div class="div-content border-bottom pb-2 mb-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Nuevo Servicio</h3>
+        </div>
+    </div>
+</div>
+
+<div class="div-content pb-2 mb-4">
     <form action="{{ route('clients.store') }}" method="POST">
         @csrf
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 pl-0">
                 <div class="card p-0">
                     <div class="card-header">
-                        <h5>Alta nuevo cliente</h5>
+                        <h5>Alta cliente</h5>
                     </div>
                     <div class="card-body">
                         <div class="row mb-3">
@@ -64,7 +72,7 @@
             </div>
 
             <div class="col-md-5">
-                <div class="card shadow p-0">
+                <div class="card p-0">
                     <div class="card-header">
                         <h5>Información adicional</h5>
                     </div>

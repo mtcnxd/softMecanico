@@ -15,10 +15,12 @@ class vehiclesController extends Controller
      */
     public function index()
     {
-        return view('configuration', [
-            'makes'  => Makes::get(),
-            'models' => Models::get(),
-            'vehicles' => Vehicles::get(),
+        $models = Models::orderBy('make','asc')->get();
+        $clients = Clients::orderBy('firstname')->get();
+
+        return view('createViews.vehicle', [
+            'clients' => $clients,
+            'models'  => $models,
         ]);
     }
 

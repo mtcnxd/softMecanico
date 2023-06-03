@@ -1,106 +1,105 @@
 @extends('body')
 
 @section('content')
-    <div class="col-md-12 div-content border-bottom pt-4 pb-2 mb-4">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Servicios</h3>
-                <span class="text-muted">Resumen de movimientos de la semana en curso</span>
-            </div>
+<div class="div-content border-bottom pb-2 mb-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Nuevo Servicio</h3>
         </div>
     </div>
+</div>
 
-    <div class="col-md-12 div-content">
-        <form action="{{ route('services.store') }}" method="POST">
-            @csrf
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <div class="col-md-12">
-                                <label class="form-label">Cliente</label>
-                                <div class="input-group mb-3"   >
-                                    <input type="text" placeholder="Escriba para buscar" class="form-control" name="client_name" id="client_name">
-                                    <input type="hidden" name="client_id" id="client_id">
-                                    <ul id="results_list"></ul>
-                                    <span class="input-group-text" id="basic-addon2">
-                                        <a href="{{ route('clients.create') }}" class="btn btn-icon">Crear</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label>Telefono</label>
-                                <input type="text" class="form-control" name="phone" id="phone">
+<div class="div-content">
+    <form action="{{ route('services.store') }}" method="POST">
+        @csrf
+        <div class="row mb-4">
+            <div class="col-md-6 pl-0">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-12">
+                            <label class="form-label">Cliente</label>
+                            <div class="input-group mb-3"   >
+                                <input type="text" placeholder="Escriba para buscar" class="form-control" name="client_name" id="client_name">
+                                <input type="hidden" name="client_id" id="client_id">
+                                <ul id="results_list"></ul>
+                                <span class="input-group-text" id="basic-addon2">
+                                    <a href="{{ route('clients.create') }}" class="btn btn-icon">Crear</a>
+                                </span>
                             </div>
                         </div>
-                    </div>
-                </div>
-    
-                <div class="col-md-6">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <div class="col-md-12">
-                                <label class="form-label">Modelo de automovil</label>
-                                <div class="input-group mb-3"   >
-                                    <select class="form-select" name="vehicle" id="vehicle">
-                                        <option>Seleccionar ... </option>
-                                    </select>
-                                    <span class="input-group-text" id="basic-addon2">
-                                        <a href="{{ route('vehicles.create') }}" class="btn btn-icon">Crear</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label>Kilometraje</label>
-                                <input type="text" class="form-control" name="mileage">
-                            </div>
+                        <div class="col-md-12 mb-3">
+                            <label>Telefono</label>
+                            <input type="text" class="form-control" name="phone" id="phone">
                         </div>
                     </div>
                 </div>
             </div>
-    
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <div class="col-md-12">
-                                <label>Servicio</label>
-                                <div class="input-group mb-3">
-                                    <select class="form-select" name="service">
-                                        <option>Frenos</option>
-                                        <option>Servicio menor</option>
-                                        <option>Servicio mayor</option>
-                                        <option>Suspención</option>
-                                        <option>Mantenimiento correctivo</option>
-                                        <option>Mantenimiento preventivo</option>
-                                    </select>
-                                </div>
-                            </div>
-        
-                            <div class="col-md-12 mb-3">
-                                <label>Descripcion</label>
-                                <textarea class="form-control" name="description"></textarea>
-                                <input type="hidden" name="status" value="Pendiente">
-                            </div>
-        
-                            <div class="col-md-3">
-                                <label>Precio aproximado</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">$</span>
-                                    <input type="text" class="form-control" name="aprox_price">
-                                    <span class="input-group-text">.00</span>
-                                </div>
-                            </div>
-        
-                            <div class="col-md-3">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-12">
+                            <label class="form-label">Modelo de automovil</label>
+                            <div class="input-group mb-3"   >
+                                <select class="form-select" name="vehicle" id="vehicle">
+                                    <option>Seleccionar ... </option>
+                                </select>
+                                <span class="input-group-text" id="basic-addon2">
+                                    <a href="{{ route('vehicles.create') }}" class="btn btn-icon">Crear</a>
+                                </span>
                             </div>
                         </div>
-                    </div> 
+                        <div class="col-md-12 mb-3">
+                            <label>Kilometraje</label>
+                            <input type="text" class="form-control" name="mileage">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 pl-0">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-12">
+                            <label>Servicio</label>
+                            <div class="input-group mb-3">
+                                <select class="form-select" name="service">
+                                    <option>Frenos</option>
+                                    <option>Servicio menor</option>
+                                    <option>Servicio mayor</option>
+                                    <option>Suspención</option>
+                                    <option>Mantenimiento correctivo</option>
+                                    <option>Mantenimiento preventivo</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12 mb-3">
+                            <label>Descripcion</label>
+                            <textarea class="form-control" name="description"></textarea>
+                            <input type="hidden" name="status" value="Pendiente">
+                        </div>
+    
+                        <div class="col-md-3">
+                            <label>Precio aproximado</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" name="aprox_price">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </form>
+</div>
 @endsection
 
 @section('js')

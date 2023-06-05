@@ -5,6 +5,7 @@ use App\Http\Controllers\makesController;
 use App\Http\Controllers\modelsController;
 use App\Http\Controllers\clientsController;
 use App\Http\Controllers\servicesController;
+use App\Http\Controllers\egresosController;
 use App\Http\Controllers\vehiclesController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\ajaxController;
@@ -35,6 +36,8 @@ Route::resource('models', modelsController::class);
 Route::resource('clients', clientsController::class);
 
 Route::resource('services', servicesController::class);
+
+Route::resource('egresos', egresosController::class);
 
 Route::resource('vehicles', vehiclesController::class);
 
@@ -101,8 +104,7 @@ Route::get('services', function () {
 })->name('service');
 
 Route::get('calendar', function () {
-    $calendar = Calendar::where('date','>',Carbon::now())
-        ->orderBy('date')
+    $calendar = Calendar::orderBy('date')
         ->get();
 
     return view('calendar', [
@@ -119,7 +121,7 @@ Route::get('reports', function () {
 Route::get('/', function () {
     $clientsCount = Clients::get();
     $services = Services::get();
-    $calendar = Calendar::where('status','Pendiente')->where('date','>',Carbon::now())->get();
+    $calendar = Calendar::where('status','Pendiente')->get();
 
     foreach ($services as $service) {
         if ($service->status == 'Pendiente'){

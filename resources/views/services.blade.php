@@ -11,8 +11,8 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
                     <ul class="dropdown-menu shadow">
-                        <li><a href="{{ route('services.create') }}" class="dropdown-item">Nuevo Servicio</a></li>
-                        <li><a href="{{ route('clients.create') }}" class="dropdown-item">Nuevo Egreso</a></li>
+                        <li><a href="{{ route('services.create') }}" class="dropdown-item">Nuevo servicio</a></li>
+                        <li><a href="{{ route('egresos.create') }}" class="dropdown-item">Nuevo egreso</a></li>
                     </ul>
                 </div>
             </div>

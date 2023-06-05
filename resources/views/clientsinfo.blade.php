@@ -90,7 +90,7 @@
                         @foreach ($serviceInfo as $k => $v)
                             <tr>
                                 <td>{{ $k + 1 }}</td>
-                                <td>{{ $v->comment }}</td>
+                                <td>{{ $v->description }}</td>
                                 <td>{{ $v->mileage }}</td>
                                 <td>{{ $v->status }}</td>
                                 <td class="text-end">$ {{ number_format($v->price,2) }}</td>

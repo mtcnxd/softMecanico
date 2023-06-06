@@ -80,9 +80,12 @@
                     <div class="card-body row">
                         <div class="col-md-6">
                             <label>Precio real</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" name="real_price" value="{{ $serviceInfo->real_price }}">
+                            <div class="input-group mb-3"   >
+                                <input type="text" class="form-control" name="real_price" id="real_price" value="{{ $serviceInfo->real_price }}">
+                                <ul id="results_list"></ul>
+                                <span class="input-group-text" id="basic-addon2">
+                                    <a href="#" id="abono" class="btn btn-icon">Abono</a>
+                                </span>
                             </div>
                         </div>
 
@@ -109,4 +112,35 @@
             </div>
         </div>
     </form>    
+@endsection
+
+<!-- Modal -->
+<div class="modal fade" id="modalAbonos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#abono").on('click', function(button){
+            button.preventDefault()
+            $("#modalAbonos").modal('show')
+        })
+    })
+</script>
 @endsection

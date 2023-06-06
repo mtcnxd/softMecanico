@@ -41,6 +41,11 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="row">
+                $ {{ number_format($totalIngresos) }}
+            </div>
+
         </div>
     </div>
 @endsection

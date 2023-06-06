@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Egresos extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "category",
+        "description",
+        "amount",
+        "date"
+    ];
 }

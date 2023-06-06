@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Egresos;
 
 class egresosController extends Controller
 {
@@ -27,7 +28,8 @@ class egresosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Egresos::create($request->all());
+        return to_route('reports');
     }
 
     /**

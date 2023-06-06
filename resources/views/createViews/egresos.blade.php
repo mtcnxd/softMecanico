@@ -15,12 +15,16 @@
                 <h5 class="mb-0">Nuevo egreso</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('models.store') }}" method="POST">
+                <form action="{{ route('egresos.store') }}" method="POST">
                     @csrf
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Fecha</label>
+                        <input type="date" class="form-control" name="date">
+                    </div>
                     <div class="col-md-12">
                         <label class="form-label">Categoria</label>
                         <div class="input-group mb-3">
-                            <select type="text" class="form-select" name="make">
+                            <select type="text" class="form-select" name="category">
                                 <option>Gastos fijos</option>
                                 <option>Refacciones</option>
                                 <option>Prestamos / Anticipos</option>
@@ -29,11 +33,11 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label class="form-label">Descripción</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="description">
                     </div>
                     <div class="col-md-12 mb-3">
                         <label class="form-label">Cantidad</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="amount">
                     </div>
                     <input type="submit" class="btn btn-sm btn-primary" value="Guardar">
                 </form>

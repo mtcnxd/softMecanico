@@ -16,6 +16,7 @@ use App\Models\Models;
 use App\Models\Vehicles;
 use App\Models\Services;
 use App\Models\Calendar;
+use App\Models\Egresos;
 use Carbon\Carbon;
 
 /*
@@ -114,7 +115,13 @@ Route::get('calendar', function () {
 
 
 Route::get('reports', function () {
-    return view('reports');
+    $egresos = Egresos::get();
+    $ingresos = Services::where('status','Finalizado')->get();
+
+    return view('reports', [
+        'egresos' => $egresos,
+        'ingresos' => $ingresos
+    ]);
 })->name('reports');
 
 

@@ -38,7 +38,6 @@ class servicesController extends Controller
     public function show(string $id)
     {
         $serviceInfo = Services::join('clients','clients.id','=','services.client_id')->where('services.id', $id)->first();
-
         return view('editViews.services', [
             'serviceInfo' => $serviceInfo
         ]);
@@ -49,7 +48,10 @@ class servicesController extends Controller
      */
     public function edit(string $id)
     {
-        $serviceInfo = Services::join('clients','clients.id','=','services.client_id')->where('services.id', $id)->first();
+        $serviceInfo = Services::select('services.*','clients.firstname','clients.lastname','clients.phone')
+            ->join('clients','clients.id','=','services.client_id')
+            ->where('services.id', $id)
+            ->first();
 
         return view('editViews.services', [
             'serviceInfo' => $serviceInfo
@@ -61,8 +63,8 @@ class servicesController extends Controller
      */
     public function update(Request $request, Services $service)
     {
+        //dd($request);
         $result = $service->update($request->all());
-        //dd($service);
         return to_route('service');
     }
 

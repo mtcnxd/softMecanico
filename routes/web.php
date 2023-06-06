@@ -118,15 +118,21 @@ Route::get('reports', function () {
     $egresos  = Egresos::get();
     $ingresos = Services::where('status','Entregado')->get();
 
+    $totalEgresos  = 0;
     $totalIngresos = 0;
     foreach($egresos as $row){
-        $totalIngresos += $row->amount;
+        $totalEgresos += $row->amount;
+    }
+
+    foreach($ingresos as $row){
+        $totalIngresos += $row->real_price;
     }
 
     return view('reports', [
         'egresos' => $egresos,
         'ingresos' => $ingresos,
-        'totalIngresos' => $totalIngresos
+        'totalIngresos' => $totalIngresos,
+        'totalEgresos'  => $totalEgresos,
     ]);
 })->name('reports');
 

@@ -201,8 +201,13 @@ table.dataTable {
     margin-bottom:3px
 }
 
-.card-stats {
+.card-stats-3 {
     font-size: 30px !important; 
+    margin-bottom: 0;
+}
+
+.card-stats-2 {
+    font-size: 20px !important; 
     margin-bottom: 0;
 }
 

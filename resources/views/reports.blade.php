@@ -43,7 +43,24 @@
             </table>
 
             <div class="row">
-                $ {{ number_format($totalIngresos) }}
+                <div class="col-md-4 text-center p-2">
+                    <div class="card-transparent card-stats-2">
+                        Total ingresos: 
+                        $ {{ number_format($totalIngresos,2) }}
+                    </div>
+                </div>
+                <div class="col-md-4 text-center p-2">
+                    <div class="card-transparent card-stats-2">
+                        Total egresos: 
+                        $ {{ number_format($totalEgresos,2) }}
+                    </div>
+                </div>
+                <div class="col-md-4 text-center p-2">
+                    <div class="card-transparent card-stats-2">
+                        Balance: 
+                        $ {{ number_format($totalIngresos - $totalEgresos,2) }}
+                    </div>
+                </div>
             </div>
 
         </div>

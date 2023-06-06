@@ -69,9 +69,9 @@
                 </div> 
             </div>
         </div>
-    </div>
+    </div>  
 
-    <form action="{{ route('services.update',$serviceInfo) }}" method="POST" class="row">
+    <form action="{{ route('services.update', $serviceInfo) }}" method="POST" class="row">
         @csrf
         @method('PATCH')
         <div class="col-md-12 div-content">

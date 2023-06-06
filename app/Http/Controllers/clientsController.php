@@ -43,7 +43,8 @@ class clientsController extends Controller
      */
     public function show(string $id)
     {
-        $clientInfo = Clients::where('id', $id)->first();
+        $clientInfo = Clients::find($id);
+
         $serviceInfo = Services::where('client_id', $id)->get();
         $vehiclesInfo = Vehicles::join('models','model_id','=','models.id')
             ->where('client_id',$id)

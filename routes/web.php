@@ -87,6 +87,7 @@ Route::get('ajax/calendar', [
 Route::get('services', function () {
     $services = Services::select([
         'services.id',
+        'client_id',
         'vehicle',
         'service',
         'status',
@@ -142,6 +143,7 @@ Route::get('/', function () {
     $services = Services::get();
     $calendar = Calendar::where('status','Pendiente')->get();
 
+    $pendingServices = array();
     foreach ($services as $service) {
         if ($service->status == 'Pendiente'){
             $pendingServices[] = $service->aprox_price;
@@ -151,7 +153,7 @@ Route::get('/', function () {
             $totalIngresos[] = $service->real_price;
         }
     }
-    
+
     $totalIngresos = array_sum($totalIngresos);
     
     return view('index', [

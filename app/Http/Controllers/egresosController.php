@@ -20,7 +20,9 @@ class egresosController extends Controller
      */
     public function create()
     {
-        return view('createViews/egresos');
+        return view('createViews/egresos', [
+            'egresos' => Egresos::get()
+        ]);
     }
 
     /**

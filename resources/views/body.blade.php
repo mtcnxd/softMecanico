@@ -17,7 +17,7 @@
     @yield('js')
 </head>
 <body>
-    <div class="nav"></div>    
+    <div class="main-nav"></div>    
     @include('includes.sidebar')
 
     <div class="content">

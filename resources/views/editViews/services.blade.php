@@ -74,7 +74,7 @@
     <form action="{{ route('services.update', $serviceInfo) }}" method="POST" class="row">
         @csrf
         @method('PATCH')
-        <div class="col-md-12 div-content">
+        <div class="col-md-12 div-content pb-4">
             <div class="row">
                 <div class="card">
                     <div class="card-body row">

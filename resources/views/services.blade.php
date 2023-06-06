@@ -41,7 +41,7 @@
                         <td>{{ $service->id }}</td>
                         <td><a href="{{ route('services.edit', $service) }}">{{ $service->vehicle }}</a></td>
                         <td>{{ $service->service }}</td>
-                        <td><a href="{{ route('clients.show',$service) }}">{{ $service->firstname }} {{ $service->lastname }}</a></td>
+                        <td><a href="{{ route('clients.show',$service->client_id) }}">{{ $service->firstname }} {{ $service->lastname }}</a></td>
                         <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
                         <td>{{ \Carbon\Carbon::parse($service->created_at)->format('d-m-Y') }}</td>
                         <td>{{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($service->created_at)) }} dias</td>

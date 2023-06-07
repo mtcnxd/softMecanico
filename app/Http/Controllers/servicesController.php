@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Services;
+use App\Models\Ingresos;
 
 class servicesController extends Controller
 {
@@ -53,8 +54,14 @@ class servicesController extends Controller
             ->where('services.id', $id)
             ->first();
 
+        $abonosInfo = Ingresos::where('service_id', $id)->get();
+
+        $status = ['Pendiente','Refacciones','Finalizado','Entregado'];
+
         return view('editViews.services', [
-            'serviceInfo' => $serviceInfo
+            'serviceInfo' => $serviceInfo,
+            'abonosInfo'  => $abonosInfo,
+            'status'      => $status
         ]);
     }
 

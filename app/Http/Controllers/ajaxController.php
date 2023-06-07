@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Calendar;
+use App\Models\Ingresos;
 
 class ajaxController extends Controller
 {
-    public function insertCalendar(Request $request)
+    public function insertAbono(Request $request)
     {
-        $date    = $request->get('date');
-        $title   = $request->get('title');
-        $comment = $request->get('comment');
 
-        Calendar::insert([
-            'title' => $title,
-            'comment' => $comment,
-            'date'  => $date,
-        ]);
+        $date   = $request->input('date');
+        $amount = $request->input('amount');
+        $service_id = $request->input('service_id');
+
+        Ingresos::create($request->all());
+
+        return "Created success!";
     }
 }

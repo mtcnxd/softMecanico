@@ -10,7 +10,7 @@
 
     <div class="div-content">
         <div class="card p-4">
-            <table class="table table-striped" id="services">
+            <table class="table table-striped" id="reports">
                 <thead>
                     <tr class="table-header">
                         <th>ID</th>
@@ -65,4 +65,21 @@
 
         </div>
     </div>
+@endsection
+
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('#reports').DataTable({
+        "pageLength": 15,
+        "lengthMenu": [15, 30, 60, 100],
+    });
+});
+</script>
+@endsection
+
+@section('css')
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
 @endsection

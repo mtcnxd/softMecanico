@@ -61,9 +61,7 @@
                 <div class="card-body">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                            <p class="fs-7 fw-bolder text-uppercase text-muted">
-                                Listado de egresos del mes
-                            </p>
+                            <p class="fs-7 fw-bolder text-uppercase text-muted">Listado de egresos del mes</p>
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="table-header">
@@ -85,21 +83,20 @@
                                 </tbody>
                             </table>
                         </div>
-                          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                              <p class="fs-7 fw-bolder text-uppercase text-muted">
-                                Listado de ingresos del mes
-                            </p>
-                              <table class="table">
-                                <tbody><tr>
-                                    <td>#</td>
-                                    <td>Descripcion</td>
-                                    <td>Fecha</td>
-                                    <td class="text-end">Importe</td>
-                                    <td class="text-end"></td>
-                                </tr>
+                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                            <p class="fs-7 fw-bolder text-uppercase text-muted">Listado de ingresos del mes</p>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>#</td>
+                                        <td>Descripcion</td>
+                                        <td>Fecha</td>
+                                        <td class="text-end">Importe</td>
+                                        <td class="text-end"></td>
+                                    </tr>
                                 </tbody>
                             </table>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>

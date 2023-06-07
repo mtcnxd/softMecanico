@@ -80,9 +80,9 @@ Route::get('search/vehicles', [
     searchController::class, 'searchVehicles'
 ])->name('search.vehicles');
 
-Route::get('ajax/calendar', [
-    ajaxController::class,'insertCalendar'
-])->name('ajax.calendar');
+Route::post('insert/abono', [
+    ajaxController::class,'insertAbono'
+])->name('insert.abono');
 
 Route::get('services', function () {
     $services = Services::select([

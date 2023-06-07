@@ -92,10 +92,13 @@
                         <div class="col-md-6">
                             <label>Status</label>
                             <select class="form-select" name="status">
-                                <option>Pendiente</option>
-                                <option>Refacciones</option>
-                                <option>Finalizado</option>
-                                <option>Entregado</option>
+                                @foreach ($status as $item)
+                                    @if ($serviceInfo->status == $item)
+                                        <option selected>{{ $item }}</option>
+                                    @else 
+                                        <option>{{ $item }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
 
@@ -116,18 +119,66 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modalAbonos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="card rounded border border-custom shadow-sm">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Abono</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Lista de abonos</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade active show" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                <form id="formCreateAbono">
+                                    @csrf
+                                    <div class="col-md-12 mb-3">
+                                        <label>Fecha: </label>
+                                        <input type="date" class="form-control" name="date" id="date">
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label>Cantidad: </label>
+                                        <input type="text" class="form-control" name="amount" id="amount">
+                                        <input type="hidden" name="service_id" id="service_id" value="{{ $serviceInfo->id }}">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="submit" value="Guardar" class="btn btn-primary" id="saveAbono">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                <p class="fs-7 fw-bolder text-uppercase text-muted">Listado de abonos</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Fecha</td>
+                                            <td class="text-end">Importe</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($abonosInfo as $item)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->date }}</td>
+                                                <td class="text-end">{{ '$'.number_format($item->amount,2) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -140,6 +191,26 @@
         $("#abono").on('click', function(button){
             button.preventDefault()
             $("#modalAbonos").modal('show')
+        })
+
+        $("#formCreateAbono").submit(function(form){
+            form.preventDefault()
+            var form = $(this)
+            var datos = form.serialize()
+
+            $.ajax({
+                url:'{{route('insert.abono')}}',
+                method: 'POST',
+                dataType: 'json',
+                data: datos,
+                success:function(response){
+                    $("#modalAbonos").modal('dispose')
+                },
+                error:function(error){
+                    console.log(error)
+                    $("#modalAbonos").modal('hide')
+                }
+            })
         })
     })
 </script>

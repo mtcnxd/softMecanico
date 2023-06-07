@@ -10,6 +10,7 @@
     --button-sidemenu-hover:#e6eff7;
     --table-header: #daedfc;
     --border-gray: #dadada;
+    --nav-height: 90px;
 }
 
 body {
@@ -30,7 +31,7 @@ body {
 
 .side-menu {
     position: relative;
-    top: 70px;
+    top: var(--nav-height);
 }
 
 .side-menu-list {
@@ -66,17 +67,23 @@ body {
 .main-nav {
     position: fixed;
     width: 100%;
-    min-height: 50px;
+    min-height: 75px;
     background-color: var(--background-sidebar);
     border-bottom: solid 1px var(--border-gray);
     z-index: 100;
+}
+
+.main-title {
+    padding: 18px;
+    padding-left: 48px;
+    margin: 0px;
 }
 
 .div-content {
     width: 97%;
     margin: 0px auto;
     position: relative;
-    top: 70px;
+    top: var(--nav-height);
 }
 
 .content {

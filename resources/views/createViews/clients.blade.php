@@ -1,14 +1,6 @@
 @extends('body')
 
 @section('content')
-<div class="div-content border-bottom pb-2 mb-4">
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Nuevo Servicio</h3>
-        </div>
-    </div>
-</div>
-
 <div class="div-content pb-2 mb-4">
     <form action="{{ route('clients.store') }}" method="POST">
         @csrf

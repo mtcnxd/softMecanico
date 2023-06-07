@@ -9,12 +9,12 @@
     <div class="div-content border-bottom pb-2 mb-4">
         <div class="row">
             <div class="col-md-6">
-                <h3>Agenda</h3>
+                <h4>Calendario</h4>
                 <span class="text-muted">Lista de eventos y servicios de mayo</span>
             </div>
             <div class="col text-end">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
                     <ul class="dropdown-menu shadow">
                         <li><a href="{{ route('calendar.create') }}" class="dropdown-item">Agregar Evento</a></li>
                     </ul>

@@ -59,7 +59,7 @@
 
             <div class="col-md-9">
                 <h4>Autos del cliente</h4>
-                <table class="table table-bordered mb-5" id="vehicles">
+                <table class="table mb-5" id="vehicles">
                     <thead class="text-uppercase fw-medium">
                         <th width="35px">#</th>
                         <th>Automovil</th>
@@ -78,7 +78,7 @@
                     </tbody>
                 </table>
                 <h4>Servicios realizados</h4>
-                <table class="table table-bordered" id="services">
+                <table class="table" id="services">
                     <thead class="text-uppercase fw-medium">
                         <th width="35px">#</th>
                         <th>Servicio</th>

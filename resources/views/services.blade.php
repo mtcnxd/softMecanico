@@ -21,7 +21,7 @@
 
     <div class="div-content">
         <div class="card p-4">
-            <table class="table table-striped" id="services">
+            <table class="table table-striped" id="mytable">
                 <thead>
                     <tr class="table-header">
                         <th>ID</th>
@@ -56,17 +56,9 @@
 @endsection
 
 @section('js')
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script>
-    $(document).ready(function () {
-        $('#services').DataTable({
-            "pageLength": 15,
-            "lengthMenu": [15, 30, 60, 100],
-            "order": [4, 'desc']
-        });
-    });
-    </script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+@include('includes.datatable')
 @endsection
 
 @section('css')

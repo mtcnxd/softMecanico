@@ -1,15 +1,20 @@
 @extends('body')
 
 @section('content')
+<div class="div-content border-bottom mb-3">
+    <div class="row">
+        <div class="col-md-6 p-0">
+            <h4>Nuevo vehiculo</h4>
+        </div>
+    </div>
+</div>
+
 <div class="div-content">
     <form action="{{ route('vehicles.store') }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-7 pl-0">
                 <div class="card p-0">
-                    <div class="card-header">
-                        <h5>Nuevo automovil</h5>
-                    </div>
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col-md-6">
@@ -29,7 +34,7 @@
                                         @endforeach
                                     </select>
                                     <span class="input-group-text" id="basic-addon2">
-                                        <a href="{{ route('models.index') }}" class="btn btn-icon">Crear</a>
+                                        <a href="{{ route('models.index') }}" class="btn btn-icon">Nuevo</a>
                                     </span>
                                 </div>
                             </div>

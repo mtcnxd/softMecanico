@@ -9,7 +9,7 @@
             </div>
             <div class="col text-end">
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
+                    <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
                     <ul class="dropdown-menu shadow">
                         <li><a href="{{ route('services.create') }}" class="dropdown-item">Nuevo servicio</a></li>
                         <li><a href="{{ route('egresos.create') }}" class="dropdown-item">Nuevo egreso</a></li>

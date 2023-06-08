@@ -26,7 +26,7 @@
                                 @endforeach
                             </select>
                             <span class="input-group-text" id="basic-addon2">
-                                <a href="{{ route('makes.index') }}" class="btn btn-icon">Crear</a>
+                                <a href="{{ route('makes.index') }}" class="btn btn-icon">Nuevo</a>
                             </span>
                         </div>
                     </div>

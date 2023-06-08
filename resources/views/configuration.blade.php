@@ -9,7 +9,7 @@
             </div>
             <div class="col text-end">
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
+                    <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
                     <ul class="dropdown-menu shadow">
                         <li><a href="{{ route('makes.index') }}" class="dropdown-item">Nueva marca</a></li>
                         <li><a href="{{ route('models.index') }}" class="dropdown-item">Nuevo modelo</a></li>
@@ -38,11 +38,13 @@
                     </div>
                     <div class="overflow-auto tbl-container">
                         <table class="table table-hover">
-                            <tr class="table-header">
-                                <td>ID</td>
-                                <td>Marca</td>
-                                <td></td>
-                            </tr>
+                            <thead>
+                                <tr class="table-header">
+                                    <td>ID</td>
+                                    <td>Marca</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
                             @foreach ($makes as $make)
                             <tr>
                                 <td>{{ $make->id }}</td>
@@ -77,12 +79,14 @@
                     </div>
                     <div class="overflow-auto tbl-container">
                         <table class="table table-hover">
-                            <tr class="table-header">
-                                <td>ID</td>
-                                <td>Marca</td>
-                                <td>Modelo</td>
-                                <td></td>
-                            </tr>
+                            <thead>
+                                <tr class="table-header">
+                                    <td>ID</td>
+                                    <td>Marca</td>
+                                    <td>Modelo</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
                             @foreach ($models as $model)
                             <tr>
                                 <td>{{ $model->id }}</td>
@@ -122,14 +126,16 @@
                     </div>
                     <div class="overflow-auto tbl-container">
                         <table class="table table-hover">
-                            <tr class="table-header">
-                                <td>ID</td>
-                                <td>Marca</td>
-                                <td>Modelo</td>
-                                <td>Automovil</td>
-                                <td>Cliente</td>
-                                <td></td>
-                            </tr>
+                            <thead>
+                                <tr class="table-header">
+                                    <td>ID</td>
+                                    <td>Marca</td>
+                                    <td>Modelo</td>
+                                    <td>Automovil</td>
+                                    <td>Cliente</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
                             @foreach ($vehicles as $vehicle)
                             <tr>
                                 <td>{{ $vehicle->id }}</td>
@@ -166,11 +172,13 @@
                     </div>
                     <div class="overflow-auto tbl-container">
                         <table class="table table-hover">
-                            <tr class="table-header">
-                                <td>#</td>
-                                <td>Servicio</td>
-                                <td>Precio</td>
-                            </tr>
+                            <thead>
+                                <tr class="table-header">
+                                    <td>#</td>
+                                    <td>Servicio</td>
+                                    <td>Precio</td>
+                                </tr>
+                            </thead>
                         </table>
                     </div>
                 </div>

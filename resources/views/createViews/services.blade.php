@@ -1,10 +1,10 @@
 @extends('body')
 
 @section('content')
-<div class="div-content border-bottom pb-2 mb-4">
+<div class="div-content border-bottom mb-3">
     <div class="row">
-        <div class="col-md-6">
-            <h3>Nuevo Servicio</h3>
+        <div class="col-md-6 p-0">
+            <h4>Nuevo servicio</h4>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
                                 <input type="hidden" name="client_id" id="client_id">
                                 <ul id="results_list"></ul>
                                 <span class="input-group-text" id="basic-addon2">
-                                    <a href="{{ route('clients.create') }}" class="btn btn-icon">Crear</a>
+                                    <a href="{{ route('clients.create') }}" class="btn btn-icon">Nuevo</a>
                                 </span>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                     <option>Seleccionar ... </option>
                                 </select>
                                 <span class="input-group-text" id="basic-addon2">
-                                    <a href="{{ route('vehicles.create') }}" class="btn btn-icon">Crear</a>
+                                    <a href="{{ route('vehicles.create') }}" class="btn btn-icon">Nuevo</a>
                                 </span>
                             </div>
                         </div>

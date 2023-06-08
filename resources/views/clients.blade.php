@@ -18,8 +18,8 @@
         </div>
     </div>
 
-    <div class="div-content">
-        <div class="card p-4">
+    <div class="div-content pb-4">
+        <div class="card shadow-sm p-4">
             <table class="table table-striped" id="mytable">
                 <thead>
                     <tr class="table-header">

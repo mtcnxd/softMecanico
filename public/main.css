@@ -228,6 +228,10 @@ table.dataTable {
     color: var(--text-black);
 }
 
+.card a:hover {
+    color: #0d6efd;
+}
+
 .card-transparent {
     border-radius: 5px;
     border: solid 1px var(--border-gray);

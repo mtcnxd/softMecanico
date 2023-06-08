@@ -30,19 +30,31 @@ use Carbon\Carbon;
 |
 */
 
-Route::resource('makes', makesController::class);
+Route::get('/', function () {
+    $clientsCount = Clients::get();
+    $services = Services::get();
+    $calendar = Calendar::where('status','Pendiente')->get();
 
-Route::resource('models', modelsController::class);
+    $pendingServices = array();
+    foreach ($services as $service) {
+        if ($service->status == 'Pendiente'){
+            $pendingServices[] = $service->price;
+        }
 
-Route::resource('clients', clientsController::class);
+        if ($service->status == 'Entregado'){
+            $totalIngresos[] = $service->price;
+        }
+    }
 
-Route::resource('services', servicesController::class);
-
-Route::resource('egresos', egresosController::class);
-
-Route::resource('vehicles', vehiclesController::class);
-
-Route::resource('calendar', calendarController::class);
+    $totalIngresos = array_sum($totalIngresos);
+    
+    return view('index', [
+        'clientsCount'  => count($clientsCount),
+        'ingresosTotal' => number_format($totalIngresos,2),
+        'calendarPending' => count($calendar),
+        'pendingServices' => count($pendingServices),
+    ]);
+})->name('index');
 
 Route::get('config', function () {
     $vehicles = Vehicles::select([
@@ -72,18 +84,6 @@ Route::get('clients', function () {
     ]);
 })->name('clients');
 
-Route::get('search/clients', [
-    searchController::class, 'searchClients'
-])->name('search.clients');
-
-Route::get('search/vehicles', [
-    searchController::class, 'searchVehicles'
-])->name('search.vehicles');
-
-Route::post('insert/abono', [
-    ajaxController::class,'insertAbono'
-])->name('insert.abono');
-
 Route::get('services', function () {
     $services = Services::select([
         'services.id',
@@ -95,25 +95,15 @@ Route::get('services', function () {
         'lastname',
         'services.created_at',
         'services.updated_at',
-        'aprox_price',
-        'real_price'
+        'price',
     ])->join('clients','services.client_id','=','clients.id')
+        ->orderby('created_at', 'asc')
         ->get();
         
     return view('services', [
         'services' => $services
     ]);
 })->name('service');
-
-Route::get('calendar', function () {
-    $calendar = Calendar::orderBy('date')
-        ->get();
-
-    return view('calendar', [
-        'calendar' => $calendar
-    ]);
-})->name('calendar');
-
 
 Route::get('reports', function () {
     $egresos  = Egresos::get();
@@ -126,7 +116,7 @@ Route::get('reports', function () {
     }
 
     foreach($ingresos as $row){
-        $totalIngresos += $row->real_price;
+        $totalIngresos += $row->price;
     }
 
     return view('reports', [
@@ -137,29 +127,43 @@ Route::get('reports', function () {
     ]);
 })->name('reports');
 
+Route::get('calendar', function () {
+    $calendar = Calendar::orderBy('date')
+        ->get();
 
-Route::get('/', function () {
-    $clientsCount = Clients::get();
-    $services = Services::get();
-    $calendar = Calendar::where('status','Pendiente')->get();
-
-    $pendingServices = array();
-    foreach ($services as $service) {
-        if ($service->status == 'Pendiente'){
-            $pendingServices[] = $service->aprox_price;
-        }
-
-        if ($service->status == 'Entregado'){
-            $totalIngresos[] = $service->real_price;
-        }
-    }
-
-    $totalIngresos = array_sum($totalIngresos);
-    
-    return view('index', [
-        'clientsCount'  => count($clientsCount),
-        'ingresosTotal' => number_format($totalIngresos,2),
-        'calendarPending' => count($calendar),
-        'pendingServices' => count($pendingServices),
+    return view('calendar', [
+        'calendar' => $calendar
     ]);
-})->name('index');
+})->name('calendar');
+
+
+Route::get('search/clients', [
+    searchController::class, 'searchClients'
+])->name('search.clients');
+
+Route::get('search/vehicles', [
+    searchController::class, 'searchVehicles'
+])->name('search.vehicles');
+
+Route::get('search/services', [
+    searchController::class, 'searchServices'
+])->name('search.services');
+
+Route::post('insert/abono', [
+    ajaxController::class,'insertAbono'
+])->name('insert.abono');
+
+
+Route::resource('makes', makesController::class);
+
+Route::resource('models', modelsController::class);
+
+Route::resource('clients', clientsController::class);
+
+Route::resource('services', servicesController::class);
+
+Route::resource('egresos', egresosController::class);
+
+Route::resource('vehicles', vehiclesController::class);
+
+Route::resource('calendar', calendarController::class);

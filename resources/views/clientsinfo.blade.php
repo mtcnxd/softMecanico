@@ -67,12 +67,16 @@
                         <th>Color</th>
                     </thead>
                     <tbody>
-                        @foreach ($vehiclesInfo as $k => $v)
+                        @foreach ($vehiclesInfo as $key => $item)
                             <tr>
-                                <td>{{ $k + 1 }}</td>
-                                <td>{{ $v->make }} {{ $v->name }}</td>
-                                <td>{{ $v->plate }}</td>
-                                <td>{{ $v->color }}</td>
+                                <td>{{ $key + 1 }}</td>
+                                <td>
+                                    <a href="#" data-client-id={{$client_id}} data-client-vehicle="{{ $item->make }} {{ $item->name }}">
+                                        {{ $item->make }} {{ $item->name }}
+                                    </a>
+                                </td>
+                                <td>{{ $item->plate }}</td>
+                                <td>{{ $item->color }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -101,4 +105,46 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('modal-content')
+    <ul id="result-list">
+    </ul>
+@endsection
+
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(document).ready(function(){
+        const vehicles = document.querySelectorAll("a[data-client-id]");
+
+        vehicles.forEach((item)=> {
+            item.addEventListener('click', button => {
+                button.preventDefault()
+                clientid = button.target.dataset.clientId
+                clientvehicle = button.target.dataset.clientVehicle
+
+                $.ajax({
+                    url: '{{ route('search.services') }}',
+                    data:{
+                        clientid:clientid,
+                        clientvehicle:clientvehicle
+                    },
+                    success:function(response){
+                        $("#result-list").empty()
+
+                        if(response.length < 1){
+                            $("#result-list").append('<li>El auto no tiene servicios registrados</li>')
+                        }
+
+                        response.forEach((item) => {
+                            $("#result-list").append('<li>' + item.service + ' (' + item.description + ') </li>')
+                        })
+                        $("#modal").modal('show')
+                    }
+                })
+            });
+        })    
+    })
+</script>
 @endsection

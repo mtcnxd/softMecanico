@@ -57,14 +57,6 @@
                             <textarea class="form-control" name="comment" disabled>{{ $serviceInfo->description }}</textarea>
                             <input type="hidden" name="status" value="Pendiente">
                         </div>
-
-                        <div class="col-md-6">
-                            <label>Precio aproximado</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" name="price" value="{{ $serviceInfo->aprox_price }}" disabled>
-                            </div>
-                        </div>
                     </div>
                 </div> 
             </div>
@@ -79,9 +71,9 @@
                 <div class="card">
                     <div class="card-body row">
                         <div class="col-md-6">
-                            <label>Precio real</label>
+                            <label>Importe</label>
                             <div class="input-group mb-3"   >
-                                <input type="text" class="form-control" name="real_price" id="real_price" value="{{ $serviceInfo->real_price }}">
+                                <input type="text" class="form-control" name="price" id="price" value="{{ $serviceInfo->price }}">
                                 <ul id="results_list"></ul>
                                 <span class="input-group-text" id="basic-addon2">
                                     <a href="#" id="abono" class="btn btn-icon">Abono</a>

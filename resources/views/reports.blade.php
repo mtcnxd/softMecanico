@@ -36,7 +36,7 @@
                             <td>{{ $item->service }}</td>
                             <td>{{ $item->description }}</td>
                             <td>{{ $item->created_at }}</td>
-                            <td class="text-end">$ {{ number_format($item->real_price, 2) }}</td>
+                            <td class="text-end">$ {{ number_format($item->price, 2) }}</td>
                         </tr>
                     @endforeach
                 </tbody>

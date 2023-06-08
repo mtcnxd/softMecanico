@@ -86,8 +86,7 @@
                             <label>Precio aproximado</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" name="aprox_price">
-                                <span class="input-group-text">.00</span>
+                                <input type="text" class="form-control" name="price">
                             </div>
                         </div>
     

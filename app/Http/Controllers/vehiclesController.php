@@ -29,7 +29,7 @@ class vehiclesController extends Controller
      */
     public function create()
     {
-        $models = Models::orderBy('make','asc')->get();
+        $models  = Models::orderBy('make','asc')->get();
         $clients = Clients::orderBy('firstname')->get();
 
         return view('createViews.vehicle', [
@@ -53,7 +53,11 @@ class vehiclesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $vehicle = Vehicles::where('model_id', $id)
+            ->where('client_id', 7)
+            ->first();
+
+        dd($vehicle);
     }
 
     /**

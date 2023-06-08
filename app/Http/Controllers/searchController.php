@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clients;
 use App\Models\Vehicles;
+use App\Models\Services;
 use App\Models\Models;
 
 class searchController extends Controller
@@ -40,5 +41,17 @@ class searchController extends Controller
         }
 
         return $data;
+    }
+
+    public function searchServices(Request $request){
+        $results = array();
+        $clientid = $request->get('clientid');
+        $clientvehicle = $request->get('clientvehicle');
+
+        $results = Services::where('client_id', $clientid)
+            ->where('vehicle',$clientvehicle)
+            ->get();
+
+        return $results;
     }
 }

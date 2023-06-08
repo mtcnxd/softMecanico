@@ -54,6 +54,7 @@ class clientsController extends Controller
             'clientInfo'  => $clientInfo,
             'serviceInfo' => $serviceInfo,
             'vehiclesInfo' => $vehiclesInfo,
+            'client_id'    => $id
         ]);
     }
 

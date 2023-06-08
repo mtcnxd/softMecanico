@@ -31,8 +31,7 @@
                         <th>Estatus</th>
                         <th>Fecha Alta</th>
                         <th>Dias</th>
-                        <th class="text-end">Precio aprox.</th>
-                        <th class="text-end">Precio real.</th>
+                        <th class="text-end">Precio.</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,8 +44,7 @@
                         <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
                         <td>{{ \Carbon\Carbon::parse($service->created_at)->format('d-m-Y') }}</td>
                         <td>{{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($service->created_at)) }} dias</td>
-                        <td class="text-end">$ {{ number_format($service->aprox_price, 2) }}</td>
-                        <td class="text-end fw-semibold">$ {{ number_format($service->real_price, 2) }}</td>
+                        <td class="text-end fw-semibold">$ {{ number_format($service->price, 2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

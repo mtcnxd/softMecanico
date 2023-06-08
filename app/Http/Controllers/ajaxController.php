@@ -9,7 +9,6 @@ class ajaxController extends Controller
 {
     public function insertAbono(Request $request)
     {
-
         $date   = $request->input('date');
         $amount = $request->input('amount');
         $service_id = $request->input('service_id');

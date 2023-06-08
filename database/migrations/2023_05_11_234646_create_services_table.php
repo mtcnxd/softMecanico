@@ -20,8 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->text('comment')->nullable();
             $table->string('status');
-            $table->float('aprox_price')->nullable();
-            $table->float('real_price')->nullable();
+            $table->float('price')->nullable();
             $table->timestamps();
         });
     }

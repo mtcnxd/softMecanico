@@ -30,6 +30,21 @@ use Carbon\Carbon;
 |
 */
 
+Route::resource('makes', makesController::class);
+
+Route::resource('models', modelsController::class);
+
+Route::resource('clients', clientsController::class);
+
+Route::resource('services', servicesController::class);
+
+Route::resource('egresos', egresosController::class);
+
+Route::resource('vehicles', vehiclesController::class);
+
+Route::resource('calendar', calendarController::class);
+
+
 Route::get('/', function () {
     $clientsCount = Clients::get();
     $services = Services::get();
@@ -152,18 +167,3 @@ Route::get('search/services', [
 Route::post('insert/abono', [
     ajaxController::class,'insertAbono'
 ])->name('insert.abono');
-
-
-Route::resource('makes', makesController::class);
-
-Route::resource('models', modelsController::class);
-
-Route::resource('clients', clientsController::class);
-
-Route::resource('services', servicesController::class);
-
-Route::resource('egresos', egresosController::class);
-
-Route::resource('vehicles', vehiclesController::class);
-
-Route::resource('calendar', calendarController::class);

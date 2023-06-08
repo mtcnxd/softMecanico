@@ -10,7 +10,7 @@
 
     <div class="div-content">
         <div class="card p-4">
-            <table class="table table-striped" id="mytable">
+            <table class="table table-hover table-borderless" id="mytable">
                 <thead>
                     <tr class="table-header">
                         <th>ID</th>

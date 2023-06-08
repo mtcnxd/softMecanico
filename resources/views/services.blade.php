@@ -21,7 +21,7 @@
 
     <div class="div-content">
         <div class="card p-4">
-            <table class="table table-striped" id="mytable">
+            <table class="table table-hover table-borderless" id="mytable">
                 <thead>
                     <tr class="table-header">
                         <th>ID</th>
@@ -45,7 +45,7 @@
                         <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
                         <td>{{ \Carbon\Carbon::parse($service->created_at)->format('d-m-Y') }}</td>
                         <td>{{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($service->created_at)) }} dias</td>
-                        <td class="text-end fw-semibold">$ {{ number_format($service->aprox_price, 2) }}</td>
+                        <td class="text-end">$ {{ number_format($service->aprox_price, 2) }}</td>
                         <td class="text-end fw-semibold">$ {{ number_format($service->real_price, 2) }}</td>
                     </tr>
                 @endforeach

@@ -131,7 +131,7 @@ table.dataTable {
 }
 
 .table-header {
-    background-color: #DDD;
+    background-color: var(--background-sidebar);
     text-transform: uppercase;
     font-size: 11px;
     font-weight: bold;

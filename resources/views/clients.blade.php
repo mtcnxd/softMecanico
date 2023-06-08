@@ -20,7 +20,7 @@
 
     <div class="div-content pb-4">
         <div class="card shadow-sm p-4">
-            <table class="table table-striped" id="mytable">
+            <table class="table table-hover table-borderless" id="mytable">
                 <thead>
                     <tr class="table-header">
                         <th>ID</th>

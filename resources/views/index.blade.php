@@ -8,10 +8,10 @@
         </div>
     </div>
 
-    <div class="div-content">
+    <div class="div-content mb-3">
         <div class="row">
             <div class="col-md-3">
-                <div class="card shadow">
+                <div class="card shadow-sm">
                     <a href="{{ route('reports') }}">
                         <div class="card-body text-center">
                             <p class="card-title">Ingresos del mes</p>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card shadow">
+                <div class="card shadow-sm">
                     <a href="{{ route('clients') }}">
                         <div class="card-body text-center">
                             <p class="card-title">Clientes activos</p>
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card shadow">
+                <div class="card shadow-sm">
                     <a href="{{ route('service') }}">
                         <div class="card-body text-center">
                             <p class="card-title">Servicios Pendientes</p>
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card shadow">
+                <div class="card shadow-sm">
                     <a href="{{ route('calendar') }}">
                         <div class="card-body text-center">
                             <p class="card-title">Pendientes en la agenda</p>
@@ -79,5 +79,24 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+    
+    <div class="div-content">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>User</td>
+                                <td>Sesion</td>
+                                <td>Date</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label>Telefono</label>
+                            <label class="form-label">Telefono</label>
                             <input type="text" class="form-control" name="phone" id="phone">
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label>Kilometraje</label>
+                            <label class="form-label">Kilometraje</label>
                             <input type="text" class="form-control" name="mileage">
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="col-md-12">
-                            <label>Servicio</label>
+                            <label class="form-label">Servicio</label>
                             <div class="input-group mb-3">
                                 <select class="form-select" name="service">
                                     <option>Frenos</option>
@@ -77,13 +77,13 @@
                         </div>
     
                         <div class="col-md-12 mb-3">
-                            <label>Descripcion</label>
+                            <label class="form-label">Descripcion</label>
                             <textarea class="form-control" name="description"></textarea>
                             <input type="hidden" name="status" value="Pendiente">
                         </div>
     
                         <div class="col-md-3">
-                            <label>Precio aproximado</label>
+                            <label class="form-label">Importe</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">$</span>
                                 <input type="text" class="form-control" name="price">

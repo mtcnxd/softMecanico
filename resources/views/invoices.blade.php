@@ -4,8 +4,8 @@
     <div class="div-content border-bottom pb-2 mb-4">
         <div class="row">
             <div class="col-md-6">
-                <h4>Servicios</h4>
-                <span class="text-muted">Resumen de movimientos de la semana en curso</span>
+                <h4>Facturas</h4>
+                <span class="text-muted">Facturas de servicios</span>
             </div>
             <div class="col text-end">
                 <div class="dropdown">
@@ -24,27 +24,23 @@
             <table class="table table-hover table-borderless" id="mytable">
                 <thead>
                     <tr class="table-header">
-                        <th width="70px">Servicio</th>
-                        <th>Vehiculo</th>
-                        <th>Servicio</th>
+                        <th width="70px">Factura</th>
                         <th>Cliente</th>
+                        <th>Servicio</th>
                         <th>Estatus</th>
-                        <th>Fecha Alta</th>
-                        <th>Dias</th>
+                        <th>Fecha</th>
                         <th class="text-end">Importe</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($services as $service)
+                @foreach ($invoices as $invoice)
                     <tr>
-                        <td>{{ $service->id }}</td>
-                        <td><a href="{{ route('services.edit', $service) }}">{{ $service->vehicle }}</a></td>
-                        <td>{{ $service->service }}</td>
-                        <td><a href="{{ route('clients.show',$service->client_id) }}">{{ $service->firstname ." ". $service->lastname }}</a></td>
-                        <td><span class="span-{{ strtolower($service->status) }}">{{ $service->status }}</span></td>
-                        <td>{{ \Carbon\Carbon::parse($service->created_at)->format('d-m-Y') }}</td>
-                        <td>{{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($service->created_at)) }} dias</td>
-                        <td class="text-end fw-semibold">$ {{ number_format($service->price, 2) }}</td>
+                        <td>{{ $invoice->id }}</td>
+                        <td>{{ $client->firstname ." ". $client->lastname }}</td>
+                        <td><a href="{{ route('services.edit', $invoice->service_id) }}">{{ $invoice->service_id }}</a></td>
+                        <td><span class="span-{{ strtolower($invoice->status) }}">{{ $invoice->status }}</span></td>
+                        <td>{{ $invoice->created_at }}</td>
+                        <td class="text-end fw-semibold">{{ '$'.number_format($invoice->price,2) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -14,11 +14,11 @@
                 <div class="card-transparent">
                     <div class="card-body row">
                         <div class="col-md-12 mb-3">
-                            <label>Cliente</label>
+                            <label class="form-label">Cliente</label>
                             <input type="text" class="form-control" name="client_name" id="client_name" value="{{$serviceInfo->firstname}} {{$serviceInfo->lastname}}" disabled>
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label>Telefono</label>
+                            <label class="form-label">Telefono</label>
                             <input type="text" class="form-control" name="phone" id="phone" value="{{$serviceInfo->phone}}" disabled>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                             <input type="text" class="form-control" name="vehicle" id="vehicle" value="{{ $serviceInfo->vehicle }}" disabled>
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label>Kilometraje</label>
+                            <label class="form-label">Kilometraje</label>
                             <input type="text" class="form-control" name="mileage" value="{{ $serviceInfo->mileage }}" disabled>
                         </div>
                     </div>
@@ -46,14 +46,14 @@
                 <div class="card-transparent">
                     <div class="card-body row">
                         <div class="col-md-12">
-                            <label>Servicio</label>
+                            <label class="form-label">Servicio</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" name="service" value="{{ $serviceInfo->service }}" disabled>
                             </div>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label>Comentarios</label>
+                            <label class="form-label">Comentarios</label>
                             <textarea class="form-control" name="comment" disabled>{{ $serviceInfo->description }}</textarea>
                             <input type="hidden" name="status" value="Pendiente">
                         </div>
@@ -71,7 +71,7 @@
                 <div class="card">
                     <div class="card-body row">
                         <div class="col-md-6">
-                            <label>Importe</label>
+                            <label class="form-label">Importe</label>
                             <div class="input-group mb-3"   >
                                 <input type="text" class="form-control" name="price" id="price" value="{{ $serviceInfo->price }}">
                                 <ul id="results_list"></ul>
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label>Status</label>
+                            <label class="form-label">Status</label>
                             <select class="form-select" name="status">
                                 @foreach ($status as $item)
                                     @if ($serviceInfo->status == $item)
@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label>Comentarios</label>
+                            <label class="form-label">Comentarios</label>
                             <textarea class="form-control" name="comment">{{ $serviceInfo->comment }}</textarea>
                         </div>
     
@@ -109,7 +109,6 @@
     </form>    
 @endsection
 
-<!-- Modal -->
 <div class="modal fade" id="modalAbonos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -134,11 +133,11 @@
                                 <form id="formCreateAbono">
                                     @csrf
                                     <div class="col-md-12 mb-3">
-                                        <label>Fecha: </label>
+                                        <label>Fecha del abono: </label>
                                         <input type="date" class="form-control" name="date" id="date">
                                     </div>
                                     <div class="col-md-12 mb-3">
-                                        <label>Cantidad: </label>
+                                        <label>Importe del abono: </label>
                                         <input type="text" class="form-control" name="amount" id="amount">
                                         <input type="hidden" name="service_id" id="service_id" value="{{ $serviceInfo->id }}">
                                     </div>

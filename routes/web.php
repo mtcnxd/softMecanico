@@ -17,6 +17,7 @@ use App\Models\Vehicles;
 use App\Models\Services;
 use App\Models\Calendar;
 use App\Models\Egresos;
+use App\Models\Invoices;
 use Carbon\Carbon;
 
 /*
@@ -50,6 +51,7 @@ Route::get('/', function () {
     $services = Services::get();
     $calendar = Calendar::where('status','Pendiente')->get();
 
+    $totalIngresos = array();
     $pendingServices = array();
     foreach ($services as $service) {
         if ($service->status == 'Pendiente'){
@@ -80,10 +82,10 @@ Route::get('config', function () {
             'clients.firstname',
             'clients.lastname'
         ])->join('models','models.id','=','vehicles.model_id')
-            ->join('clients','clients.id','=','vehicles.client_id')
-            ->orderBy('vehicles.id','desc')
-            ->take(5)
-            ->get();
+          ->join('clients','clients.id','=','vehicles.client_id')
+          ->orderBy('vehicles.id','desc')
+          ->take(5)
+          ->get();
 
     return view('configuration', [
         'makes'  => Makes::orderBy('id','desc')->take(5)->get(),
@@ -119,6 +121,16 @@ Route::get('services', function () {
         'services' => $services
     ]);
 })->name('service');
+
+Route::get('invoices', function () {
+    $invoices = Invoices::get();
+    $client   = Invoices::join('clients','invoices.client_id','=','clients.id')->first();
+
+    return view('invoices', [
+        'invoices' => $invoices,
+        'client'   => $client
+    ]);
+})->name('invoices');
 
 Route::get('reports', function () {
     $egresos  = Egresos::get();

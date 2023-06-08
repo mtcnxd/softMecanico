@@ -23,7 +23,7 @@
             <table class="table table-hover table-borderless" id="mytable">
                 <thead>
                     <tr class="table-header">
-                        <th>ID</th>
+                        <th width="70px">Cliente</th>
                         <th>Nombre</th>
                         <th>Dirección</th>
                         <th>Colonia</th>

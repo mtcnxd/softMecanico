@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Services;
+use App\Models\Invoices;
 use App\Models\Ingresos;
 
 class servicesController extends Controller
@@ -29,7 +30,15 @@ class servicesController extends Controller
      */
     public function store(Request $request)
     {
-        Services::create($request->all());
+        $result = Services::create($request->all());
+
+        Invoices::create([
+            'client_id'  => $request->client_id,
+            'service_id' => $result->id,
+            'status' => 'Pendiente',
+            'price'  => $request->price,
+        ]);
+
         return to_route('service');
     }
 

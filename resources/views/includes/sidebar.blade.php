@@ -18,6 +18,10 @@
                 <a href="{{ route('reports') }}">Reportes</a>
             </li>
             <li class="side-menu-item">
+                <x-feathericon-dollar-sign style="height:20px"/>
+                <a href="{{ route('invoices') }}">Facturas</a>
+            </li>
+            <li class="side-menu-item">
                 <x-feathericon-calendar style="height:20px"/>
                 <a href="{{ route('calendar') }}">Calendario</a>
             </li>

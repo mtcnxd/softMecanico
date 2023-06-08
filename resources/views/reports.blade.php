@@ -9,7 +9,7 @@
     </div>
 
     <div class="div-content">
-        <div class="card p-4">
+        <div class="card">
             <table class="table table-hover table-borderless" id="mytable">
                 <thead>
                     <tr class="table-header">
@@ -41,7 +41,6 @@
                     @endforeach
                 </tbody>
             </table>
-
             <div class="row">
                 <div class="col-md-4 text-center p-2">
                     <div class="card-transparent card-stats-2">

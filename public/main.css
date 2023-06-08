@@ -13,6 +13,10 @@
     --nav-height: 90px;
 }
 
+hr {
+    border-color: #777;
+}
+
 body {
     background-color: var(--background-main) !important;
     font-family: 'Roboto', sans-serif;
@@ -135,6 +139,18 @@ table.dataTable {
     text-transform: uppercase;
     font-size: 11px;
     font-weight: bold;
+}
+
+#mytable_filter, #mytable_length {
+    padding: 20px;
+    margin: 0px;
+}
+
+#mytable_info, #mytable_paginate {
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
 }
 
 .tbl-container {

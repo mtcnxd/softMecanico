@@ -19,7 +19,7 @@
     </div>
 
     <div class="div-content pb-4">
-        <div class="card shadow-sm p-4">
+        <div class="card shadow-sm">
             <table class="table table-hover table-borderless" id="mytable">
                 <thead>
                     <tr class="table-header">

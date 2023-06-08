@@ -63,15 +63,18 @@ class clientsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('editViews.clients', [
+            'client' => Clients::find($id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Clients $client)
     {
-        //
+        $client->update($request->all());
+        return to_route('clients');
     }
 
     /**

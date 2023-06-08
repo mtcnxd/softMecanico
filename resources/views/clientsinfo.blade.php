@@ -20,6 +20,9 @@
                             <div class="col" style="padding-top: 20px">
                                 <h5>{{ $clientInfo->firstname }} {{ $clientInfo->lastname }}</h5>
                             </div>
+                            <div class="text-end">
+                                <a href="{{ route('clients.edit', $clientInfo) }}">Editar</a>
+                            </div>                            
                         </div>
                     </div>
                 </div>

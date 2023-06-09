@@ -47,9 +47,9 @@ class servicesController extends Controller
      */
     public function show(string $id)
     {
-        $serviceInfo = Services::join('clients','clients.id','=','services.client_id')->where('services.id', $id)->first();
+        $service = Services::join('clients','clients.id','=','services.client_id')->where('services.id', $id)->first();
         return view('editViews.services', [
-            'serviceInfo' => $serviceInfo
+            'serviceInfo' => $service
         ]);
     }
 
@@ -58,19 +58,24 @@ class servicesController extends Controller
      */
     public function edit(string $id)
     {
-        $serviceInfo = Services::select('services.*','clients.firstname','clients.lastname','clients.phone')
+        $service = Services::select('services.*','clients.firstname','clients.lastname','clients.phone')
             ->join('clients','clients.id','=','services.client_id')
             ->where('services.id', $id)
             ->first();
-
+        
+        $totalAbonos = 0;
         $abonos = Ingresos::where('invoice_id', $id)->get();
+        foreach($abonos as $abono){
+            $totalAbonos += $abono->amount;
+        }
 
         $status = ['Pendiente','Refacciones','Finalizado','Entregado'];
 
         return view('editViews.services', [
-            'serviceInfo' => $serviceInfo,
+            'serviceInfo' => $service,
             'abonosInfo'  => $abonos,
-            'status'      => $status
+            'totalAbonos' => $totalAbonos,
+            'status'      => $status,
         ]);
     }
 
@@ -79,8 +84,13 @@ class servicesController extends Controller
      */
     public function update(Request $request, Services $service)
     {
-        //dd($request);
-        $result = $service->update($request->all());
+        if($request->status == 'Entregado'){
+            Invoices::where('id',$service->id)->update([
+                'status' => 'Pagado'
+            ]);
+        }
+
+        $service->update($request->all());
         return to_route('service');
     }
 

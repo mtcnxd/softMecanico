@@ -1,10 +1,11 @@
 @extends('body')
 
 @section('content')
-<div class="div-content border-bottom mb-3">
+<div class="div-content pb-2 mb-2">
     <div class="row">
-        <div class="col-md-6 p-0">
+        <div class="col-md-6">
             <h4>Nuevo servicio</h4>
+            <span class="text-muted">Resumen de movimientos de la semana en curso</span>
         </div>
     </div>
 </div>

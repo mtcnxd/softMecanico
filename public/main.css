@@ -139,6 +139,10 @@ table.dataTable {
     margin: 10px auto;
 }
 
+.paginate_button {
+    border-radius:25px !important;
+}
+
 .table-header {
     background-color: var(--table-header);
     text-transform: uppercase;
@@ -302,7 +306,7 @@ table.dataTable {
     font-size: 15px;
 }
 
-.span-pendiente, .span-finalizado, .span-entregado, .span-cancelado, .span-refacciones, .span-abono{
+.span-pendiente, .span-finalizado, .span-entregado, .span-cancelado, .span-refacciones, .span-abono, .span-pagado {
     color: var(--text-black);
     background-color: var(--theme-danger);
     border-radius: 5px;
@@ -324,7 +328,7 @@ table.dataTable {
     border: solid 1px var(--theme-warning-dark);
 }
 
-.span-finalizado {
+.span-finalizado, .span-pagado {
     background-color: var(--theme-success);
     border: solid 1px var(--theme-success-dark);
 }

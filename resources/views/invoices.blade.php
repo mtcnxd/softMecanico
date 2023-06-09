@@ -1,7 +1,7 @@
 @extends('body')
 
 @section('content')
-    <div class="div-content border-bottom pb-2 mb-4">
+    <div class="div-content pb-2 mb-2">
         <div class="row">
             <div class="col-md-6">
                 <h4>Facturas</h4>
@@ -27,8 +27,8 @@
                         <th width="70px">Factura</th>
                         <th>Servicio</th>
                         <th>Cliente</th>
-                        <th>Estatus</th>
                         <th>Fecha</th>
+                        <th>Estatus</th>
                         <th class="text-end">Importe</th>
                     </tr>
                 </thead>
@@ -38,8 +38,8 @@
                         <td>{{ $invoice->id }}</td>
                         <td><a href="{{ route('services.edit', $invoice->service_id) }}">#{{ $invoice->service_id }}</a></td>
                         <td>{{ $invoice->firstname ." ". $invoice->lastname }}</td>
-                        <td><span class="span-{{ strtolower($invoice->status) }}">{{ $invoice->status }}</span></td>
                         <td>{{ $invoice->created_at }}</td>
+                        <td><span class="span-{{ strtolower($invoice->status) }}">{{ $invoice->status }}</span></td>
                         <td class="text-end fw-semibold">{{ '$'.number_format($invoice->price,2) }}</td>
                     </tr>
                 @endforeach

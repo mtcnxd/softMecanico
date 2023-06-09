@@ -15,7 +15,7 @@
                     <div class="card-body row">
                         <div class="col-md-12 mb-3">
                             <label class="form-label">Cliente</label>
-                            <input type="text" class="form-control" name="client_name" id="client_name" value="{{$serviceInfo->firstname}} {{$serviceInfo->lastname}}" disabled>
+                            <input type="text" class="form-control" name="client_name" id="client_name" value="{{$serviceInfo->firstname." ".$serviceInfo->lastname}}" disabled>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label class="form-label">Telefono</label>
@@ -70,18 +70,26 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label class="form-label">Importe</label>
-                            <div class="input-group mb-3"   >
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
                                 <input type="text" class="form-control" name="price" id="price" value="{{ $serviceInfo->price }}">
-                                <ul id="results_list"></ul>
                                 <span class="input-group-text" id="basic-addon2">
                                     <a href="#" id="abono" class="btn btn-icon">Abono</a>
                                 </span>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <label class="form-label">Saldo</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" value="{{ $serviceInfo->price - $totalAbonos }}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
                             <label class="form-label">Status</label>
                             <select class="form-select" name="status">
                                 @foreach ($status as $item)
@@ -134,7 +142,7 @@
                                     @csrf
                                     <div class="col-md-12 mb-3">
                                         <label class="form-label">Fecha del abono: </label>
-                                        <input type="date" class="form-control" name="date" id="date">
+                                        <input type="date" class="form-control" name="date" id="date" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label class="form-label">Importe del abono: </label>
@@ -150,19 +158,24 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <td>#</td>
-                                            <td>Fecha</td>
-                                            <td class="text-end">Importe</td>
+                                            <th>#</th>
+                                            <th>Fecha</th>
+                                            <th class="text-end">Importe</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($abonosInfo as $item)
-                                            <tr>
-                                                <td>{{ $item->id }}</td>
-                                                <td>{{ $item->date }}</td>
-                                                <td class="text-end">{{ '$'.number_format($item->amount,2) }}</td>
-                                            </tr>
-                                        @endforeach
+                                    @foreach ($abonosInfo as $item)
+                                        <tr>
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->date }}</td>
+                                            <td class="text-end">$ {{ number_format($item->amount,2) }}</td>
+                                        </tr>
+                                    @endforeach
+                                        <tr>
+                                            <td class="border-0">&nbsp;</td>
+                                            <td class="border-0">&nbsp;</td>
+                                            <td class="border-0 text-end fw-semibold">$ {{ number_format($totalAbonos,2) }}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

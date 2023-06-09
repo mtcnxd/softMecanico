@@ -1,7 +1,7 @@
 @extends('body')
 
 @section('content')
-    <div class="div-content border-bottom pb-2 mb-4">
+    <div class="div-content pb-2 mb-2">
         <div class="row">
             <div class="col-md-6">
                 <h4>Servicios</h4>

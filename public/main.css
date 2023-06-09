@@ -14,7 +14,8 @@
     --theme-warning-dark: #ffcc85;
     --theme-cancelled: #e3e6ed;
     --theme-cancelled-dark: #cbd0dd;
-    --theme-alert: #ffe0db;
+    --theme-danger: #ffe0db;
+    --theme-danger-dark: #fabcb3;
 }
 
 hr {
@@ -301,16 +302,21 @@ table.dataTable {
     font-size: 15px;
 }
 
-.span-pendiente, .span-finalizado, .span-entregado, .span-cancelado, .span-refacciones{
+.span-pendiente, .span-finalizado, .span-entregado, .span-cancelado, .span-refacciones, .span-abono{
     color: var(--text-black);
-    background-color: var(--theme-warning);
+    background-color: var(--theme-danger);
     border-radius: 5px;
-    border: solid 1px var(--theme-warning-dark);
+    border: solid 1px var(--theme-danger-dark);
     font-weight: 500;
     font-size: 12px;
     padding: 4px;
     padding-left: 6px;
     padding-right: 6px;
+}
+
+.span-abono {
+    background-color: var(--theme-warning);
+    border: solid 1px var(--theme-warning-dark);
 }
 
 .span-refacciones {

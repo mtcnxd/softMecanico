@@ -11,6 +11,7 @@ class Services extends Model
     
     protected $fillable = [
         "client_id",
+        "invoice_id",
         "vehicle",
         "mileage",
         "service",

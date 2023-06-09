@@ -25,8 +25,8 @@
                 <thead>
                     <tr class="table-header">
                         <th width="70px">Factura</th>
-                        <th>Cliente</th>
                         <th>Servicio</th>
+                        <th>Cliente</th>
                         <th>Estatus</th>
                         <th>Fecha</th>
                         <th class="text-end">Importe</th>
@@ -36,8 +36,8 @@
                 @foreach ($invoices as $invoice)
                     <tr>
                         <td>{{ $invoice->id }}</td>
-                        <td>{{ $client->firstname ." ". $client->lastname }}</td>
-                        <td><a href="{{ route('services.edit', $invoice->service_id) }}">{{ $invoice->service_id }}</a></td>
+                        <td><a href="{{ route('services.edit', $invoice->service_id) }}">#{{ $invoice->service_id }}</a></td>
+                        <td>{{ $invoice->firstname ." ". $invoice->lastname }}</td>
                         <td><span class="span-{{ strtolower($invoice->status) }}">{{ $invoice->status }}</span></td>
                         <td>{{ $invoice->created_at }}</td>
                         <td class="text-end fw-semibold">{{ '$'.number_format($invoice->price,2) }}</td>

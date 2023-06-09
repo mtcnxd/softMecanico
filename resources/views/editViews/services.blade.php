@@ -133,13 +133,13 @@
                                 <form id="formCreateAbono">
                                     @csrf
                                     <div class="col-md-12 mb-3">
-                                        <label>Fecha del abono: </label>
+                                        <label class="form-label">Fecha del abono: </label>
                                         <input type="date" class="form-control" name="date" id="date">
                                     </div>
                                     <div class="col-md-12 mb-3">
-                                        <label>Importe del abono: </label>
+                                        <label class="form-label">Importe del abono: </label>
                                         <input type="text" class="form-control" name="amount" id="amount">
-                                        <input type="hidden" name="service_id" id="service_id" value="{{ $serviceInfo->id }}">
+                                        <input type="hidden" name="invoice_id" id="service_id" value="{{ $serviceInfo->id }}">
                                     </div>
                                     <div class="col-md-12">
                                         <input type="submit" value="Guardar" class="btn btn-primary" id="saveAbono">
@@ -147,7 +147,6 @@
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                <p class="fs-7 fw-bolder text-uppercase text-muted">Listado de abonos</p>
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -195,7 +194,8 @@
                 dataType: 'json',
                 data: datos,
                 success:function(response){
-                    $("#modalAbonos").modal('dispose')
+                    console.log(response)
+                    $("#modalAbonos").modal('hide')
                 },
                 error:function(error){
                     console.log(error)

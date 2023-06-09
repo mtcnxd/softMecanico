@@ -123,12 +123,11 @@ Route::get('services', function () {
 })->name('service');
 
 Route::get('invoices', function () {
-    $invoices = Invoices::get();
-    $client   = Invoices::join('clients','invoices.client_id','=','clients.id')->first();
+    $invoices = Invoices::select('invoices.*','clients.firstname','clients.lastname')
+        ->join('clients','invoices.client_id','=','clients.id')->get();
 
     return view('invoices', [
         'invoices' => $invoices,
-        'client'   => $client
     ]);
 })->name('invoices');
 

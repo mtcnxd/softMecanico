@@ -32,7 +32,7 @@ class servicesController extends Controller
     {
         $result = Services::create($request->all());
 
-        Invoices::create([
+        $invoiceData = Invoices::create([
             'client_id'  => $request->client_id,
             'service_id' => $result->id,
             'status' => 'Pendiente',
@@ -63,13 +63,13 @@ class servicesController extends Controller
             ->where('services.id', $id)
             ->first();
 
-        $abonosInfo = Ingresos::where('service_id', $id)->get();
+        $abonos = Ingresos::where('invoice_id', $id)->get();
 
         $status = ['Pendiente','Refacciones','Finalizado','Entregado'];
 
         return view('editViews.services', [
             'serviceInfo' => $serviceInfo,
-            'abonosInfo'  => $abonosInfo,
+            'abonosInfo'  => $abonos,
             'status'      => $status
         ]);
     }

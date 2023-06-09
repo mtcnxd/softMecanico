@@ -12,6 +12,6 @@ class Ingresos extends Model
     protected $fillable = [
         "date",
         "amount",
-        "service_id",
+        "invoice_id",
     ];
 }

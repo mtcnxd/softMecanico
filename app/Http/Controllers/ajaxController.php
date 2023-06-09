@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ingresos;
+use App\Models\Invoices;
 
 class ajaxController extends Controller
 {
@@ -11,10 +12,14 @@ class ajaxController extends Controller
     {
         $date   = $request->input('date');
         $amount = $request->input('amount');
-        $service_id = $request->input('service_id');
+        $invoice_id = $request->input('invoice_id');
 
         Ingresos::create($request->all());
 
-        return "Created success!";
+        $result = Invoices::where('id', $invoice_id)->update([
+            'status' => 'Abono'
+        ]);
+
+        return $result;
     }
 }

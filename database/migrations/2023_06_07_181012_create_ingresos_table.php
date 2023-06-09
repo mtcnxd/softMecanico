@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('ingresos', function (Blueprint $table) {
             $table->id();
-            $table->string('service_id');
+            $table->string('invoice_id');
             $table->string('status');
             $table->double('amount');
-            $table->date('date');
             $table->timestamps();
         });
     }

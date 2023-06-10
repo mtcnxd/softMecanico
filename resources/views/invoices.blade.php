@@ -30,6 +30,7 @@
                         <th>Fecha</th>
                         <th>Estatus</th>
                         <th class="text-end">Importe</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,9 @@
                         <td>{{ $invoice->created_at }}</td>
                         <td><span class="span-{{ strtolower($invoice->status) }}">{{ $invoice->status }}</span></td>
                         <td class="text-end fw-semibold">{{ '$'.number_format($invoice->price,2) }}</td>
+                        <td class="text-end">
+                            <a href="{{ url('viewInvoice', ["invoice"=>$invoice]) }}"><x-feathericon-eye style="height:20px"/></a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -162,6 +162,11 @@ Route::get('calendar', function () {
     ]);
 })->name('calendar');
 
+Route::get('viewInvoice/{id}', function ($id) {
+    return view('editViews.invoices', [
+        'invoice' => Invoices::find($id)
+    ]);
+})->name('viewInvoice');
 
 Route::get('search/clients', [
     searchController::class, 'searchClients'
